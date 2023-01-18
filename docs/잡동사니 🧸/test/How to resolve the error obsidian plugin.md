@@ -30,9 +30,9 @@ mkdocs-minify-plugin==0.6.2
   
 2. modify main.js  https://discord.com/channels/1012652786887954443/1012653060230754394/1064860285476798485   
        Just download the file and put in with remplacement in the plugin folder  
-![[../../assets/img/main.js|main.js]]  
+![[../../images/main.js|main.js]]  
 3. add file `tags`   
-![[../../assets/img/Pasted image 20230117211746.png|Pasted image 20230117211746.png]]  
+![[../../images/Pasted image 20230117211746.png|Pasted image 20230117211746.png]]  
   
 4. edit header   
 You can change the header for each category (as far I know) but you can change the background by changing this line in the customization.css :  
