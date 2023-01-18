@@ -77,7 +77,7 @@ code
 ```  
   
 37. resize image 이미지 사이즈 조절  
-![[../assets/img/images.jpeg|100]]  
+![[../images/images.jpeg|100]]  
   
 38. link to Blocks -> ^ 사용  
 ```shell  
