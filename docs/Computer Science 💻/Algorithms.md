@@ -1,6 +1,7 @@
 ---  
 category: Computer Science 💻  
 share: true  
+title: Algorithms  
 date created: Monday, January 16th 2023, 3:20:49 pm  
 date modified: Wednesday, January 18th 2023, 5:01:30 pm  
 ---  
@@ -38,7 +39,7 @@ add = 특정시간 $T$  동안 골드와 실버를 한번에 얻을 수 잇는 �
   
   
 - 4번 성립하는 이유 증명  
-![[Pasted image 20230116121553.png | 먼소린교]]  
+![[../images/Pasted image 20230116121553.png|Pasted image 20230116121553.png]]  
   
   
   
