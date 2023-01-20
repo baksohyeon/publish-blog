@@ -5,7 +5,7 @@ date created: Monday, January 16th 2023, 3:20:49 pm
 date modified: Wednesday, January 18th 2023, 5:01:30 pm  
 ---  
 # Basic Concept  
-![[../../Attachments 🔗/Pasted image 20230110111557.png|Pasted image 20230110111557.png]]  
+![Pasted image 20230110111557.png](../../Attachments%20%F0%9F%94%97/Pasted%20image%2020230110111557.png)  
 위 그림에서 각 점은 node 혹은 vertex라고 말하고 두 점을 잇는 선을 edge라고 한다. 그래프는 V(vertex 혹은 node), E(edge)의 집합이다. 따라서 G(V, E)로 표현하기도 한다.  
   
   
@@ -254,19 +254,19 @@ return 0;
 # Implement BFS to find the shortest route in maze  
   
   
-![[Pasted image 20230110112338.png | The initial maze]]  
+![ The initial maze](Pasted%20image%2020230110112338.png)  
   
   
-![[Pasted image 20230110113728.png | The Graph that represents the above maze]]  
-  
-  
-  
-  
-![[Pasted image 20230110113758.png | The way that Breadth-First Search Algorithm searches for a solution in the search space]]  
+![ The Graph that represents the above maze](Pasted%20image%2020230110113728.png)  
   
   
   
-![[Pasted image 20230110113853.png | The path from node S to node I]]  
+  
+![ The way that Breadth-First Search Algorithm searches for a solution in the search space](Pasted%20image%2020230110113758.png)  
+  
+  
+  
+![ The path from node S to node I](Pasted%20image%2020230110113853.png)  
   
 The BFS algorithm is a way to traverse or search a graph. It works by starting at a given vertex (called the "start vertex") and exploring all of its neighbors before moving on to the next level of vertices. It does this using a queue to store the vertices that still need to be visited.  
   
@@ -302,7 +302,7 @@ This is because the BFS algorithm explores the vertices in the graph in a breadt
 - **In what cases is the BFS algorithm not guaranteed to find the shortest path?**  
 [Why is BFS not guaranteed to provide the shortest route in most cases? - Quora](https://www.quora.com/Why-is-BFS-not-guaranteed-to-provide-the-shortest-route-in-most-cases)  
   
-![[../../Attachments 🔗/Pasted image 20230110114523.png|Pasted image 20230110114523.png]]  
+![Pasted image 20230110114523.png](../../Attachments%20%F0%9F%94%97/Pasted%20image%2020230110114523.png)  
   
 If the edges in the graph do not have uniform weight (that is, if the edges have different weights), then the BFS algorithm is not guaranteed to find the shortest path.   
   
