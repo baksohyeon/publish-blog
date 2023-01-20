@@ -18,22 +18,22 @@ We currently support the formats below:
 ### Internal linking  
   
 ```md  
-Link to a page: [[Internal links]].  
+Link to a page: [Internal links](Internal%20links.md).  
 ```  
   
   
-Link to a page: [[Internal links]].  
+Link to a page: [Internal links](Internal%20links.md).  
   
 ---  
   
 ### Embeds  
   
-Embed another file (read more about [[Embedding files]]):  
+Embed another file (read more about [Embedding files](Embedding%20files.md)):  
   
 ```md  
-![[Obsidian#What is Obsidian]]  
+![Obsidian#What is Obsidian](Obsidian.md#What%20is%20Obsidian)  
 ```  
-![[Obsidian#What is Obsidian]]  
+![Obsidian#What is Obsidian](Obsidian.md#What%20is%20Obsidian)  
   
 ---  
   
@@ -164,10 +164,10 @@ Will look like this:
 ![Engelbart](https://history-computer.com/ModernComputer/Basis/images/Engelbart.jpg)  
   
 ```md  
-![[og-image.png]]  
+![og-image.png](og-image.png)  
 ```  
   
-![[og-image.png]]  
+![og-image.png](og-image.png)  
   
 #### Resizing images  
   
@@ -181,10 +181,10 @@ Example of this above image resized to 100 pixels wide:
   
 or for local images  
 ```md  
-![[og-image.png|200]]  
+![200](og-image.png)  
 ```  
   
-![[og-image.png|200]]  
+![200](og-image.png)  
   
 ---  
   
@@ -201,9 +201,9 @@ http://obsidian.md - automatic!
   
 #### Obsidian URI links  
   
-[[Using obsidian URI|Obsidian URI]] links can be used to open notes in Obsidian either from another Obsidian vault or another program.  
+[Obsidian URI](Using%20obsidian%20URI.md) links can be used to open notes in Obsidian either from another Obsidian vault or another program.  
   
-For example, you can link to a file in a vault like so (please note the [[Using obsidian URI#Encoding|required encoding]]):  
+For example, you can link to a file in a vault like so (please note the [required encoding](Using%20obsidian%20URI.md#Encoding)):  
   
 ```md  
 [Link to note](obsidian://open?path=D:%2Fpath%2Fto%2Ffile.md)  
@@ -271,7 +271,7 @@ You can add syntax highlighting to a code block by adding a language code after 
 Obsidian uses Prism for syntax highlighting. For more information, refer to [Supported languages](https://prismjs.com/#supported-languages).  
   
 > [!note]  
-> [[Live preview update|Live Preview mode]] doesn't support PrismJS and may render syntax highlighting differently.  
+> [Live Preview mode](Live%20preview%20update.md) doesn't support PrismJS and may render syntax highlighting differently.  
   
 ~~~md  
 ```js  
@@ -361,29 +361,29 @@ Tables can be justified with a colon | Another example with a long title | And a
 :----------------|-------------:|:-------------:  
 because of the `:` | these will be justified |this is centered  
   
-If you put links in tables, they will work, but if you use [[Aliases|aliases]], the pipe must be escaped with a `\` to prevent it being read as a table element.  
+If you put links in tables, they will work, but if you use [aliases](Aliases.md), the pipe must be escaped with a `\` to prevent it being read as a table element.  
   
 ```md  
 First Header | Second Header  
 ------------ | ------------  
-[[Format Your notes\|Formatting]]	|  [[Keyboard shortcuts\|hotkeys]]  
+[Formatting](Format%20Your%20notes.md)	|  [hotkeys](Keyboard%20shortcuts.md)  
 ```  
   
 First Header | Second Header  
 ------------ | ------------  
-[[Format Your notes\|Formatting]]	|  [[Use hotkeys\|hotkeys]]  
+[Formatting](Format%20Your%20notes.md)	|  [hotkeys](Use%20hotkeys.md)  
   
 If you want to resize images in tables, you need to escape the pipe with a `\`:  
   
 ```md  
 Image | Description  
 ----- | -----------  
-![[og-image.png\|200]] | Obsidian  
+![200](og-image.png) | Obsidian  
 ```  
   
 Image | Description  
 ----- | -----------  
-![[og-image.png\|200]] | Obsidian  
+![200](og-image.png) | Obsidian  
   
 ---  
   
@@ -509,17 +509,17 @@ multiple lines
   
 Use the following syntax to denote a callout block: `> [!INFO]`.  
   
-Learn more about callouts [[Use callouts|here]].  
+Learn more about callouts [here](Use%20callouts.md).  
   
 ```markdown  
 > [!INFO]  
 > Here's a callout block.  
-> It supports **markdown** and [[Internal links|wikilinks]].  
+> It supports **markdown** and [wikilinks](Internal%20links.md).  
 ```  
   
 > [!INFO]  
 > Here's a callout block.  
-> It supports **markdown** and [[Internal links|wikilinks]].  
+> It supports **markdown** and [wikilinks](Internal%20links.md).  
   
 ---  
   
@@ -571,7 +571,7 @@ Biology --> Chemistry
   
   
 Obsidian supports linking to notes in Mermaid,  
-these links will not show up on [[Graph view]].  
+these links will not show up on [Graph view](Graph%20view.md).  
 ````md  
 ```mermaid  
 graph TD  
@@ -608,13 +608,13 @@ This way, all the note names (at least until `Z[note name]`) are all automatical
   
 If you use special characters in your note names, you need to put the note name in double quotes.  
 `"⨳ special character"`  
-It looks like this if you follow the [[Format your notes#^376b9d|second option]]:  
+It looks like this if you follow the [second option](Format%20your%20notes.md#^376b9d):  
 `A["⨳ special character"]`  
   
 ---  
   
 ## Developer notes  
   
-We strive for maximum capability without breaking any existing formats, therefore we use a slightly unorthodox combination of flavors of markdown. It is broadly CommonMark, with the addition of some functionality from GitHub Flavored Markdown (GFM), some LaTeX support, and our chosen embed syntax, which you can read more about at [[Accepted file formats]].  
+We strive for maximum capability without breaking any existing formats, therefore we use a slightly unorthodox combination of flavors of markdown. It is broadly CommonMark, with the addition of some functionality from GitHub Flavored Markdown (GFM), some LaTeX support, and our chosen embed syntax, which you can read more about at [Accepted file formats](Accepted%20file%20formats.md).  
   
 We intentionally do not support parsing markdown syntax and blank lines within HTML blocks. This is the result of an optimization to handle very large files and to support synchronization between editing and reading mode.
