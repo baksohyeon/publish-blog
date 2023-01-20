@@ -18,7 +18,7 @@ date modified: Wednesday, January 18th 2023, 5:01:30 pm
 - Why Red-Black Trees?  
 Most of the BST operations (e.g., search, max, min, insert, delete.. etc) take O(h) time where h is the height of the BST. The cost of these operations may become O(n) for a skewed Binary tree. If we make sure that the height of the tree remains O(log n) after every insertion and deletion, then we can guarantee an upper bound of O(log n) for all these operations. The height of a Red-Black tree is always O(log n) where n is the number of nodes in the tree.   
   
-![Pasted image 20221220152814.png](../../Attachments%20%F0%9F%94%97/Pasted%20image%2020221220152814.png)  
+![Pasted image 20221220152814.png](../../Attachments/Pasted%20image%2020221220152814.png)  
   
   
   
@@ -51,7 +51,7 @@ Overall, red-black trees are useful in DBMSs because they provide fast search, i
 6. <font style="color:olivedrab">모든 빈 노드</font>는 **검은색**이라고 가정합니다.  
   
 - **균형을 맞추는 방법**  
-![Pasted image 20221219110520.png](../../Attachments%20%F0%9F%94%97/Pasted%20image%2020221219110520.png)  
+![Pasted image 20221219110520.png](../../Attachments/Pasted%20image%2020221219110520.png)  
 1) 이모 노드가 검은색일 경우  
 회전을 합니다. 회전을 하고 나면 부모 노드는 검은색, 두 자식 노드는 빨간색이 되어야 합니다.  
    
