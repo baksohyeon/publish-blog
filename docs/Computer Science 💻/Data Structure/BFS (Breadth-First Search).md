@@ -5,7 +5,7 @@ date created: Monday, January 16th 2023, 3:20:49 pm
 date modified: Wednesday, January 18th 2023, 5:01:30 pm  
 ---  
 # Basic Concept  
-![Pasted image 20230110111557.png](../../assets/img/Pasted%20image%2020230110111557.png)  
+![Pasted image 20230110111557.png](../../attachments/Pasted%20image%2020230110111557.png)  
 위 그림에서 각 점은 node 혹은 vertex라고 말하고 두 점을 잇는 선을 edge라고 한다. 그래프는 V(vertex 혹은 node), E(edge)의 집합이다. 따라서 G(V, E)로 표현하기도 한다.  
   
   
@@ -302,7 +302,7 @@ This is because the BFS algorithm explores the vertices in the graph in a breadt
 - **In what cases is the BFS algorithm not guaranteed to find the shortest path?**  
 [Why is BFS not guaranteed to provide the shortest route in most cases? - Quora](https://www.quora.com/Why-is-BFS-not-guaranteed-to-provide-the-shortest-route-in-most-cases)  
   
-![Pasted image 20230110114523.png](../../assets/img/Pasted%20image%2020230110114523.png)  
+![Pasted image 20230110114523.png](../../attachments/Pasted%20image%2020230110114523.png)  
   
 If the edges in the graph do not have uniform weight (that is, if the edges have different weights), then the BFS algorithm is not guaranteed to find the shortest path.   
   
