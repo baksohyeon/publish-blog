@@ -73,12 +73,13 @@ for (var i = 0; i < ht.length; i++) {
     !ht[i].getElementsByTagName("img").length > 0 &&
     !ht[i].getElementsByTagName("svg").length > 0
   ) {
+    console.log("ht[i]: ", i, ht[i]);
     var link = UrlExists(ht[i], 0);
   }
 }
 
 var p_img = /\.+\\/gi;
-var img = document.querySelectorAll("img" | "attachments");
+var img = document.querySelectorAll("img");
 for (var i = 0; i < img.length; i++) {
   var regAlt = new RegExp("\\|");
   // image can only be rized with the `|*x*` syntax
