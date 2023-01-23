@@ -13,14 +13,14 @@ function UrlExists(url, type_url) {
   }
   // Perform string manipulations on a copy of the ref variable
 
-  if (encodedUrl.match(/index$/)) {
+  if (ref.match(/index$/)) {
     ref = ref.replace(/index$/, "");
   }
-  if (encodedUrl.includes("%5C")) {
+  if (ref.includes("%5C")) {
     ref = ref.replace(/%5C/g, "/");
   }
 
-  const decodedUrl = decodeURI(url);
+  const decodedUrl = decodeURI(ref);
   if (new URL(encodedUrl).hostname !== location.hostname) return;
 
   if (type_url === 0) {
