@@ -6,9 +6,9 @@ function UrlExists(url, type_url) {
     ref = url.href;
     title = url.title;
   } else if (type_url === 1) {
-    url = decodeURI(url);
     ref = url.src;
     title = url.alt;
+    url = decodeURI(url);
   }
   // Perform string manipulations on a copy of the ref variable
   let newRef = ref;
