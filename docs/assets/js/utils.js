@@ -3,8 +3,8 @@ function UrlExists(url, type_url) {
   let title = "";
 
   if (type_url === 0) {
-    ref = encodedUrl.href;
-    title = encodedUrl.title;
+    ref = url.href;
+    title = url.title;
   } else if (type_url === 1) {
     ref = decodedUrl(url.src);
     title = decodedUrl(url.alt);
