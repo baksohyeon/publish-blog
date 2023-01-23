@@ -1,6 +1,7 @@
 function UrlExists(url, type_url) {
   let ref = "";
   let title = "";
+  url = decodeURI(url);
   if (type_url === 0) {
     ref = url.href;
     title = url.title;
