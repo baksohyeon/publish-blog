@@ -6,7 +6,7 @@ function UrlExists(url, type_url) {
     ref = url.href;
     title = url.title;
   } else if (type_url === 1) {
-    ref = url.src;
+    ref = decodeURI(url.src);
     title = url.alt;
   }
   // Perform string manipulations on a copy of the ref variable
@@ -32,7 +32,7 @@ function UrlExists(url, type_url) {
   }
 
   // Check the newRef variable instead of ref
-  var http = new XMLHttpRequest();
+  const http = new XMLHttpRequest();
   http.open("GET", decodedUrl, true);
   http.onload = function (e) {
     if (http.status == "404") {
