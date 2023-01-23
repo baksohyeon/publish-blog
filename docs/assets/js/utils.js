@@ -6,8 +6,8 @@ function UrlExists(url, type_url) {
     ref = url.href;
     title = url.title;
   } else if (type_url === 1) {
-    ref = decodedUrl(url.src);
-    title = decodedUrl(url.alt);
+    ref = decodedURI(url.src);
+    title = decodedURI(url.alt);
   }
   // Perform string manipulations on a copy of the ref variable
 
