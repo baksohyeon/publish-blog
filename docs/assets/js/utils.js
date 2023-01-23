@@ -28,7 +28,6 @@ function UrlExists(url, type_url) {
     url.alt = title;
   }
   // const regex = /\S+.png$/;
-  console.log("location.hostname", location.hostname);
   console.log("ref", ref);
 
   var http = new XMLHttpRequest();
@@ -79,7 +78,7 @@ for (var i = 0; i < ht.length; i++) {
 }
 
 var p_img = /\.+\\/gi;
-var img = document.querySelectorAll("img");
+var img = document.querySelectorAll("img" | "attachments");
 for (var i = 0; i < img.length; i++) {
   var regAlt = new RegExp("\\|");
   // image can only be rized with the `|*x*` syntax
