@@ -27,7 +27,8 @@ function UrlExists(url, type_url) {
     url.src = ref;
     url.alt = title;
   }
-  if (new URL(ref).hostname !== location.hostname + "*.png") return;
+  const regex = location.hostname + /\S+.png$/;
+  if (regex.test(new URL(ref).hostname)) return;
   var http = new XMLHttpRequest();
   http.open("GET", ref, true);
   http.onload = function (e) {
