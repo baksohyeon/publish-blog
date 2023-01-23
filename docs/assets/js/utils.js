@@ -21,8 +21,6 @@ function UrlExists(url, type_url) {
   }
 
   const decodedUrl = decodeURI(ref);
-  if (new URL(encodedUrl).hostname !== location.hostname) return;
-
   if (type_url === 0) {
     url.href = decodedUrl;
     url.title = title;
@@ -47,7 +45,10 @@ function UrlExists(url, type_url) {
       try {
         url.parentNode.replaceChild(newItem, url);
       } catch (error) {
-        // console.log(error)
+        console.log("error:", error);
+        console.log("ref:", ref);
+        console.log("decodedUrl: ", decodedUrl);
+        console.log("encodedUrl: ", encodedUrl);
       }
     } else {
       return true;
@@ -79,7 +80,6 @@ for (var i = 0; i < ht.length; i++) {
     !ht[i].getElementsByTagName("img").length > 0 &&
     !ht[i].getElementsByTagName("svg").length > 0
   ) {
-    console.log("ht[i]: ", i, ht[i]);
     var link = UrlExists(ht[i], 0);
   }
 }
@@ -101,7 +101,6 @@ for (var i = 0; i < img.length; i++) {
       }
     }
   }
-  console.log("img[i]", i, img[i]);
   var link = UrlExists(img[i], 1);
 }
 
