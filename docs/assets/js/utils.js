@@ -74,7 +74,6 @@ for (var i = 0; i < ht.length; i++) {
     !ht[i].getElementsByTagName("img").length > 0 &&
     !ht[i].getElementsByTagName("svg").length > 0
   ) {
-    console.log("ht_a:not(img)", ht[i]);
     var link = UrlExists(ht[i], 0);
   }
 }
@@ -96,7 +95,7 @@ for (var i = 0; i < img.length; i++) {
       }
     }
   }
-  console.log("img[i]", img[i]);
+  console.log("img[i]", i, img[i]);
   var link = UrlExists(img[i], 1);
 }
 
