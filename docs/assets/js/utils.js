@@ -27,8 +27,11 @@ function UrlExists(url, type_url) {
     url.src = ref;
     url.alt = title;
   }
-  const regex = location.hostname + /\S+.png$/;
-  if (regex.test(new URL(ref).hostname)) return;
+  const regex = /\S+.png$/;
+  console.log("location.hostname", location.hostname);
+  console.log("new URL(ref).hostname", new URL(ref).hostname);
+  console.log("ref", ref);
+  if (regex.test(location.hostname)) return;
   var http = new XMLHttpRequest();
   http.open("GET", ref, true);
   http.onload = function (e) {
