@@ -2,14 +2,12 @@ function UrlExists(url, type_url) {
   let ref = "";
   let title = "";
 
-  const encodedUrl = url;
-
   if (type_url === 0) {
     ref = encodedUrl.href;
     title = encodedUrl.title;
   } else if (type_url === 1) {
-    ref = encodedUrl.src;
-    title = encodedUrl.alt;
+    ref = decodedUrl(url.src);
+    title = decodedUrl(url.alt);
   }
   // Perform string manipulations on a copy of the ref variable
 
@@ -20,36 +18,30 @@ function UrlExists(url, type_url) {
     ref = ref.replace(/%5C/g, "/");
   }
 
-  const decodedUrl = decodeURI(ref);
   if (type_url === 0) {
-    url.href = decodedUrl;
+    url.href = ref;
     url.title = title;
     if (title.length === 0) {
       title = url.innerText;
       url.title = title;
     }
   } else if (type_url === 1) {
-    url.src = decodedUrl;
+    url.src = ref;
     url.alt = title;
   }
 
   // Check the newRef variable instead of ref
   var http = new XMLHttpRequest();
-  http.open("GET", decodedUrl, true);
+  http.open("GET", ref, true);
   http.onload = function (e) {
     if (http.status == "404") {
       const newItem = document.createElement("div");
       newItem.innerHTML = title;
       newItem.classList.add("not_found");
-      newItem.setAttribute("href", decodedUrl);
+      newItem.setAttribute("href", ref);
       try {
         url.parentNode.replaceChild(newItem, url);
-      } catch (error) {
-        console.log("error:", error);
-        console.log("ref:", ref);
-        console.log("decodedUrl: ", decodedUrl);
-        console.log("encodedUrl: ", encodedUrl);
-      }
+      } catch (error) {}
     } else {
       return true;
     }
