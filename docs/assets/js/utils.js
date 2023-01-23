@@ -14,7 +14,7 @@ function UrlExists(url, type_url) {
   if (ref.includes("%5C")) {
     ref = ref.replace(/%5C/g, "/");
   }
-
+  if (new URL(ref).hostname !== location.hostname) return;
   ref = decodeURI(ref);
   if (type_url === 0) {
     url.href = ref;
@@ -27,11 +27,10 @@ function UrlExists(url, type_url) {
     url.src = ref;
     url.alt = title;
   }
-  const regex = /\S+.png$/;
+  // const regex = /\S+.png$/;
   console.log("location.hostname", location.hostname);
-  console.log("new URL(ref).hostname", new URL(ref).hostname);
   console.log("ref", ref);
-  if (regex.test(location.hostname)) return;
+
   var http = new XMLHttpRequest();
   http.open("GET", ref, true);
   http.onload = function (e) {
@@ -75,6 +74,7 @@ for (var i = 0; i < ht.length; i++) {
     !ht[i].getElementsByTagName("img").length > 0 &&
     !ht[i].getElementsByTagName("svg").length > 0
   ) {
+    console.log("ht_a:not(img)", ht[i]);
     var link = UrlExists(ht[i], 0);
   }
 }
@@ -96,6 +96,7 @@ for (var i = 0; i < img.length; i++) {
       }
     }
   }
+  console.log("img[i]", img[i]);
   var link = UrlExists(img[i], 1);
 }
 
