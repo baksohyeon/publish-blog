@@ -2,49 +2,48 @@ function UrlExists(url, type_url) {
   let ref = "";
   let title = "";
 
+  const encodedUrl = url;
+
   if (type_url === 0) {
-    ref = url.href;
-    title = url.title;
+    ref = encodedUrl.href;
+    title = encodedUrl.title;
   } else if (type_url === 1) {
-    ref = url.src;
-    title = url.alt;
-    url = decodeURI(url);
+    ref = encodedUrl.src;
+    title = encodedUrl.alt;
   }
   // Perform string manipulations on a copy of the ref variable
-  let newRef = ref;
-  if (newRef.match(/index$/)) {
-    newRef = newRef.replace(/index$/, "");
+
+  if (encodedUrl.match(/index$/)) {
+    ref = ref.replace(/index$/, "");
   }
-  if (newRef.includes("%5C")) {
-    newRef = newRef.replace(/%5C/g, "/");
+  if (encodedUrl.includes("%5C")) {
+    ref = ref.replace(/%5C/g, "/");
   }
 
-  if (new URL(newRef).hostname !== location.hostname) return;
+  const decodedUrl = decodeURI(url);
+  if (new URL(encodedUrl).hostname !== location.hostname) return;
 
   if (type_url === 0) {
-    url.href = newRef;
+    url.href = decodedUrl;
     url.title = title;
     if (title.length === 0) {
       title = url.innerText;
       url.title = title;
     }
   } else if (type_url === 1) {
-    url.src = newRef;
+    url.src = decodedUrl;
     url.alt = title;
   }
 
-  console.log("ref", ref);
-  console.log("newref", newRef);
-
   // Check the newRef variable instead of ref
   var http = new XMLHttpRequest();
-  http.open("GET", newRef, true);
+  http.open("GET", decodedUrl, true);
   http.onload = function (e) {
     if (http.status == "404") {
       const newItem = document.createElement("div");
       newItem.innerHTML = title;
       newItem.classList.add("not_found");
-      newItem.setAttribute("href", newRef);
+      newItem.setAttribute("href", decodedUrl);
       try {
         url.parentNode.replaceChild(newItem, url);
       } catch (error) {
