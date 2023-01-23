@@ -1,11 +1,12 @@
 function UrlExists(url, type_url) {
   let ref = "";
   let title = "";
-  url = decodeURI(url);
+
   if (type_url === 0) {
     ref = url.href;
     title = url.title;
   } else if (type_url === 1) {
+    url = decodeURI(url);
     ref = url.src;
     title = url.alt;
   }
@@ -17,7 +18,6 @@ function UrlExists(url, type_url) {
   if (newRef.includes("%5C")) {
     newRef = newRef.replace(/%5C/g, "/");
   }
-  newRef = decodeURI(newRef);
 
   if (new URL(newRef).hostname !== location.hostname) return;
 
