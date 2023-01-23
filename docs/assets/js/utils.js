@@ -5,8 +5,8 @@ function UrlExists(url, type_url) {
     ref = url.href;
     title = url.title;
   } else if (type_url === 1) {
-    ref = decodeURIComponent(url.src);
-    title = decodeURIComponent(url.alt);
+    ref = url.src;
+    title = url.alt;
   }
   if (ref.match(/index$/)) {
     ref = ref.replace(/index$/, "");
@@ -91,7 +91,7 @@ for (var i = 0; i < img.length; i++) {
       }
     }
   }
-  var link = UrlExists(img[i], 1);
+  var link = UrlExists(img[i].decode(), 1);
 }
 
 var ht = document.querySelectorAll(
