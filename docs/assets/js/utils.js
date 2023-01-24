@@ -62,10 +62,12 @@ for (var i = 0; i < ht.length; i++) {
   }
 }
 
-const glightbox = document.querySelector(".glightbox");
-const encodedHref = glightbox.getAttribute("href");
-const decodedHref = decodeURIComponent(encodedHref);
-glightbox.setAttribute("href", decodedHref);
+const glightboxes = document.querySelectorAll(".glightbox");
+for (let i = 0; i < glightboxes.length; i++) {
+  const href = glightboxes[i].getAttribute("href");
+  const decodedHref = decodeURI(href);
+  glightboxes[i].setAttribute("href", decodedHref);
+}
 
 const imgs = document.querySelectorAll("img");
 
