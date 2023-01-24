@@ -1,7 +1,8 @@
 site_name: Dorito
 site_description: Dorito's PKM
 site_url: https://dorito.netlify.app/
-
+repo_url: https://github.com/baksohyeon/publish-blog
+docs_dir: docs/attachments
 theme:
   name: "material"
   highlightjs: true

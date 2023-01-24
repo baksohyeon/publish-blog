@@ -10,6 +10,7 @@ function UrlExists(url, type) {
   if (type === 0) {
     url.href = ref;
     url.title = title;
+    if (new URL(ref).hostname !== location.hostname) return;
   } else if (type === 1) {
     url.src = ref;
     url.alt = title;
@@ -92,6 +93,7 @@ for (let i = 0; i < imgs.length; i++) {
   UrlExists(imgs[i], 1);
 }
 
+// only a 이면 안되네
 var ht = document.querySelectorAll(
   "article.md-content__inner.md-typeset > *:not(.highlight)"
 );
