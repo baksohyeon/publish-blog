@@ -62,20 +62,32 @@ for (var i = 0; i < ht.length; i++) {
   }
 }
 
-const img = document.querySelectorAll("img");
-for (let i = 0; i < img.length; i++) {
-  if (img[i].alt.match(/\|/)) {
-    const alt = img[i].alt.split("|");
+const glightbox = document.querySelector(".glightbox");
+const encodedHref = glightbox.getAttribute("href");
+const decodedHref = decodeURIComponent(encodedHref);
+glightbox.setAttribute("href", decodedHref);
+
+const imgs = document.querySelectorAll("img");
+
+imgs.forEach((img) => {
+  const encodedSrc = img.getAttribute("src");
+  const decodedSrc = decodeURIComponent(encodedSrc);
+  img.setAttribute("src", decodedSrc);
+});
+
+for (let i = 0; i < imgs.length; i++) {
+  if (imgs[i].alt.match(/\|/)) {
+    const alt = imgs[i].alt.split("|");
     for (let part of alt) {
       if (part.match(/\d+/g)) {
         const size = getHeightWidth(part);
-        img[i].width = size[0] > 0 ? size[0] : img[i].width;
-        img[i].height = size[1] > 0 ? size[1] : img[i].height;
-        img[i].alt = img[i].alt.replace(new RegExp(`\\${part}`), "");
+        imgs[i].width = size[0] > 0 ? size[0] : imgs[i].width;
+        imgs[i].height = size[1] > 0 ? size[1] : imgs[i].height;
+        imgs[i].alt = imgs[i].alt.replace(new RegExp(`\\${part}`), "");
       }
     }
   }
-  UrlExists(img[i], 1);
+  UrlExists(imgs[i], 1);
 }
 
 var ht = document.querySelectorAll(
