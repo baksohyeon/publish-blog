@@ -1,36 +1,24 @@
-function UrlExists(url, type_url) {
-  let ref = "";
-  let title = "";
-  if (type_url === 0) {
-    ref = url.href;
-    title = url.title;
-  } else if (type_url === 1) {
-    ref = url.src;
-    title = url.alt;
-  }
-  if (ref.match(/index$/)) {
-    ref = ref.replace(/index$/, "");
-  }
-  if (ref.includes("%5C")) {
-    ref = ref.replace(/%5C/g, "/");
-  }
+function UrlExists(url, type) {
+  let ref = type === 0 ? url.href : url.src;
+  let title = type === 0 ? url.title : url.alt;
 
-  ref = decodeURI(ref);
-  if (type_url === 0) {
+  ref = decodeURI(ref)
+    .replace(/index$/, "")
+    .replace(/%5C/g, "/");
+  title = title.length === 0 ? url.innerText : title;
+
+  if (type === 0) {
     url.href = ref;
     url.title = title;
-    if (title.length === 0) {
-      title = url.innerText;
-      url.title = title;
-    }
-  } else if (type_url === 1) {
+  } else if (type === 1) {
     url.src = ref;
     url.alt = title;
   }
+
   var http = new XMLHttpRequest();
   http.open("GET", ref, true);
   http.onload = function (e) {
-    if (http.status == "404") {
+    if (http.status === 404) {
       const newItem = document.createElement("div");
       newItem.innerHTML = title;
       newItem.classList.add("not_found");
@@ -62,7 +50,7 @@ function getHeightWidth(alt) {
   }
 }
 
-var p_search = /\.{2}\//gi;
+// const p_search = /\.{2}\//gi;
 const not_found = [];
 var ht = document.querySelectorAll("a:not(img)");
 for (var i = 0; i < ht.length; i++) {
@@ -74,24 +62,20 @@ for (var i = 0; i < ht.length; i++) {
   }
 }
 
-var p_img = /\.+\\/gi;
-var img = document.querySelectorAll("img");
-for (var i = 0; i < img.length; i++) {
-  var regAlt = new RegExp("\\|");
-  // image can only be rized with the `|*x*` syntax
-  if (img[i].alt.match(regAlt)) {
+const img = document.querySelectorAll("img");
+for (let i = 0; i < img.length; i++) {
+  if (img[i].alt.match(/\|/)) {
     const alt = img[i].alt.split("|");
-    for (var part of alt) {
-      if (part.match(new RegExp("\\d+", "g"))) {
-        var size = getHeightWidth(part);
+    for (let part of alt) {
+      if (part.match(/\d+/g)) {
+        const size = getHeightWidth(part);
         img[i].width = size[0] > 0 ? size[0] : img[i].width;
         img[i].height = size[1] > 0 ? size[1] : img[i].height;
-        var partReg = new RegExp(`\\${part}`);
-        img[i].alt = img[i].alt.replace(partReg, "");
+        img[i].alt = img[i].alt.replace(new RegExp(`\\${part}`), "");
       }
     }
   }
-  var link = UrlExists(img[i].decode(), 1);
+  UrlExists(img[i], 1);
 }
 
 var ht = document.querySelectorAll(
@@ -109,7 +93,7 @@ document.innerHTML = ht;
 var cite = document.querySelectorAll(".citation");
 if (cite) {
   for (var i = 0; i < cite.length; i++) {
-    var img = cite[i].innerHTML.match(/!?(\[{2}|\[).*(\]{2}|\))/gi);
+    const img = cite[i].innerHTML.match(/!?(\[{2}|\[).*(\]{2}|\))/gi);
     if (img) {
       for (var j = 0; j < img.length; j++) {
         cite[i].innerHTML = cite[i].innerHTML.replace(img[j], "");
