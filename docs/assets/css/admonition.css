@@ -17,3 +17,34 @@
   -webkit-mask-image: var(--md-admonition-icon--dictionnary);
           mask-image: var(--md-admonition-icon--dictionnary);
 }
+
+
+/* columns */
+.md-typeset .row {
+  display: flex;
+  flex-direction: row;
+}
+.md-typeset .row .col {
+  width: 100%;
+  padding: 0 1em;
+}
+.md-typeset .row.bordered .col {
+  border: 1px solid lightgray;
+}
+.md-typeset .row.bordered .col {
+  border: 1px solid lightgray;
+}
+.md-typeset .row .col:first-of-type {
+  padding-left: 0;
+}
+.md-typeset .row .col:last-of-type {
+  padding-right: 0;
+}
+@media (max-width: 800px) {
+  .md-typeset .row {
+      flex-direction: column;
+  }
+  .md-typeset .row .col {
+      padding: 0;
+  }
+}
