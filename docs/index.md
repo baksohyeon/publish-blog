@@ -18,8 +18,7 @@ hide:
 
 # Code Inside Out
 
-Interesting stuff in Embedded Systems and IoT Applications.\
-From hardware to cloud applications. Step by step.
+Dorito's Personal Knowledge Management
 (ﾉ ◕ ヮ ◕)ﾉ\*:・ﾟ ✧
 
 ::: row
@@ -30,7 +29,7 @@ From hardware to cloud applications. Step by step.
 
         Each post is what I've learned, and I wrote them down to share. Hope you'll find something interesting there.
 
-        [Read news](blog/){.md-button}
+        [Read news](https://www.naver.com/){.md-button}
 
     ::: col
 
@@ -38,13 +37,14 @@ From hardware to cloud applications. Step by step.
 
         A list of my projects which are done for learning and practicing in free time. Wanna give me a hand ?! Let's do it together.
 
-        [See projects](projects/){.md-button}
+        [See projects](https://papago.naver.com/){.md-button}
 
 ## :material-github: GitHub Stats
 
 ::: row
 
     ::: col
+
 
         ![](https://github-readme-stats.vercel.app/api?username=vuquangtrong&count_private=true&show_icons=true&hide_border=true&hide_title=true)
 
