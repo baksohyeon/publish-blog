@@ -1,12 +1,53 @@
----  
-share: true  
-hide:    
-  - navigation    
-  - toc    
-template: main.html  
-date created: Wednesday, January 25th 2023, 5:43:25 pm  
-date modified: Wednesday, January 25th 2023, 5:43:55 pm  
----  
-  
-  
-메인 페이지 수정 예정
+---
+share: true
+title: Home
+template: main.html
+hide:
+  - navigation
+  - toc
+---
+
+<style>
+    .md-typeset .cover {
+        display: none;
+    }
+    .md-typeset .cover + hr {
+        display: none;
+    }
+</style>
+
+# Code Inside Out
+
+Dorito's Personal Knowledge Management
+(ﾉ ◕ ヮ ◕)ﾉ\*:・ﾟ ✧
+
+::: row
+
+    ::: col
+
+        ## :material-book: Blog
+
+        Each post is what I've learned, and I wrote them down to share. Hope you'll find something interesting there.
+
+        [Read news](https://www.naver.com/){.md-button}
+
+    ::: col
+
+        ## :material-file-code: Projects
+
+        A list of my projects which are done for learning and practicing in free time. Wanna give me a hand ?! Let's do it together.
+
+        [See projects](https://papago.naver.com/){.md-button}
+
+## :material-github: GitHub Stats
+
+::: row
+
+    ::: col
+
+
+        ![](https://github-readme-stats.vercel.app/api?username=vuquangtrong&count_private=true&show_icons=true&hide_border=true&hide_title=true)
+
+    ::: col
+
+        ![](https://github-readme-stats.vercel.app/api/top-langs/?username=vuquangtrong&layout=compact&langs_count=8&hide=html,autoit&hide_border=true&hide_title=true)
