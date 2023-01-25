@@ -25,19 +25,19 @@ Dorito's Personal Knowledge Management
 
     ::: col
 
-        ## :material-book: Blog
+        ## :material-book: Computer Science
 
-        Each post is what I've learned, and I wrote them down to share. Hope you'll find something interesting there.
+        cs 공부 관련 정리
 
-        [Read news](https://www.naver.com/){.md-button}
+        [Read news](https://dorito.netlify.app/computer%20science%20%F0%9F%92%BB/#page1){.md-button}
 
     ::: col
 
-        ## :material-file-code: Projects
+        ## :material-file-code: 프로젝트
 
-        A list of my projects which are done for learning and practicing in free time. Wanna give me a hand ?! Let's do it together.
+        자잘구레 정보들 (업데이트 예정)
 
-        [See projects](https://papago.naver.com/){.md-button}
+        [See projects](https://dorito.netlify.app/%EC%9E%A1%EB%8F%99%EC%82%AC%EB%8B%88%20%F0%9F%A7%B8/#page1){.md-button}
 
 ## :material-github: GitHub Stats
 
@@ -46,8 +46,8 @@ Dorito's Personal Knowledge Management
     ::: col
 
 
-        ![](https://github-readme-stats.vercel.app/api?username=vuquangtrong&count_private=true&show_icons=true&hide_border=true&hide_title=true)
+        ![](https://github-readme-stats.vercel.app/api?username=baksohyeon&count_private=true&show_icons=true&hide_border=true&hide_title=true)
 
     ::: col
 
-        ![](https://github-readme-stats.vercel.app/api/top-langs/?username=vuquangtrong&layout=compact&langs_count=8&hide=html,autoit&hide_border=true&hide_title=true)
+        ![](https://github-readme-stats.vercel.app/api/top-langs/?username=baksohyeon&layout=compact&langs_count=8&hide=html,autoit&hide_border=true&hide_title=true)
