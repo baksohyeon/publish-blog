@@ -18,4 +18,3 @@ sudo lsof -i :3000
 sudo kill -9 PID  
 ```  
   
-![Pasted image 20230120123522.png](../attachments/Pasted%20image%2020230120123522.png)
