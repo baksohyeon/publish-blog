@@ -4,6 +4,7 @@ function UrlExists(url, type) {
 
   ref = decodeURI(ref)
     .replace(/index$/, "")
+    .replace(/.md$/, "")
     .replace(/%5C/g, "/");
   title = title.length === 0 ? url.innerText : title;
 
