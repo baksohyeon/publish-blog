@@ -20,3 +20,8 @@ md 연결 테스트
 ```  
 [Image publish test](./Image%20publish%20test.md)  
   
+  
+```  
+[커밋 메시지 작성법](./%EC%BB%A4%EB%B0%8B%20%EB%A9%94%EC%8B%9C%EC%A7%80%20%EC%9E%91%EC%84%B1%EB%B2%95.md)  
+```  
+[커밋 메시지 작성법](./%EC%BB%A4%EB%B0%8B%20%EB%A9%94%EC%8B%9C%EC%A7%80%20%EC%9E%91%EC%84%B1%EB%B2%95.md)
