@@ -13,7 +13,7 @@ theme:
   font:
     text: Ubuntu
     code: Ubuntu Mono
-  language: en
+  language: ko
   palette:
     # Light mode
     - media: "(prefers-color-scheme: light)"
@@ -38,7 +38,6 @@ theme:
     - navigation.sections
     - navigation.tabs
     - navigation.tabs.sticky
-    - navigation.expand
     - search.suggest
     - search.highlight
     - navigation.path
