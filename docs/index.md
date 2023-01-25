@@ -14,10 +14,6 @@ hide:
     .md-typeset .cover + hr {
         display: none;
     }
-    .md-typeset h1,
-    .md-typeset h2 {
-        color: navy;
-    }
 </style>
 
 # Code Inside Out
@@ -55,5 +51,3 @@ From hardware to cloud applications. Step by step.
     ::: col
 
         ![](https://github-readme-stats.vercel.app/api/top-langs/?username=vuquangtrong&layout=compact&langs_count=8&hide=html,autoit&hide_border=true&hide_title=true)
-
-> Using **GitHub Stats** and **Top Langs** by [:material-github: anuraghazra](https://github.com/anuraghazra/github-readme-stats)
