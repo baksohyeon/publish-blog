@@ -1,11 +1,12 @@
 ---  
 share: true  
-title: Home
-template: main.html
-hide:  
-  - navigation  
-  - toc  
+hide:    
+  - navigation    
+  - toc    
+template: main.html  
+date created: Wednesday, January 25th 2023, 5:43:25 pm  
+date modified: Wednesday, January 25th 2023, 5:43:55 pm  
 ---  
-# Home  
   
-homepage  
+  
+메인 페이지 수정 예정
