@@ -12,7 +12,7 @@ date modified: Wednesday, January 25th 2023, 2:48:16 pm
 ## husky   
 [Husky - Git hooks 문서](https://typicode.github.io/husky/#/)  
   
-*yarn* 버전으로 설치  
+*yarn* 버전으로 설치 (mac m1)  
 ```shell  
 npx husky-init && yarn              # Yarn 1  
 ```  
@@ -54,6 +54,11 @@ yarn husky install
 npx husky add .husky/commit-msg  'npx --no -- commitlint --edit ${1}'  
 ```  
   
-## 참고 문서  
   
+![Pasted image 20230125175637.png](../attachments/Pasted%20image%2020230125175637.png)  
+  
+테스트 통과 확인 및 앵귤러 커밋 규칙을 지켰는지 확인 후 커밋한다.  
+  
+## 참고 문서  
 [Best way to baseline nestjs microservice – @tkssharma | Tarun Sharma | My Profile](https://tkssharma.com/nestjs-microservice-baseline-setup/)  
+  
