@@ -142,6 +142,9 @@ extra_css:
   - assets/css/customization.css
   - assets/css/extra.css
 extra:
+  analytics:
+    provider: google
+    property: G-HHMHQ1CFMV
   SEO: "assets/meta/SEO.png"
   comments: false #disable comments globally
   generate_graph: false #generate the graph of the site
@@ -152,3 +155,8 @@ extra:
   hooks:
     strip_comments: true
     fix_heading: true
+ social:
+    - icon: fontawesome/brands/github-alt
+      link: https://github.com/baksohyeon
+      name: baksohyeon
+  generator: false # hide the line "Made with Material for MkDocs"
