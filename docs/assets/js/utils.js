@@ -37,6 +37,18 @@ function UrlExists(url, type) {
   http.send();
 }
 
+/* open external links in new tab */
+var links = document.links;
+for (var i = 0, linksLength = links.length; i < linksLength; i++) {
+  if (links[i].hostname != window.location.hostname) {
+    links[i].target = "_blank";
+    links[i].setAttribute("rel", "noopener noreferrer");
+    links[i].className += " externalLink";
+  } else {
+    links[i].className += " localLink";
+  }
+}
+
 function getHeightWidth(alt) {
   const heightXwidthReg = new RegExp("\\d+x\\d+");
   const widthReg = new RegExp("\\d+");
@@ -94,7 +106,6 @@ for (let i = 0; i < imgs.length; i++) {
   UrlExists(imgs[i], 1);
 }
 
-// only a 이면 안되네
 var ht = document.querySelectorAll(
   "article.md-content__inner.md-typeset > *:not(.highlight)"
 );
