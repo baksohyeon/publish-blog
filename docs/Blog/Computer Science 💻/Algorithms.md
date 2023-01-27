@@ -72,7 +72,7 @@ const solution = (
 ```  
   
   
-<script src="https://gist.github.com/baksohyeon/8a2c61132547c2612eebeff6a69dc502.js"></script>  
+  
   
 먼저 이 문제를 결정문제로 환원해보자.   
 시간  $T$ 가 주어졌을 때,  $T$ 라는 시간 안에 트럭을 최대한 활용시켜 금과 은을 각각  $a,  b$ 만큼 운반할 수 있는지 판별하는 문제로 바꾸어 접근하면 된다.  
