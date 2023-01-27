@@ -22,7 +22,6 @@ hide:
   
 	::: col  
 		## 소개  
-		> [!info]  
 		> Dorito's Personal Knowledge Management  
 		> (ﾉ ◕ ヮ ◕)ﾉ\*:・ﾟ ✧  
   
