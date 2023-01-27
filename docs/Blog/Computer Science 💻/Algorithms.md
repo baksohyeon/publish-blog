@@ -8,8 +8,8 @@ date modified: Wednesday, January 18th 2023, 5:01:30 pm
 # Binary Search  
 - [금과 은 운반하기](https://school.programmers.co.kr/learn/courses/30/lessons/86053#)  
   
-먼저 이 문제를 결정문제로 환원해봅시다. 시간  $T$ 가 주어졌을 때,  $T$ 라는 시간 안에 트럭을 최대한 활용시켜 금과 은을 각각   
-$a,  b$ 만큼 운반할 수 있는지 판별하는 문제로 바꾸어 접근하면 된다.  
+먼저 이 문제를 결정문제로 환원해보자.   
+시간  $T$ 가 주어졌을 때,  $T$ 라는 시간 안에 트럭을 최대한 활용시켜 금과 은을 각각  $a,  b$ 만큼 운반할 수 있는지 판별하는 문제로 바꾸어 접근하면 된다.  
   
 그렇다면 해당 결정 문제는 다음과 같이 풀 수 있다.  
   
@@ -22,8 +22,6 @@ $a,  b$ 만큼 운반할 수 있는지 판별하는 문제로 바꾸어 접근�
 	- $a + b \leq G_{max} + S_{min} = G_{min} + S_{max}$  
   
 특정시간 $T$ 에서   
-  
-   
   
 gold = 특정시간 $T$ 동안 얻을 수 있는 최대 골드 수  
   
@@ -109,4 +107,7 @@ const solution = (
 };  
   
   
-```
+```  
+  
+  
+<script src="https://gist.github.com/baksohyeon/8a2c61132547c2612eebeff6a69dc502.js"></script>
