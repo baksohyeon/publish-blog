@@ -1,8 +1,9 @@
 ---  
 category: Blog/Computer Science 💻/Data Structure  
 share: true  
+title: BFS (Breadth-First Search)  
 date created: Monday, January 16th 2023, 3:20:49 pm  
-date modified: Wednesday, January 18th 2023, 5:01:30 pm  
+date modified: Friday, January 27th 2023, 10:21:32 pm  
 ---  
 # Basic Concept  
 ![Pasted image 20230110111557.png](../../../attachments/Pasted%20image%2020230110111557.png)  
@@ -253,20 +254,21 @@ return 0;
   
 # Implement BFS to find the shortest route in maze  
   
-  
-![ The initial maze](Pasted%20image%2020230110112338.png)  
-  
-  
-![ The Graph that represents the above maze](Pasted%20image%2020230110113728.png)  
+- The initial maze  
+![Pasted image 20230110112338.png](../../../attachments/Pasted%20image%2020230110112338.png)  
   
   
-  
-  
-![ The way that Breadth-First Search Algorithm searches for a solution in the search space](Pasted%20image%2020230110113758.png)  
+- The Graph that represents the above maze  
+![Pasted image 20230110113728.png](../../../attachments/Pasted%20image%2020230110113728.png)  
   
   
   
-![ The path from node S to node I](Pasted%20image%2020230110113853.png)  
+- The way that Breadth-First Search Algorithm searches for a solution in the search space  
+![Pasted image 20230110113758.png](../../../attachments/Pasted%20image%2020230110113758.png)  
+  
+  
+- The path from node S to node  
+![Pasted image 20230110113853.png](../../../attachments/Pasted%20image%2020230110113853.png)  
   
 The BFS algorithm is a way to traverse or search a graph. It works by starting at a given vertex (called the "start vertex") and exploring all of its neighbors before moving on to the next level of vertices. It does this using a queue to store the vertices that still need to be visited.  
   
