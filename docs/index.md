@@ -1,6 +1,5 @@
 ---  
 share: true  
-title: Home  
 template: main.html  
 hide:  
   - navigation  
@@ -16,20 +15,24 @@ hide:
     }  
 </style>  
   
-# Code Inside Out  
   
-Dorito's Personal Knowledge Management  
-(ﾉ ◕ ヮ ◕)ﾉ\*:・ﾟ ✧  
+# Welcome  
+  
+> 	[!info]  
+> 	Dorito's Personal Knowledge Management  
+> 	(ﾉ ◕ ヮ ◕)ﾉ\*:・ﾟ ✧  
+    
+  
   
 ::: row  
   
     ::: col  
   
-        ## :material-book: Computer Science  
+        ## :material-book: Blog  
   
         cs 공부 관련 정리  
   
-        [Read news](https://dorito.netlify.app/computer%20science%20%F0%9F%92%BB/#page1){.md-button}  
+        [Read Blog](https://dorito.netlify.app/blog/#page1){.md-button}  
   
     ::: col  
   
