@@ -18,10 +18,18 @@ hide:
   
 # Welcome  
   
-> [!info]  
-> Dorito's Personal Knowledge Management  
-> (ﾉ ◕ ヮ ◕)ﾉ\*:・ﾟ ✧  
+::: row  
   
+	::: col  
+		## 소개  
+		> [!info]  
+		> Dorito's Personal Knowledge Management  
+		> (ﾉ ◕ ヮ ◕)ﾉ\*:・ﾟ ✧  
+  
+  
+	::: col  
+	  
+---  
   
   
 ::: row  
