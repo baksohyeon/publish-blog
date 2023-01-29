@@ -41,7 +41,7 @@ git add .husky/husky-config/pre-push
 ```  
   
 ## commit rule 강제하기  
-[커밋 메시지 작성법](../../%EC%9E%A1%EB%8F%99%EC%82%AC%EB%8B%88%20%F0%9F%A7%B8/%EC%BB%A4%EB%B0%8B%20%EB%A9%94%EC%8B%9C%EC%A7%80%20%EC%9E%91%EC%84%B1%EB%B2%95.md) 을 지키지 않으면 커밋 못하게 하는 설정법이다.  
+[커밋 메시지 작성법](../%EC%9E%A1%EB%8F%99%EC%82%AC%EB%8B%88/%EC%BB%A4%EB%B0%8B%20%EB%A9%94%EC%8B%9C%EC%A7%80%20%EC%9E%91%EC%84%B1%EB%B2%95.md) 을 지키지 않으면 커밋 못하게 하는 설정법이다.  
   
 [GitHub - conventional-changelog/commitlint: 📓 Lint commit messages](https://github.com/conventional-changelog/commitlint) 를 참고해서 세팅하면 된다.  
 [commitlint - Lint commit messages](https://commitlint.js.org/#/guides-local-setup)  
