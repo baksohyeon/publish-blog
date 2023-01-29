@@ -41,15 +41,15 @@ const solution = (
       // 도시 → 목적지 경로 횟수  
       const totalDeliveryCount = Math.ceil(Math.floor(mid / oneWayTime) / 2);  
       // 해당 도시가 최대로 옮길 수 있는 광물의 양 (kg): 전달 횟수 * 한번에 옮길 수 있는 양  
-      const totalDeliveredMineral = totalDeliveryCount * allowableWeight;  
+      const totalMineralConveyCapacity = totalDeliveryCount * allowableWeight;  
   
       // 금만 캤을 때 캘 수 있는 양  
-      goldCarry += Math.min(totalDeliveredMineral, goldReserves);  
+      goldCarry += Math.min(totalMineralConveyCapacity, goldReserves);  
       // 은만 캤을 때 캘 수 있는 양  
-      silverCarry += Math.min(totalDeliveredMineral, silverReserves);  
+      silverCarry += Math.min(totalMineralConveyCapacity, silverReserves);  
       // 최대로 옮길 수 있는 광물의 무게  
       allCarry += Math.min(  
-        totalDeliveredMineral,  
+        totalMineralConveyCapacity,  
         silverReserves + goldReserves  
       );  
     }  
