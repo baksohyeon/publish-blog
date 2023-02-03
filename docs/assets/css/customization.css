@@ -6,8 +6,8 @@ DONT FORGET TO EDIT THE URL
 }
 */
 
-[data-lang]::before {
-  content: attr(data-lang);
+[language-]::before {
+  content: attr(language-);
   display: block;
   text-align: right;
 }
