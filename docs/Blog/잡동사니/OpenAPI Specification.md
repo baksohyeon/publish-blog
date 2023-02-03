@@ -18,58 +18,6 @@ The OpenAPI Specification (OAS) defines a standard, language-agnostic interface 
   
 An OpenAPI definition can then be used by documentation generation tools to display the API, code generation tools to generate servers and clients in various programming languages, testing tools, and many other use cases.  
   
-## Table of Contents  
-<!-- TOC depthFrom:1 depthTo:3 withLinks:1 updateOnSave:1 orderedList:0 -->  
-  
-- [Definitions](OpenAPI%20Specification.md#definitions)  
-	- [OpenAPI Document](OpenAPI%20Specification.md#oasDocument)  
-	- [Path Templating](OpenAPI%20Specification.md#pathTemplating)  
-	- [Media Types](OpenAPI%20Specification.md#mediaTypes)  
-	- [HTTP Status Codes](OpenAPI%20Specification.md#httpCodes)  
-- [Specification](OpenAPI%20Specification.md#specification)  
-	- [Versions](OpenAPI%20Specification.md#versions)  
-	- [Format](OpenAPI%20Specification.md#format)  
-	- [Document Structure](OpenAPI%20Specification.md#documentStructure)  
-	- [Data Types](OpenAPI%20Specification.md#dataTypes)  
-	- [Rich Text Formatting](OpenAPI%20Specification.md#richText)  
-	- [Relative References In URLs](OpenAPI%20Specification.md#relativeReferences)  
-	- [Schema](OpenAPI%20Specification.md#schema)  
-		- [OpenAPI Object](OpenAPI%20Specification.md#oasObject)  
-		- [Info Object](OpenAPI%20Specification.md#infoObject)  
-		- [Contact Object](OpenAPI%20Specification.md#contactObject)  
-		- [License Object](OpenAPI%20Specification.md#licenseObject)  
-		- [Server Object](OpenAPI%20Specification.md#serverObject)  
-		- [Server Variable Object](OpenAPI%20Specification.md#serverVariableObject)  
-		- [Components Object](OpenAPI%20Specification.md#componentsObject)  
-		- [Paths Object](OpenAPI%20Specification.md#pathsObject)  
-		- [Path Item Object](OpenAPI%20Specification.md#pathItemObject)  
-		- [Operation Object](OpenAPI%20Specification.md#operationObject)  
-		- [External Documentation Object](OpenAPI%20Specification.md#externalDocumentationObject)  
-		- [Parameter Object](OpenAPI%20Specification.md#parameterObject)  
-		- [Request Body Object](OpenAPI%20Specification.md#requestBodyObject)  
-		- [Media Type Object](OpenAPI%20Specification.md#mediaTypeObject)  
-		- [Encoding Object](OpenAPI%20Specification.md#encodingObject)  
-		- [Responses Object](OpenAPI%20Specification.md#responsesObject)  
-		- [Response Object](OpenAPI%20Specification.md#responseObject)  
-		- [Callback Object](OpenAPI%20Specification.md#callbackObject)  
-		- [Example Object](OpenAPI%20Specification.md#exampleObject)  
-		- [Link Object](OpenAPI%20Specification.md#linkObject)  
-		- [Header Object](OpenAPI%20Specification.md#headerObject)  
-		- [Tag Object](OpenAPI%20Specification.md#tagObject)  
-		- [Reference Object](OpenAPI%20Specification.md#referenceObject)  
-		- [Schema Object](OpenAPI%20Specification.md#schemaObject)  
-		- [Discriminator Object](OpenAPI%20Specification.md#discriminatorObject)  
-		- [XML Object](OpenAPI%20Specification.md#xmlObject)  
-		- [Security Scheme Object](OpenAPI%20Specification.md#securitySchemeObject)  
-		- [OAuth Flows Object](OpenAPI%20Specification.md#oauthFlowsObject)  
-		- [OAuth Flow Object](OpenAPI%20Specification.md#oauthFlowObject)  
-		- [Security Requirement Object](OpenAPI%20Specification.md#securityRequirementObject)  
-	- [Specification Extensions](OpenAPI%20Specification.md#specificationExtensions)  
-	- [Security Filtering](OpenAPI%20Specification.md#securityFiltering)  
-- [Appendix A: Revision History](OpenAPI%20Specification.md#revisionHistory)  
-	  
-  
-<!-- /TOC -->  
   
 ## Definitions  
   
