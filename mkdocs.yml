@@ -66,6 +66,7 @@ markdown_extensions:
       use_pygments: true
       anchor_linenums: true
       pygments_lang_class: true
+      auto_title: true
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.emoji:
