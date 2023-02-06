@@ -2,6 +2,6 @@
 category: Blog  
 share: true  
 hidden: True  
-title: blog  
+title: Blog  
 template: blog.html  
 ---  

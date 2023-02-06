@@ -88,14 +88,14 @@ const solution = (
   
 특정시간 $T$ 에서   
   
-- `goldCarry` = 특정시간 $T$ 동안 얻을 수 있는 최대 골드 수  
+- `goldCarry` = 특정시간 $T$ 동안 얻을 수 있는 최대 골드 수 ($Gmax$)  
   
-- `silverCarry` = 특정시간 $T$  동안 얻을 수 있는 최대 실버 수  
+- `silverCarry` = 특정시간 $T$  동안 얻을 수 있는 최대 실버 수 ($Smax$)  
   
-- `allCarry` = 특정시간 $T$  동안 골드와 실버를 한번에 얻을 수 있는 최대 수  
+- `allCarry` = 특정시간 $T$  동안 골드와 실버를 한번에 얻을 수 있는 최대 수 ($Gmin + Smax$)  
   
   
-이 세가지 값을 가지고 $a + b <= Gmax + Smin = Gmin + Smax = add$ 이조건을 만족한다면 현재 t시간은 a, b를 운반할 수 있다를 결정할 수 있게된다.  
+이 세가지 값을 가지고 $a + b <= Gmax + Smin = Gmin + Smax$ 이조건을 만족한다면 현재 t시간은 a, b를 운반할 수 있다를 결정할 수 있게된다.  
   
   
   
