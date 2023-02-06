@@ -34,7 +34,7 @@ Media type definitions are spread across several resources.
 The media type definitions SHOULD be in compliance with [RFC6838](https://tools.ietf.org/html/rfc6838).  
   
 Some examples of possible media type definitions:  
-```  
+```bash  
   text/plain; charset=utf-8  
   application/json  
   application/vnd.github+json  
