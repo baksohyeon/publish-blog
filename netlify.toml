@@ -1,4 +1,4 @@
 # netlify.toml
 [build]
-  command = "mkdocs build"
+  command = "mkdocs build --config-file mkdocs.insiders.yml"
   publish = "site"
