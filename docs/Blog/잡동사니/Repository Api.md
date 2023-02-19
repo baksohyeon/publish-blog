@@ -414,10 +414,3 @@ Example:
 userRepository.remove(users, { chunk: entities.length / 1000 })  
 ```  
   
-## `TreeRepository` API  
-  
-For `TreeRepository` API refer to [the Tree Entities documentation](./tree-entities.md#working-with-tree-entities).  
-  
-## `MongoRepository` API  
-  
-For `MongoRepository` API refer to [the MongoDB documentation](./mongodb.md).
