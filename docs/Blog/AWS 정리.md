@@ -103,23 +103,20 @@ AWS에서는 지연 시간을 줄이거나 추가적인 리던던시를 제공�
 -	Each service has API **endpoints** for each region. Endpoints differ from service to service and not all services are available in each region, as listed in [these tables](https://docs.aws.amazon.com/general/latest/gr/rande.html).  
 -	[**Amazon Resource Names (ARNs)**](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) are specially formatted identifiers for identifying resources. They start with 'arn:' and are used in many services, and in particular for IAM policies.  
   
+AWS 일반 참조에서는 여러 서비스와 관련된 여러 가지 일반적인 개념을 다룹니다.  
+AWS에서는 지연 시간을 줄이거나 추가적인 이중화를 제공하는 데 도움이 되는 격리된 지리적 위치인 리전 배포를 허용합니다. 리전에는 일반적으로 고가용성을 위해 가장 먼저 선택되는 도구인 가용 영역(AZ)이 포함됩니다.) AZ는 같은 리전 내에서도 물리적으로 서로 분리되어 있으며, 여러 물리적 데이터 센터에 걸쳐 있을 수 있습니다. 지연 시간이 짧은 링크를 통해 연결되어 있지만, 한 곳에 자연 재해가 발생해도 다른 곳에 영향을 미치지 않습니다.  
+각 서비스에는 각 지역에 대한 API 엔드포인트가 있습니다. 엔드포인트는 서비스마다 다르며 다음 표에 나열된 것처럼 각 지역에서 모든 서비스를 사용할 수 있는 것은 아닙니다.  
+ARN(Amazon 리소스 이름)은 리소스를 식별하기 위한 특수 형식의 식별자입니다. 'arn:'로 시작하며 많은 서비스에서 사용되며 특히 IAM 정책에 사용됩니다.  
   
   
   
 ## Getting Help and Support  
   
 -	**Forums:** For many problems, it’s worth searching or asking for help in the [discussion forums](https://forums.aws.amazon.com/index.jspa) to see if it’s a known issue.  
--	**Premium support:** AWS offers several levels of [premium support](https://aws.amazon.com/premiumsupport/).  
-	-	The first tier, called "Developer support" lets you file support tickets with 12 to 24 hour turnaround time, it starts at $29 but once your monthly spend reaches around $1000 it changes to a 3% surcharge on your bill.  
-	-	The higher-level support services are quite expensive — and increase your bill by up to 10%. Many large and effective companies never pay for this level of support. They are usually more helpful for midsize or larger companies needing rapid turnaround on deeper or more perplexing problems.  
-	-	Keep in mind, a flexible architecture can reduce need for support. You shouldn’t be relying on AWS to solve your problems often. For example, if you can easily re-provision a new server, it may not be urgent to solve a rare kernel-level issue unique to one EC2 instance. If your EBS volumes have recent snapshots, you may be able to restore a volume before support can rectify the issue with the old volume. If your services have an issue in one availability zone, you should in any case be able to rely on a redundant zone or migrate services to another zone.  
-	-	Larger customers also get access to AWS Enterprise support, with dedicated technical account managers (TAMs) and shorter response time SLAs.  
-	-	There is definitely some controversy about how useful the paid support is. The support staff don’t always seem to have the information and authority to solve the problems that are brought to their attention. Often your ability to have a problem solved may depend on your relationship with your account rep.  
 -	**Account manager:** If you are at significant levels of spend (thousands of US dollars plus per month), you may be assigned (or may wish to ask for) a dedicated account manager.  
 	-	These are a great resource, even if you’re not paying for premium support. Build a good relationship with them and make use of them, for questions, problems, and guidance.  
 	-	Assign a single point of contact on your company’s side, to avoid confusing or overwhelming them.  
 -	**Contact:** The main web contact point for AWS is [here](https://aws.amazon.com/contact-us/). Many technical requests can be made via these channels.  
--	**Consulting and managed services:** For more hands-on assistance, AWS has established relationships with many [consulting partners](https://aws.amazon.com/partners/consulting/) and [managed service partners](https://aws.amazon.com/partners/msp/). The big consultants won’t be cheap, but depending on your needs, may save you costs long term by helping you set up your architecture more effectively, or offering specific expertise, e.g. security. Managed service providers provide longer-term full-service management of cloud resources.  
 -	**AWS Professional Services:** AWS provides [consulting services](https://aws.amazon.com/professional-services/) alone or in combination with partners.  
   
 ## Restrictions and Other Notes  
@@ -133,8 +130,8 @@ AWS에서는 지연 시간을 줄이거나 추가적인 리던던시를 제공�
 -	[OpenStack](https://www.openstack.org/) is a private cloud alternative to AWS used by large companies that wish to avoid public cloud offerings.  
   
   
-Managing AWS  
-------------  
+# Managing AWS  
+  
   
 ## Managing Infrastructure State and Change  
   
@@ -162,6 +159,13 @@ There are several approaches to deploying infrastructure with AWS, from the cons
 	-	It can be useful for operations you’re only going to do rarely, like less than once a month (for example, a one-time VPC setup you probably won’t revisit for a year). In this case using the console can be the simplest approach.  
 -	❗**Think before you use the console:** The AWS Console is convenient, but also the enemy of automation, reproducibility, and team communication. If you’re likely to be making the same change multiple times, avoid the console. Favor some sort of automation, or at least have a path toward automation, as discussed next. Not only does using the console preclude automation, which wastes time later, but it prevents documentation, clarity, and standardization around processes for yourself and your team.  
   
+AWS 콘솔을 사용하면 웹 인터페이스를 통해 AWS의 많은 기능(전부는 아님)을 제어할 수 있습니다.  
+이상적으로는 몇 가지 특정 상황에서만 AWS 콘솔을 사용하는 것이 좋습니다:  
+읽기 전용으로 사용하기에 좋습니다. 시스템 상태를 이해하려는 경우 로그인하여 탐색하는 것이 매우 유용합니다.  
+또한 매우 작은 시스템과 팀(예: 자주 변경하지 않는 서버를 한 명의 엔지니어가 설정하는 경우)에서도 합리적으로 사용할 수 있습니다.  
+한 달에 한 번 미만으로 거의 하지 않는 작업(예: 1년 동안 다시 방문하지 않을 일회성 VPC 설정)에도 유용할 수 있습니다. 이 경우 콘솔을 사용하는 것이 가장 간단한 방법이 될 수 있습니다.  
+콘솔을 사용하기 전에 생각하기: AWS 콘솔은 편리하지만 자동화, 재현성 및 팀 커뮤니케이션의 적이기도 합니다. 동일한 변경을 여러 번 수행할 가능성이 높다면 콘솔을 사용하지 마세요. 다음에 설명하는 것처럼 자동화를 선호하거나 최소한 자동화를 향한 경로를 마련하세요. 콘솔을 사용하면 자동화를 배제하여 나중에 시간을 낭비할 뿐만 아니라 자신과 팀을 위한 문서화, 명확성 및 프로세스에 대한 표준화도 방해합니다.  
+  
 ## Command-Line tools  
   
 -	The [**aws command-line interface**](https://aws.amazon.com/cli/) (CLI), used via the **aws** command, is the most basic way to save and automate AWS operations.  
@@ -170,23 +174,20 @@ There are several approaches to deploying infrastructure with AWS, from the cons
 -	🔹Even in the absence of fancier tools, you can **write simple Bash scripts** that invoke *aws* with specific arguments, and check these into Git. This is a primitive but effective way to document operations you’ve performed. It improves automation, allows code review and sharing on a team, and gives others a starting point for future work.  
 -	🔹For use that is primarily interactive (not scripted), consider instead using the [**aws-shell**](https://github.com/awslabs/aws-shell) tool from AWS. It is easier to use, with auto-completion and a colorful UI, but still works on the command line. If you’re using [SAWS](https://github.com/donnemartin/saws), a previous version of the program, [you should migrate to aws-shell](https://github.com/donnemartin/saws/issues/68#issuecomment-240067034).  
   
+  
+aws 명령어를 통해 사용되는 aws 명령줄 인터페이스(CLI)는 AWS 작업을 저장하고 자동화하는 가장 기본적인 방법입니다.  
+그 힘을 과소평가하지 마세요. 또한 모든 AWS 서비스의 대부분을 다루며 최신 상태로 유지 관리가 잘 된다는 장점도 있습니다.  
+일반적으로 작업을 수행할 때는 가능하면 AWS 콘솔보다 명령줄을 선호하세요.  
+🔹더 멋진 도구가 없더라도 특정 인수를 사용하여 aws를 호출하는 간단한 Bash 스크립트를 작성하고 이를 Git에서 확인할 수 있습니다. 이것은 수행한 작업을 문서화하는 원시적이지만 효과적인 방법입니다. 자동화를 개선하고, 팀에서 코드 검토 및 공유를 가능하게 하며, 다른 사람들이 향후 작업을 위한 출발점을 제공할 수 있습니다.  
+🔹주로 대화형(스크립트가 아닌)으로 사용하려면 AWS의 aws-shell 도구를 사용하는 것을 고려하세요. 자동 완성 기능과 다채로운 UI로 사용하기가 더 쉽지만 여전히 명령줄에서 작동합니다. 이전 버전의 프로그램인 SAWS를 사용 중이라면 aws-shell로 마이그레이션해야 합니다.  
+  
+  
 ## APIs and SDKs  
   
 -	**SDKs** for using AWS APIs are available in most major languages, with [Go](https://github.com/aws/aws-sdk-go), [iOS](https://github.com/aws/aws-sdk-ios), [Java](https://github.com/aws/aws-sdk-java), [JavaScript](https://github.com/aws/aws-sdk-js), [Python](https://github.com/boto/boto3), [Ruby](https://github.com/aws/aws-sdk-ruby), and [PHP](https://github.com/aws/aws-sdk-php) being most heavily used. AWS maintains [a short list](https://aws.amazon.com/tools/#sdk), but the [awesome-aws list](https://github.com/donnemartin/awesome-aws#sdks-and-samples) is the most comprehensive and current. Note [support for C++](https://github.com/donnemartin/awesome-aws#c-sdk) is [still new](https://aws.amazon.com/blogs/aws/introducing-the-aws-sdk-for-c/).  
 -	**Retry logic:** An important aspect to consider whenever using SDKs is error handling; under heavy use, a wide variety of failures, from programming errors to throttling to AWS-related outages or failures, can be expected to occur. SDKs typically implement [**exponential backoff**](https://docs.aws.amazon.com/general/latest/gr/api-retries.html) to address this, but this may need to be understood and adjusted over time for some applications. For example, it is often helpful to alert on some error codes and not on others.  
 -	❗Don’t use APIs directly. Although AWS documentation includes lots of API details, it’s better to use the SDKs for your preferred language to access APIs. SDKs are more mature, robust, and well-maintained than something you’d write yourself.  
   
-## Boto  
-  
--	A good way to automate operations in a custom way is [**Boto3**](https://github.com/boto/boto3), also known as the [Amazon SDK for Python](http://aws.amazon.com/sdk-for-python/). [**Boto2**](https://github.com/boto/boto), the previous version of this library, has been in wide use for years, but now there is a newer version with official support from Amazon, so prefer Boto3 for new projects.  
--	Boto3 contains a variety of APIs that operate at either a high level or a low level, here some explanation of both:  
-	-	The low level APIs (Client APIs) are mapped to AWS Cloud service-specific APIs, and all service operations are supported by clients. Clients are generated from a JSON service definition file.  
-	-	The high level option, Resource APIs, allows you to avoid calling the network at the low level and instead provide an object-oriented way to interact with AWS Cloud services.  
--	Boto3 has a lot of helpful [**features**](https://boto3.readthedocs.io/en/latest/guide/index.html#general-feature-guides) like *waiters*, which provide a structure that allows for code to wait for changes to occur in the cloud, for example, when you are creating an EC2 instance and need wait until the instance is running in order to perform another task.  
--	If you find yourself writing a Bash script with more than one or two CLI commands, you’re probably doing it wrong. Stop, and consider writing a Boto script instead. This has the advantages that you can:  
-	-	Check return codes easily so success of each step depends on success of past steps.  
-	-	Grab interesting bits of data from responses, like instance ids or DNS names.  
-	-	Add useful environment information (for example, tag your instances with git revisions, or inject the latest build identifier into your initialization script).  
   
 ## General Visibility  
   
@@ -203,9 +204,23 @@ There are several approaches to deploying infrastructure with AWS, from the cons
 	-	🔸 There is a bug in the ASG console where spaces after tag names are preserved. So if you type "Name " with a space at the end you will not get the expected behavior. This is probably true in other locations and SDKs also. Be sure you do not add trailing spaces to tag keys unless you really mean it. (As of Jul 2018)  
 	-	🔸 When resources are shared across the org, tags are not shared with it. For example, sharing Transit Gateway or AMIs will show the correct tags in the account that created these resources but not in the accounts where these resources were shared.  
   
-Managing Servers and Applications  
----------------------------------  
   
+리소스에 태그를 지정하는 것은 특히 조직이 성장함에 따라 리소스 사용량을 더 잘 이해하기 위해 필수적인 관행입니다. 예를 들어 자동화 또는 규칙을 통해 태그를 추가할 수 있습니다:  
+해당 리소스를 '소유'하는 조직 또는 개발자의 경우  
+리소스가 지원하는 제품용  
+임시 리소스 또는 향후 프로비저닝 해제해야 하는 리소스와 같은 수명 주기에 레이블 지정  
+프로덕션에 중요한 인프라(예: 서비스 시스템과 백엔드 파이프라인)를 구분하기 위해  
+특별한 보안 또는 규정 준수 요구사항이 있는 리소스를 구분하기 위해  
+(활성화된 경우) 비용 할당. 비용 할당 태그는 미래 예측 기준으로만 적용되며, 이미 청구된 항목에는 소급하여 적용할 수 없다는 점에 유의하세요.  
+수년 동안 리소스당 10개라는 악명 높은 태그 제한이 있었는데, 이 제한을 늘릴 수 없어 많은 회사가 큰 어려움을 겪었습니다. 2016년부터는 리소스당 태그 수가 50개로 증가했습니다.  
+2017년, AWS는 인스턴스 및 볼륨 생성에 태그를 적용하는 기능을 도입하여 Cloud Custodian과 같은 타사 도구의 일부를 더 이상 사용하지 않게 되었습니다.  
+태그는 대소문자를 구분하며, '환경'과 '환경'은 서로 다른 두 개의 태그입니다. 상당한 규모에서는 태그 설정 자동화가 유일한 합리적인 옵션일 가능성이 높습니다.  
+태그 이름 뒤에 공백이 유지되는 버그가 ASG 콘솔에 있습니다. 따라서 끝에 공백이 있는 "이름"을 입력하면 예상되는 동작이 나타나지 않습니다. 이는 다른 위치 및 SDK에서도 마찬가지일 수 있습니다. 정말 의도하지 않는 한 태그 키에 후행 공백을 추가하지 않도록 하세요. (2018년 7월 기준)  
+🔸 조직 전체에서 리소스를 공유할 때는 태그가 공유되지 않습니다. 예를 들어 대중교통 게이트웨이 또는 AMI를 공유하면 해당 리소스를 만든 계정에는 올바른 태그가 표시되지만 해당 리소스를 공유한 계정에는 태그가 표시되지 않습니다.  
+  
+# Managing Servers and Applications  
+  
+이 가이드는 DevOps나 서버 구성 관리 일반이 아닌 AWS에 관한 것입니다. 하지만 AWS에 대해 자세히 알아보기 전에 AWS 리소스에 대한 구성 관리 외에도 서버 자체에 대한 구성 관리라는 오랜 문제가 있다는 점에 주목할 필요가 있습니다.  
   
 ## AWS vs Server Configuration  
   
@@ -249,6 +264,16 @@ This guide is about AWS, not DevOps or server configuration management in genera
 	-	Use [Prometheus](https://prometheus.io) or [Graphite](https://github.com/graphite-project/graphite-web) as timeseries databases for your metrics (both are open source).  
 	-	[Grafana](https://github.com/grafana/grafana) can visualize with dashboards the stored metrics of both timeseries databases (also open source).  
   
+인스턴스 메타데이터(예: 인스턴스 ID, 가용 영역 등)와 배포 정보(애플리케이션 빌드 ID, Git 리비전 등)를 로그 또는 보고서에 저장하고 추적하세요. 인스턴스 메타데이터 서비스는 필요한 AWS 데이터 중 일부를 수집하는 데 도움이 될 수 있습니다.  
+로그 관리 서비스를 사용하세요: 서버 외부에서 로그를 보고 관리할 수 있는 방법을 설정해야 합니다.  
+Sumo Logic, Splunk Cloud, Scalyr, LogDNA, Loggly와 같은 클라우드 기반 서비스는 설정과 사용이 가장 쉬우며, 로그 데이터의 양에 따라 비용이 가장 많이 들기도 합니다.  
+주요 오픈 소스 대안으로는 Elasticsearch, Logstash, Kibana("Elastic Stack"), Graylog 등이 있습니다.  
+확장 가능한 자체 로그 처리 시스템을 설정하는 것은 시간이 많이 걸리는 것으로 악명이 높기 때문에, 여유가 있고(데이터가 적거나 돈이 많거나) 특별한 요구 사항이 없는 경우에는 가능한 한 호스팅 서비스를 사용하는 것이 좋습니다.  
+메트릭 추적 및 그래프: AWS 콘솔은 CloudWatch에서 간단한 그래프를 표시할 수 있으며, 일반적으로 CloudWatch와 애플리케이션에서 다양한 종류의 메트릭을 추적하고 그래프로 표시하고 싶을 것입니다. 가능한 모든 곳에서 유용한 메트릭을 수집하고 내보내세요(관리할 수 있을 만큼의 양만 있다면).  
+Librato, KeenIO, Datadog 같은 서비스는 더 멋진 기능이나 더 나은 사용자 인터페이스를 갖추고 있어 시간을 많이 절약할 수 있습니다. (더 자세한 비교는 여기에서 확인하세요.)  
+메트릭의 시계열 데이터베이스로 Prometheus 또는 Graphite를 사용하세요(둘 다 오픈 소스입니다).  
+Grafana는 두 시계열 데이터베이스에 저장된 메트릭을 대시보드로 시각화할 수 있습니다(이 역시 오픈 소스).  
+  
   
 ## Tips for Managing Servers  
   
@@ -256,8 +281,8 @@ This guide is about AWS, not DevOps or server configuration management in genera
 -	**NTP and accurate time:** If you are not using Amazon Linux (which comes preconfigured), you should confirm your servers [configure NTP correctly](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/set-time.html#configure_ntp), to avoid insidious time drift (which can then cause all sorts of issues, from breaking API calls to misleading logs). This should be part of your automatic configuration for every server. If time has already drifted substantially (generally >1000 seconds), remember NTP won’t shift it back, so you may need to remediate manually (for example, [like this](http://askubuntu.com/questions/254826/how-to-force-a-clock-update-using-ntp) on Ubuntu).  
 -	**Testing immutable infrastructure:** If you want to be proactive about testing your service’s ability to cope with instance termination or failure, it can be helpful to introduce random instance termination during business hours, which will expose any such issues at a time when engineers are available to identify and fix them. Netflix’s [Simian Army](https://github.com/Netflix/SimianArmy) (specifically, [Chaos Monkey](https://github.com/Netflix/SimianArmy/wiki/Chaos-Monkey)) is a popular tool for this. Alternatively, [chaos-lambda](https://github.com/bbc/chaos-lambda) by the BBC is a lightweight option which runs on AWS [Lambda](AWS%20정리.md#lambda).  
   
-Security and IAM  
-----------------  
+# Security and IAM  
+  
   
 We cover security basics first, since configuring user accounts is something you usually have to do early on when setting up your system.  
   
@@ -479,8 +504,8 @@ As an illustration of comparative features and price, the table below gives S3 S
   
 Especially notable items are in **boldface**. Sources: [S3 pricing](https://aws.amazon.com/s3/pricing/), [S3 SLA](https://aws.amazon.com/s3/sla/), [S3 FAQ](https://aws.amazon.com/s3/faqs/), [RRS info](https://aws.amazon.com/s3/reduced-redundancy/) (note that this is considered deprecated), [Glacier pricing](https://aws.amazon.com/glacier/pricing/), [EBS availability and durability](https://aws.amazon.com/ebs/details/#Amazon_EBS_Availability_and_Durability), [EBS pricing](https://aws.amazon.com/ebs/pricing/), [EFS pricing](https://aws.amazon.com/efs/pricing/), [EC2 SLA](https://aws.amazon.com/ec2/sla/)  
   
-EC2  
----  
+# EC2  
+  
   
 ## EC2 Basics  
   
@@ -605,143 +630,10 @@ CloudWatch
     - The [blog post introducing this feature](https://aws.amazon.com/blogs/aws/new-high-resolution-custom-metrics-and-alarms-for-amazon-cloudwatch/) describes how to publish a high-resolution metric to CloudWatch. Note that when calling the `PutMetricData` API, `StorageResolution` is an attribute of each item you send in the `MetricData` array, not a direct parameter of the `PutMetricData` API call.  
 * 🔸Data about metrics is kept in CloudWatch [for 15 months](https://aws.amazon.com/blogs/aws/amazon-cloudwatch-update-extended-metrics-retention-user-interface-update/), starting November 2016 (used to be 14 days). Minimum granularity increases after 15 days.  
   
-AMIs  
-----  
-  
-## AMI Basics  
-  
--	📒 [User guide](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html)  
--	**AMIs** (Amazon Machine Images) are immutable images that are used to launch preconfigured EC2 instances. They come in both public and private flavors. Access to public AMIs is either freely available (shared/community AMIs) or bought and sold in the [**AWS Marketplace**](http://aws.amazon.com/marketplace).  
--	Many operating system vendors publish ready-to-use base AMIs. For Ubuntu, see the [Ubuntu AMI Finder](https://cloud-images.ubuntu.com/locator/ec2/). Amazon of course has [AMIs for Amazon Linux](https://aws.amazon.com/amazon-linux-ami/).  
   
   
-## AMI Tips  
   
--	AMIs are built independently based on how they will be deployed. You must select AMIs that match your deployment when using them or creating them:  
-	-	EBS or instance store  
-	-	PV or HVM [virtualization types](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/virtualization_types.html)  
-	-	32 bit (“i386”) vs 64 bit (“amd64”) architecture  
--	As discussed above, modern deployments will usually be with **64-bit EBS-backed HVM**.  
--	You can create your own custom AMI by [snapshotting the state](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html) of an EC2 instance that you have modified.  
--	[AMIs backed by EBS storage](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device) have the necessary image data loaded into the EBS volume itself and don’t require an extra pull from S3, which results in EBS-backed instances coming up much faster than instance storage-backed ones.  
--	**AMIs are per region**, so you must look up AMIs in your region, or copy your AMIs between regions with the [AMI Copy](https://aws.amazon.com/about-aws/whats-new/2013/03/12/announcing-ami-copy-for-amazon-ec2/) feature.  
--	As with other AWS resources, it’s wise to [use tags](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html) to version AMIs and manage their lifecycle.  
--	If you create your own AMIs, there is always some tension in choosing how much installation and configuration you want to “bake” into them.  
-	-	Baking less into your AMIs (for example, just a configuration management client that downloads, installs, and configures software on new EC2 instances when they are launched) allows you to minimize time spent automating AMI creation and managing the AMI lifecycle (you will likely be able to use fewer AMIs and will probably not need to update them as frequently), but results in longer waits before new instances are ready for use and results in a higher chance of launch-time installation or configuration failures.  
-	-	Baking more into your AMIs (for example, pre-installing but not fully configuring common software along with a configuration management client that loads configuration settings at launch time) results in a faster launch time and fewer opportunities for your software installation and configuration to break at instance launch time but increases the need for you to create and manage a robust AMI creation pipeline.  
-	-	Baking even more into your AMIs (for example, installing all required software as well and potentially also environment-specific configuration information) results in fast launch times and a much lower chance of instance launch-time failures but (without additional re-deployment and re-configuration considerations) can require time consuming AMI updates in order to update software or configuration as well as more complex AMI creation automation processes.  
--	Which option you favor depends on how quickly you need to scale up capacity, and size and maturity of your team and product.  
-	-	When instances boot fast, auto-scaled services require less spare capacity built in and can more quickly scale up in response to sudden increases in load. When setting up a service with autoscaling, consider baking more into your AMIs and backing them with the EBS storage option.  
-	-	As systems become larger, it common to have more complex AMI management, such as a multi-stage AMI creation process in which few (ideally one) common base AMIs are infrequently regenerated when components that are common to all deployed services are updated and then a more frequently run “service-level” AMI generation process that includes installation and possibly configuration of application-specific software.  
--	More thinking on AMI creation strategies [here](http://techblog.netflix.com/2013/03/ami-creation-with-aminator.html).  
--	Use tools like [Packer](https://packer.io/) to simplify and automate AMI creation.  
--	If you use RHEL instances and happen to have existing RHEL on-premise Red Hat subscriptions, then you could leverage Red Hat's [Cloud Access program](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) to migrate a portion of your subscriptions to AWS, and thereby not having AWS charge you for RHEL subscriptions a second time. You can either use your own self-created RHEL AMI's or Red Hat provided [Gold Images](https://access.redhat.com/articles/2962171) that will be added to your private AMI's once you sign up for Red Hat Cloud Access.  
-  
-  
-## AMI Gotchas and Limitations  
-  
--	🔸**Amazon Linux package versions:** [By default](https://aws.amazon.com/amazon-linux-ami/faqs/#lock), instances based on Amazon Linux AMIs are configured point to the latest versions of packages in Amazon’s package repository. This means that the package versions that get installed are not locked and it is possible for changes, including breaking ones, to appear when applying updates in the future. If you bake your AMIs with updates already applied, this is unlikely to cause problems in running services whose instances are based on those AMIs – breaks will appear at the earlier AMI-baking stage of your build process, and will need to be fixed or worked around before new AMIs can be generated. There is a “lock on launch” feature that allows you to configure Amazon Linux instances to target the repository of a particular major version of the Amazon Linux AMI, reducing the likelihood that breaks caused by Amazon-initiated package version changes will occur at package install time but at the cost of not having updated packages get automatically installed by future update runs. Pairing use of the “lock on launch” feature with a process to advance the Amazon Linux AMI at your discretion can give you tighter control over update behaviors and timings.  
--   **Cloud-Init Defaults:** Oftentimes users create AMIs after performing customizations (albeit manually or via some tool such as Packer or Ansible).  If you're not careful to alter cloud-init settings that correspond to the system service (e.g. sshd, etc.) you've customized, you may find that your changes are no longer in effect after booting your new AMI for the first time, as cloud-init has overwritten them.  
-  
-    Some distros have different files than others, but all are generally located in `/etc/cloud/`, regardless of distro.  You will want to review these files carefully for your chosen distro before rolling your own AMIs.  A [complete reference to cloud-init](https://cloudinit.readthedocs.io/en/latest/) is available on the cloud-init site.  This is an advanced configuration mechanism, so test any changes made to these files in a sandbox prior to any serious usage.  
-  
-Auto Scaling  
-------------  
-  
-## Auto Scaling Basics  
-  
--	📒 [Homepage](https://aws.amazon.com/autoscaling/) ∙ [User guide](http://docs.aws.amazon.com/autoscaling/latest/userguide/) ∙ [FAQ](https://aws.amazon.com/ec2/autoscaling/faqs/) ∙ [Pricing](https://aws.amazon.com/autoscaling/pricing/) at no additional charge  
--	[**Auto Scaling Groups (ASGs)**](https://aws.amazon.com/autoscaling/) are used to control the number of instances in a service, reducing manual effort to provision or deprovision EC2 instances.  
--	They can be configured through [Scaling Policies](http://docs.aws.amazon.com/autoscaling/latest/userguide/policy_creating.html) to automatically increase or decrease instance counts based on metrics like CPU utilization, or based on a schedule.  
--	There are three common ways of using ASGs - dynamic (automatically adjust instance count based on metrics for things like CPU utilization), static (maintain a specific instance count at all times), scheduled (maintain different instance counts at different times of day or on days of the week).  
--	💸ASGs [have no additional charge](https://aws.amazon.com/autoscaling/pricing/) themselves; you pay for underlying EC2 and CloudWatch services.  
-  
-  
-## Auto Scaling Tips  
-  
--	💸 Better matching your cluster size to your current resource requirements through use of ASGs can result in significant cost savings for many types of workloads.  
--	Pairing ASGs with CLBs is a common pattern used to deal with changes in the amount of traffic a service receives.  
--	Dynamic Auto Scaling is easiest to use with stateless, horizontally scalable services.  
--	Even if you are not using ASGs to dynamically increase or decrease instance counts, you should seriously consider maintaining all instances inside of ASGs – given a target instance count, the ASG will work to ensure that number of instances running is equal to that target, replacing instances for you if they die or are marked as being unhealthy. This results in consistent capacity and better stability for your service.  
--	Autoscalers can be [configured to terminate](http://docs.aws.amazon.com/autoscaling/latest/userguide/healthcheck.html) instances that a CLB or ALB has marked as being unhealthy.  
-  
-  
-## Auto Scaling Gotchas and Limitations  
-  
--	🔸**ReplaceUnhealthy setting:** By default, ASGs will kill instances that the EC2 instance manager considers to be unresponsive. It is possible for instances whose CPU is completely saturated for minutes at a time to appear to be unresponsive, causing an ASG with the default [ReplaceUnhealthy setting](http://docs.aws.amazon.com/autoscaling/latest/userguide/as-suspend-resume-processes.html#process-types) turned on to replace them. When instances that are managed by ASGs are expected to consistently run with very high CPU, consider deactivating this setting. If you do so, however, detecting and killing unhealthy nodes will become your responsibility.  
-  
-EBS  
----  
-  
-## EBS Basics  
-  
--	📒 [Homepage](https://aws.amazon.com/ebs/) ∙ [User guide](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEBS.html) ∙ [FAQ](https://aws.amazon.com/ebs/faqs/) ∙ [Pricing](https://aws.amazon.com/ebs/pricing/)  
--	**EBS** (Elastic Block Store) provides block level storage. That is, it offers storage volumes that can be attached as filesystems, like traditional network drives.  
--	EBS volumes can only be attached to one EC2 instance at a time. In contrast, EFS can be shared but has a much higher price point ([a comparison](http://stackoverflow.com/questions/29575877/aws-efs-vs-ebs-vs-s3-differences-when-to-use)).  
-  
-  
-## EBS Tips  
-  
--	⏱**RAID:** Use [RAID drives](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/raid-config.html) for [increased performance](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSPerformance.html).  
--	⏱A worthy read is AWS’ [post on EBS IO characteristics](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html) as well as their [performance tips](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSPerformance.html#d0e86148).  
--	⏱One can [provision IOPS](http://aws.amazon.com/ebs/details/) (that is, pay for a specific level of I/O operations per second) to ensure a particular level of performance for a disk.  
--	⏱A single gp2 EBS volume allows 16k IOPS max To get the maximum performance out of a gp2 EBS volume, it has to be of a maximum size and attached to an EBS-optimized EC2 instance.  
-- 	💸Standard and gp2 EBS volumes improve IOPS with size. It may make sense for you to simply enlarge a volume instead of paying for better performance explicitly. This can in many cases reduce costs by 2/3.  
--	A standard block size for an EBS volume is 16kb.  
-  
-  
-## EBS Gotchas and Limitations  
-  
--	❗EBS durability is reasonably good for a regular hardware drive (annual failure rate of [between 0.1% - 0.2%](http://aws.amazon.com/ebs/details/#availabilityanddurability)). On the other hand, that is very poor if you don’t have backups! By contrast, S3 durability is extremely high. *If you care about your data, back it up to S3 with snapshots.*  
--	🔸EBS has an [**SLA**](http://aws.amazon.com/ec2/sla/) with **99.99%** uptime. See notes on high availability below.  
--	❗EBS volumes have a [**volume type**](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html) indicating the physical storage type. The types called “standard” (**st1** or **sc1**) are actually old spinning-platter disks, which deliver only hundreds of IOPS — not what you want unless you’re really trying to cut costs. Modern SSD-based **gp2** or **io1** are typically the options you want.  
--	❗When restoring a snapshot to create an EBS volume, blocks are lazily read from S3 the first time they're referenced. To avoid an initial period of high latency, you may wish to use `dd` or `fio` as per the [official documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-restoring-volume.html).  
-  
-EFS  
----  
-  
-  
-## EFS Basics  
-  
--	📒 [Homepage](https://aws.amazon.com/efs/) ∙ [User guide](http://docs.aws.amazon.com/efs/latest/ug) ∙ [FAQ](https://aws.amazon.com/efs/faq/) ∙ [Pricing](https://aws.amazon.com/efs/pricing/)  
--	🐥**EFS** is Amazon’s network filesystem. It’s presented as an [NFSv4.1](https://en.wikipedia.org/wiki/Network_File_System#NFSv4) server. Any compatible NFSv4 client can mount it.  
--	It is designed to be highly available and durable and each EFS file system object is redundantly stored across multiple availability zones.  
--	EFS is designed to be used as a shared network drive and it can automatically scale up to petabytes of stored data and thousands of instances attached to it.  
--	EFS can offer [higher throughput](http://docs.aws.amazon.com/efs/latest/ug/performance.html) (multiple gigabytes per second) and better durability and availability than EBS (see [the comparison table](AWS%20정리.md#storage-durability-availability-and-price)), but with higher latency.  
--	EFS is priced based on the volume of data stored, and costs [much more than EBS](AWS%20정리.md#storage-durability-availability-and-price); it's in the ballpark of three times as much compared to general purpose gp2 EBS volumes.  
--	⏱ [Performance](http://docs.aws.amazon.com/efs/latest/ug/performance.html) is dependent on the volume of data stored, as is the price:  
-	-	Like EBS, EFS uses a credit based system. Credits are earned at a rate of 50 KiB/s per GiB of storage and consumed in bursts during reading/writing files or metadata. Unlike EBS, operations on metadata (file size, owner, date, etc.) also consume credits. The [BurstCreditBalance metric](http://docs.aws.amazon.com/efs/latest/ug/monitoring-cloudwatch.html#efs-metrics) in CloudWatch should be monitored to make sure the file system doesn't run out of credits.  
-	-	Throughput capacity during bursts is also dependent on size. Under 1 TiB, throughput can go up to 100 MiB/s. Above that, 100 MiB/s is added for each stored TiB. For instance, a file system storing 5 TiB would be able to burst at a rate of 500 MiB/s. Maximum throughput per EC2 instance is 250 MiB/s.  
-	-	EFS has two performance modes that can only be set when a file system is created. One is "General Purpose", the other is "Max I/O". Max I/O scales higher, but at the cost of higher latency. When in doubt, use General Purpose, which is also the default. If the [PercentIOLimit metric](http://docs.aws.amazon.com/efs/latest/ug/monitoring-cloudwatch.html#efs-metrics) in CloudWatch hovers around 100%, Max I/O is recommended. Changing performance mode means creating a new EFS and migrating data.  
--	High availability is achieved by having [mount targets in different subnets / availability zones](http://docs.aws.amazon.com/efs/latest/ug/images/overview-flow.png).  
-  
-  
-## EFS Tips  
-  
--	With EFS being based on NFSv4.1, any directory on the EFS can be mounted directly, it doesn't have to be the root directory. One application could mount *fs-12345678:/prog1*, another *fs-12345678:/prog2*.  
--	[User and group level permissions](https://docs.aws.amazon.com/efs/latest/ug/accessing-fs-nfs-permissions.html) can be used to control access to certain directories on the EFS file system.  
--	⏱ **Sharing EFS filesystems:** One EFS filesystem can be used for multiple applications or services, but it should be considered carefully:  
-  
-	Pros:  
-	- Because performance is based on total size of stored files, having everything on one drive will increase performance for everyone. One application consuming credits faster than it can accumulate might be offset by another application that just stores files on EFS and rarely accesses them.  
-  
-	Cons:  
-	- Since credits are shared, if one application over-consumes them, it will affect the others.  
-	- A compromise is made with regards to [security](http://docs.aws.amazon.com/efs/latest/ug/security-considerations.html): all clients will have to have network access to the drive. Someone with root access on one client instance can mount any directory on the EFS and they have read-write access to all files on the drive, even if they don't have access to the applications hosted on other clients. There isn't a no-root-squash equivalent for EFS.  
-  
-  
-## EFS Gotchas and Limitations  
-  
--	🔸 A number of NFSv4.1 features are [not supported](http://docs.aws.amazon.com/efs/latest/ug/nfs4-unsupported-features.html) and there are some [limits](http://docs.aws.amazon.com/efs/latest/ug/limits.html) to the service.  
--	🔸 As of 2017-08, EFS offers disk level encryption for new drives. For file systems created before that date, encryption can only be achieved by moving the data to a new EFS volume.  
--	🔸 An EFS file system [can be mounted on premises](https://aws.amazon.com/efs/faq/#on-premises) over Direct Connect.  
--	🔸 An EFS file system can NOT be mounted over VPC peering or VPN, even if the VPN is running on top of Direct Connect.  
--	🔸 Using an EFS volume on Windows is not supported.  
--	⏱ When a file is uploaded to EFS, it can take hours for EFS to update the details for billing and burst credit purposes.  
--	🔸⏱  Metadata operations can be costly in terms of burst credit consumption. Recursively traversing a tree containing thousands of files can easily ramp up to tens or even hundreds of megabytes of burst credits being consumed, even if no file is being touched. Commands like ```find``` or ```chown -R``` can have an adverse impact on performance.  
-  
-  
-Load Balancers  
+# Load Balancers  
 --------------  
   
 ## Load Balancer Basics  
@@ -787,7 +679,7 @@ Load Balancers
 -	🔸 There is a limit on the number of ALBs, CLBs and NLBs per region (separately). As of late 2017, the default limit for each is 20 per region. These limits can be easily raised for ALB and CLB, but AWS is quite reluctant to raise the limit on NLBs.  
 -	🔸 If using a Network Load Balancer (NLB) then EC2 clients cannot connect to an NLB that resides in another VPC (VPC Peering) or AWS managed VPN unless the EC2 client is a C5, i3.metal or M5 instance type. For VPC peering, both VPCs must be in the same region. See [Troubleshooting](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-troubleshooting.html#target-not-in-service).  
   
-CLB  
+# CLB  
 ---  
   
 ## CLB Basics  
@@ -811,7 +703,7 @@ CLB
 -	🔸 Traffic between CLBs and back-end instances in the same subnet **will** have [Network ACL](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_ACLs.html) rules evaluated (EC2 to EC2 traffic in the same subnet would not have Network ACL rules evaluated). If the default '0.0.0.0/0 ALLOW' rule is removed from the Network ACL applied to the subnet, a rule that allows traffic on both the health check port and any listener port must be added.  
 - As of December 2016, CLBs launched in VPCs do not support IPv6 addressing. CLBs launched in EC2-Classic support both IPv4 and IPv6 [with the "dualstack" DNS name](http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-internet-facing-load-balancers.html#internet-facing-ip-addresses).  
   
-ALB  
+# ALB  
 ---  
 ![Pasted image 20230226152623.png](../attachments/Pasted%20image%2020230226152623.png)  
 ## ALB Basics  
@@ -839,33 +731,10 @@ ALB
 -	In a target group, if there is no healthy target, all requests are routed to all targets. For example, if you point a listener at a target group containing a single service that has a long initialization phase (during which the health checks would fail), requests will reach the service while it is still starting up.  
 - 📜 Although ALBs [now support SNI](https://aws.amazon.com/about-aws/whats-new/2017/10/elastic-load-balancing-application-load-balancers-now-support-multiple-ssl-certificates-and-smart-certificate-selection-using-server-name-indication-sni/), they only support 25 HTTPS certificates per Load Balancer. This limitation is not described [here](http://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-limits.html), so it might be subject to change.  
   
-Elastic Beanstalk  
-----------------  
-  
-## Elastic Beanstalk Basics  
-- 📒 [Homepage](https://aws.amazon.com/elasticbeanstalk/) ∙ [Developer guide](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/Welcome.html) ∙ [FAQ](https://aws.amazon.com/elasticbeanstalk/faqs/) ∙ [Pricing](https://aws.amazon.com/elasticbeanstalk/pricing/)  
-- **EB** (Elastic Beanstalk) is a PaaS (Platform as a Service) that helps developers create, deploy and scale web applications  
-- EB handles deployment, configuration, provisioning, load balancing, auto-scaling, monitoring, and logging  
-- EB creates AWS resources on your behalf but you retain full access and control of the underlying resources  
-- 💸 There is no cost to use EB but you will still be charged the full cost of the underlying AWS resources created by EB  
   
   
-## Elastic Beanstalk Tips  
-- To speed up deployment before launch or in a dev stage, turn off health checks and set the `Deployment policy` to `All at once`  
-- If you have a configuration you want to re-use for multiple EB apps, you can save the current configuration using `eb config save --cfg myEBConfig`  
-- By default, EB doesn't have any alarms. You'll need to add them yourself on metrics that you're monitoring.  
-- By default, EB doesn't enable [managed platform updates](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-platform-update-managed.html?icmpid=docs_elasticbeanstalk_console). Enable them in configuration to have EB automatically apply updates during a pre-specified maintenance window  
+# Elastic IPs  
   
-  
-## Elastic Beanstalk Gotchas and Limitations  
-- 🔸 Don't edit [apache|nginx] conf files manually on ec2 instances as they will be re-written on each deployment (use [ebextensions](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/ebextensions.html) instead)  
-- 🔸 After creating an EB environment, it's no longer possible to change the `Name` tag  
-- 🔸 EB will sometimes quarantine instances that cause multiple deployment issues. Despite being quarantined, EB will still deploy to them on subsequent deployments. To prevent this behavior, said instances will need to be terminated (or the underlying issue fixed)  
-- File uploads are capped at 10MB for most default eb configurations - update [nginx config](https://stackoverflow.com/questions/18908426/increasing-client-max-body-size-in-nginx-conf-on-aws-elastic-beanstalk) to change  
-- If you edit `.elasticbeanstalk/saved_configs/`, be aware that this is not kept in sync with the EB environment config. You'll need to manually fetch and save for changes to take effect  
-  
-Elastic IPs  
------------  
   
 ## Elastic IP Basics  
   
@@ -889,44 +758,9 @@ Elastic IPs
 -	🔸There is [officially no way](https://forums.aws.amazon.com/thread.jspa?threadID=171550) to allocate a contiguous block of IP addresses, something you may desire when giving IPs to external users. Though when allocating at once, you may get lucky and have some be part of the same CIDR block. If this is important to you, you may want to [bring your own IP](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html), which is more involved than this guide will go into.  
 -	Unofficially, if you have Enterprise support, you can ask your account rep to try to allocate a block of Elastic IPs with a business justification. For example, some of [Duo's fixed ranges](https://help.duo.com/s/article/1337?language=en_US) are [blocks of AWS IP space reassigned to `AWS-DUOSECURITYINC`](https://search.arin.net/rdap/?query=54.241.191.128). This is a best effort request, expect a denial.   
   
-Glacier  
--------  
   
-## Glacier Basics  
+# RDS  
   
--	📒 [Homepage](https://aws.amazon.com/glacier/) ∙ [Developer guide](http://docs.aws.amazon.com/amazonglacier/latest/dev/) ∙ [FAQ](https://aws.amazon.com/glacier/faqs/) ∙ [Pricing](https://aws.amazon.com/glacier/pricing/)  
--	**Glacier** is a lower-cost alternative to S3 when data is infrequently accessed, such as for archival purposes.  
--	It’s only useful for data that is rarely accessed. It generally takes [3-5 hours](https://aws.amazon.com/glacier/faqs/#dataretrievals) to fulfill a retrieval request.  
--	AWS [has not officially revealed](https://en.wikipedia.org/wiki/Amazon_Glacier#Storage) the storage media used by Glacier; it may be low-spin hard drives or even tapes.  
--	AWS has released an even more cost effective storate tier called [Glacier Deep Archive](https://aws.amazon.com/blogs/aws/new-amazon-s3-storage-class-glacier-deep-archive/) that offers ~12 hour retrieval latencies, but costs roughly a thousand dollars per month per petabyte.  
-  
-  
-## Glacier Tips  
-  
--	You can physically [ship](https://aws.amazon.com/blogs/aws/send-us-that-data/) your data to Amazon to put on Glacier on a USB or eSATA HDD.  
-  
-  
-## Glacier Gotchas and Limitations  
-  
--	🔸Getting files off Glacier is glacially slow (typically 3-5 hours or more).  
--	🔸Due to a fixed overhead per file (you pay per PUT or GET operation), uploading and downloading many small files on/to Glacier might be very expensive. There is also a 32k storage overhead per file. Hence it’s a good idea is to archive files before upload.  
--	💸Be aware of the per-object costs of archiving S3 data to Glacier. [It costs $0.05 per 1,000 requests](https://aws.amazon.com/s3/pricing/). If you have large numbers of S3 objects of relatively small size, [it will take time to reach a break-even point](https://alestic.com/2012/12/s3-glacier-costs/) (initial archiving cost versus lower storage pricing).  
-  
-Quicksight  
-----------  
-  
-## Quicksight Basics  
-  
--	📒 [Homepage](https://aws.amazon.com/quicksight/) ∙ [User guide](https://docs.aws.amazon.com/quicksight/latest/user/welcome.html) ∙ [Pricing](https://aws.amazon.com/quicksight/pricing/)  
-  
-  
-## Quicksight Gotchas and Limitations  
-  
--	❗Out of the box Quicksight is not able to access tables that are linked to a Schema in the AWS Glue Schema Registry. This is because the auto-generated IAM role `aws-quicksight-service-role-v0` does not have the necessary permissions. You can't pick another role to be used but you can add more permissions to the role. The error message you will receive is an `SQL_EXCEPTION` with details `SYNTAX_ERROR: line 2:8: Column 'columnname' cannot be resolved` where `columnname` is the first column in your table.  
--	🔸Only QuickSight accounts that were created in the US East (N. Virginia) region can access the QuickSight Forum/Community. And you can only have a QuickSight account in one region per AWS account.  
-  
-RDS  
----  
   
 ![Pasted image 20230226152639.png](../attachments/Pasted%20image%2020230226152639.png)  
   
@@ -953,8 +787,8 @@ RDS
 -	🔸**DB migration to RDS:** While importing your database into RDS ensure you take into consideration the maintenance window settings. If a backup is running at the same time, your import can take a considerably longer time than you would have expected.  
 -	[Database sizes are limited](https://aws.amazon.com/about-aws/whats-new/2015/06/amazon-rds-increases-storage-limits-to-6TB-for-piops-and-gp2/) to **6TB** for all database engines except for SQL Server which has a **4TB** limit and Aurora which supports up to **64TB** databases.  
   
-RDS MySQL and MariaDB  
----------------------  
+# RDS MySQL and MariaDB  
+  
   
 ## RDS MySQL and MariaDB Basics  
   
@@ -1006,7 +840,7 @@ RDS MySQL and MariaDB
 - Be sure to verify that all the [extensions](https://www.postgresql.org/docs/current/static/view-pg-available-extensions.html) you need are available. If you are using an extension not listed there, you will need to come up with a work around, or deploy your own database in EC2.  
 - Many Postgres utilities and maintenance items expect command line access, that can usually be satisfied by using an external ec2 server.  
   
-RDS SQL Server  
+# RDS SQL Server  
 --------------  
   
 ## RDS SQL Server Basics  
@@ -1026,12 +860,12 @@ RDS SQL Server
 -	🔸There is a **16TB** database size limit for non-Express editions. There is also a minimum storage size, 20GB for Web and Express, 200GB for Standard and Enterprise.  
 -	🔸Limited to [30 databases per instance](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html)  
   
-RDS Aurora  
+# RDS Aurora  
 ---  
 ## RDS Aurora Basics  
 Aurora is a cloud only database service designed to provide a distributed, fault-tolerant relational database with self-healing storage and auto-scaling up to 64TB per instance.  It currently comes in two versions, a MySQL compatible system, and a PostgreSQL compatible system.  
   
-RDS Aurora MySQL  
+# RDS Aurora MySQL  
 ----------------  
   
 ## RDS Aurora MySQL Basics  
@@ -1060,7 +894,7 @@ RDS Aurora MySQL
 - Aurora does not support GTID transactions in either the 5.6/Aurora 1.x or the 5.7/Aurora 2.x release lines.  
 - Aurora maximum cluster size is 64 TB  
   
-RDS Aurora PostgreSQL  
+# RDS Aurora PostgreSQL  
 ---------------------  
   
 ## RDS Aurora PostgreSQL Basics  
@@ -1086,6 +920,7 @@ RDS Aurora PostgreSQL
   
   
 # ECS  
+---  
   
   
 ![Pasted image 20230226152559.png](../attachments/Pasted%20image%2020230226152559.png)  
@@ -1123,7 +958,7 @@ RDS Aurora PostgreSQL
   
 🚧 [*Please help expand this incomplete section.*](CONTRIBUTING.md)  
   
-EKS  
+# EKS  
 ---  
   
 ## EKS Basics  
@@ -1159,7 +994,7 @@ EKS
 <a name="user-content-eks-aws-cli-create-kubeconfig">**1**</a>: https://docs.aws.amazon.com/eks/latest/userguide/create-kubeconfig.html<br />  
 <a name="user-content-eks-aws-cli-get-token">**2**</a>: https://aws.amazon.com/about-aws/whats-new/2019/05/amazon-eks-simplifies-kubernetes-cluster-authentication/<br />  
   
-Fargate  
+# Fargate  
 -------  
   
 ## Fargate Basics  
@@ -1186,7 +1021,7 @@ Fargate
 -   [Task storage is ephemeral. After a Fargate task stops, the storage is deleted.](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/fargate-task-storage.html)  
   
   
-Lambda  
+# Lambda  
 ------  
   
 ## Lambda Basics  
@@ -1246,7 +1081,7 @@ Lambda
   
 🚧 [*Please help expand this incomplete section.*](CONTRIBUTING.md)  
   
-API Gateway  
+# API Gateway  
 -----------  
   
 ## API Gateway Basics  
@@ -1296,7 +1131,7 @@ API Gateway
   
   
   
-Route 53  
+# Route 53  
 --------  
   
 ## Route 53 Basics  
@@ -1331,7 +1166,7 @@ Route 53
 -   🔸Private Hosted Zone will only respond to DNS queries that originate from within a VPC. As a result Route53 will not respond to request made via a VPN or Direct connect. To get around this you will need to implement [Hybrid Cloud DNS Solutions](https://d1.awsstatic.com/whitepapers/hybrid-cloud-dns-options-for-vpc.pdf) or use the Simple AD provided IP addresses to query the hosted zone.  
   
   
-VPCs, Network Security, and Security Groups  
+# VPCs, Network Security, and Security Groups  
 -------------------------------------------  
   
 ## VPC Basics  
@@ -1387,7 +1222,7 @@ manually managing [NAT instances](https://docs.aws.amazon.com/AmazonVPC/latest/U
   
   
   
-DirectConnect  
+# DirectConnect  
 -------------  
   
 ## DirectConnect Basics  
@@ -1406,7 +1241,7 @@ DirectConnect
   
 Reds  
   
-Certificate Manager  
+# Certificate Manager  
 -------------------  
   
 ## Certificate Manager Basics  
@@ -1443,58 +1278,9 @@ Certificate Manager
   
   
   
-OpsWorks  
--------------------  
-  
-## OpsWorks Basics  
-  
--	📒 [Homepage](https://aws.amazon.com/opsworks/) ∙ [Documentation](https://aws.amazon.com/documentation/opsworks/) ∙ [FAQ](https://aws.amazon.com/opsworks/faqs/) ∙ Pricing: [Stacks](https://aws.amazon.com/opsworks/stacks/pricing/), [Chef Automate](https://aws.amazon.com/opsworks/chefautomate/pricing/), [Puppet Enterprise](https://aws.amazon.com/opsworks/puppetenterprise/pricing/)  
-- OpsWorks is a configuration management service that uses [Chef](https://www.chef.io/chef/) or [Puppet](https://www.puppet.com) configuration management. It is broken out into three different services:  
-  - [OpsWorks Stacks](https://aws.amazon.com/opsworks/stacks/): The service lets you configure and launch stacks specific to your application's needs, and allows you to automate application deployments. Chef runs can be performed manually via the Execute Cookbooks command, otherwise they are only run as part of lifecycle events.  
-    - OpsWorks Stacks differs from standard configuration management services in that it also allows you to perform some infrastructure and application automation (such as creating Amazon EC2 instances and deploying applications via Chef cookbooks).  
-  - [OpsWorks for Chef Automate](https://aws.amazon.com/opsworks/chefautomate/): This service launches a dedicated Chef Automate server in your account, which can be used to associate nodes, upload cookbook code, and configure systems. Automated patching, backups, OS updates, and minor Chef version upgrades are provided as part of the service. An AWS API is provided for associating/disassociating nodes. Chef runs can be scheduled on nodes using the [chef-client cookbook](https://supermarket.chef.io/cookbooks/chef-client).  
-  - [OpsWorks for Puppet Enterprise](https://aws.amazon.com/opsworks/puppetenterprise/): This service launches a dedicated Puppet Master in your account, which can be used to associate nodes, upload modules, and configure systems. Automated patching, backups, OS updates, and minor Puppet version upgrades are provided as part of the service. An AWS API is provided for associating/disassociating nodes. By default, the Puppet agent will run automatically every 30 minutes on associated nodes.  
-- OpsWorks for Chef Automate and OpsWorks for Puppet Enterprise are strictly designed for configuration management, and do not provision infrastructure outside the Chef Server/Puppet Master that is created in our account.  
-- All three OpsWorks services support managing both Amazon EC2 and on-premises infrastructure, however the implementation details differ slightly.  
-  - OpsWorks Stacks allows you to register instances and install the OpsWorks Agent to connect to your stack.  
-  - OpsWorks for Chef Automate and OpsWorks for Puppet Enterprise allow you to associate new or existing infrastructure using either the opsworks-cm:AssociateNode API action or the vendor-supported method for associating nodes to Chef Server or Puppet Enterprise.  
-- Although OpsWorks will let you work with common Chef recipes or Puppet modules when creating your stacks, creating custom recipes will require familiarity with Chef or Puppet syntax. Chef/Puppet code is not supported as part of AWS Support.  
-- As of December 2016, OpsWorks Stacks supports Chef versions [12, 11.10.4, 11.4.4 and 0.9.15.5](http://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook.html).  
-- As of December 2016, OpsWorks for Chef Automate uses [Chef Server version 12.11.1](http://docs.aws.amazon.com/opsworks/latest/userguide/welcome_opscm.html) This is the current stable version of Chef.  
-- [Berkshelf](http://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-chef11-10.html#workingcookbook-chef11-10-berkshelf)can be used  with Chef stacks of version 11.10 and later for managing cookbooks and their respective dependencies. However, on Chef 12.x stacks, Berkshelf must be installed by the stack administrator.  
-- Running your own Chef environment may be an alternative to consider - some considerations are listed [in this Bitlancer article.](http://www.bitlancer.com/blog/2015/10/05/opsworks-vs-chef.html)  
   
   
-## OpsWorks Alternatives and Lock-in  
-  
-- Major competitors in Configuration Management include:  
-  - [Chef](https://chef.io)  
-  - [Puppet](https://puppet.com)  
-  - [Ansible](https://www.ansible.com).  
-  
-  
-## OpsWorks Tips  
-  
-- OpsWorks Stacks and OpsWorks for Chef Automate use Chef cookbooks for configuration. Chef provides free training to learn syntax, best practices, etc. at [https://learn.chef.io](https://learn.chef.io).  
-- OpsWorks for Puppet Enterprise uses Puppet manifests for configuration. Puppet provides a very useful learning VM for download at [https://learn.puppet.com/](https://learn.puppet.com/).  
-  
-  
-## OpsWorks Gotchas and Limitations  
-  
-- OpsWorks Stacks is not available in the following regions:  
-  - Montreal  
-  - GovCloud  
-  - Beijing  
-- OpsWorks for Chef Automate and OpsWorks for Puppet Enterprise are not available in the following regions:  
-  - Montreal  
-  - Sao Paulo  
-  - GovCloud  
-  - London  
-  - Paris  
-  - Seoul  
-  - Mumbai  
-  
-Batch  
+# Batch  
 -------------------  
   
 ## Batch Basics  
@@ -1522,7 +1308,7 @@ Batch
   
   
   
-High Availability  
+# High Availability  
 -----------------  
   
 This section covers tips and information on achieving [high availability](https://en.wikipedia.org/wiki/High_availability).  
@@ -1586,9 +1372,8 @@ Billing and Cost Management
 	-	🔸*Some services do cross-AZ traffic for free:* Many AWS services you'd not consider on their own merits offer a hidden value of free cross-AZ data transfer. EFS, RDS, MSK, and others are examples of this.  
 -	This figure gives an overview:  
   
-![AWS Data Transfer Costs](figures/aws-data-transfer-costs.png)  
   
-  
+![Pasted image 20230226163650.png](../attachments/Pasted%20image%2020230226163650.png)  
 ## EC2 Cost Management  
   
 -	With EC2, there is a trade-off between engineering effort (more analysis, more tools, more complex architectures) and spend rate on AWS. If your EC2 costs are small, many of the efforts here are not worth the engineering time required to make them work. But once you know your costs will be growing in excess of an engineer’s salary, serious investment is often worthwhile.  
