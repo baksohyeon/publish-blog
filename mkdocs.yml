@@ -77,7 +77,6 @@ markdown_extensions:
   - md_in_html
   - toc:
       permalink: true
-  - pymdownx.blocks.definition:
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences:
