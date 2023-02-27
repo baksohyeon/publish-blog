@@ -910,6 +910,7 @@ This section covers a few unusually useful or “must know about” resources or
 	- [Awesome Microservices](https://github.com/mfornos/awesome-microservices): A curated list of tools and technologies for microservice architectures. Worth browsing to learn about popular open source projects.  
 	- [Is it fast yet?](https://istlsfastyet.com/): Ilya Grigorik’s TLS performance overview  
 	- [High Performance Browser Networking](https://hpbn.co/): A full, modern book on web network performance; a presentation on the HTTP/2 portion is [here](https://docs.google.com/presentation/d/1r7QXGYOLCh4fcUq0jDdDwKJWNqWK1o4xMtYpKZCJYjM/edit?usp=sharing).  
+	- [Amazon Web Services 시작하기 | AWS](https://aws.amazon.com/ko/getting-started/?sc_icontent=awssm-evergreen-getting_started&sc_iplace=2up&trk=ha_awssm-evergreen-getting_started&sc_ichannel=ha&sc_icampaign=evergreen-getting_started)  
   
 # Getting Help and Support  
   
