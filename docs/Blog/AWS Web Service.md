@@ -1,21 +1,8 @@
 ---  
 category: Blog  
+title: AWS Web Service  
 share: true  
 ---  
-  
-# 참고 문서  
-> [!info]- 참고 문서  
-> - [Understanding Modern Cloud Architecture on AWS: A Concepts Series](https://start.jcolemorrison.com/understanding-modern-cloud-architecture-on-aws-a-concepts-series/)  
-> - [GitHub - open-guides/og-aws: 📙 Amazon Web Services — a practical guide](https://github.com/open-guides/og-aws#general-information)  
-> - [GitHub - keenanromain/AWS-SAA-C02-Study-Guide: How to become a certified AWS Solutions Architect](https://github.com/keenanromain/AWS-SAA-C02-Study-Guide)  
-> - [Amazon ECS Workshop :: Amazon ECS Workshop](https://ecsworkshop.com/)  
-> - [AWS ECS 살펴보기 | 비브로스 기술 블로그](https://boostbrothers.github.io/technology/2020/01/29/AWS-ECS-%EC%82%B4%ED%8E%B4%EB%B3%B4%EA%B8%B0/#:~:text=Cluster%E2%80%8B,%ED%81%B4%EB%9F%AC%EC%8A%A4%ED%84%B0%EB%9D%BC%EA%B3%A0%20%ED%95%A0%20%EC%88%98%20%EC%9E%88%EC%8A%B5%EB%8B%88%EB%8B%A4.)  
-> - [Understanding Modern Cloud Architecture on AWS: Docker and Containers](https://start.jcolemorrison.com/understanding-modern-cloud-architecture-on-aws-docker-and-containers/)  
-> - [[AWS] ECS란? – 교보정보통신 기술 블로그](https://blog.kico.co.kr/2022/03/25/aws-ecs%EB%9E%80/)  
-> - [[소개] Amazon ECS란? | NDS Cloud Tech Blog](https://tech.cloud.nongshim.co.kr/2021/08/30/%EC%86%8C%EA%B0%9C-amazon-ecs%EB%9E%80/)  
-> - [[AWS ECS] ECS(Elastic Container Service) 란?](https://wooono.tistory.com/133)  
-> - [How to Host your App on the Cloud with AWS Using a Multi-Cloud Strategy](https://jfrog.com/blog/5-steps-to-hosting-your-application-on-amazon-cloud-container-service/)  
-> - [An AWS Cloud architecture for web hosting - Web Application Hosting in the AWS Cloud](https://docs.aws.amazon.com/whitepapers/latest/web-application-hosting-best-practices/an-aws-cloud-architecture-for-web-hosting.html)  
   
   
 # Common Concepts  
@@ -246,7 +233,7 @@ EC2 인스턴스(서버라고도 함)를 만들고 내 컴퓨터에서와 마찬
   
   
 이 서버가 가동되면 애플리케이션을 서버에 올려놓을 수 있습니다.  
-- [EC2 가격](https://aws.amazon.com/ec2/pricing/)** 및 [비용 관리](AWS%20정리.md#ec2-cost-management)  
+- [EC2 가격](https://aws.amazon.com/ec2/pricing/)** 및 [비용 관리](AWS%20Web%20Service.md#ec2-cost-management)  
 	- 사용량에 따라 무료([AWS 무료 티어](https://aws.amazon.com/free/)에서)부터 매우 비싼 가격까지 다양합니다.   
 	- 가격은 인스턴스 유형, 초 또는 시간 단위로 책정되며, AWS 지역과 인스턴스를  [On-Demand](https://aws.amazon.com/ec2/pricing/on-demand/), [Spot market](https://aws.amazon.com/ec2/spot/) 또는 사전 구매([Reserved Instances](https://aws.amazon.com/ec2/pricing/reserved-instances/)로 구매하는지 여부에 따라 달라집니다.)  
   
@@ -434,9 +421,9 @@ Task를 올리기 위해 등록된 `EC2 instance` 를 `Container Instance` 라�
 컨테이너 인스턴스는 동일하거나 다른 서비스에서 많은 Task를 실행할 수 있습니다.  
    
 다음과 같은 과정이 통과된 인스턴스를 container instance라고 부릅니다.  
-1) ecs-agent를 설치   
-2) 클러스터에 묶이도록 설정   
-3) 정상적인 설정의 경우 클러스터에 묶임.   
+1. ecs-agent를 설치   
+2. 클러스터에 묶이도록 설정   
+3. 정상적인 설정의 경우 클러스터에 묶임.   
   
   
 ECS를 처음 시작하면 생성되는 Default Cluster 에는 Container instance를 자동으로 할당 시켜 주기도 하지만  
@@ -528,7 +515,7 @@ service 안에 있는 task 1개가 1 GiB 메모리를 사용한다고 가정하�
 # S3: Simple Storage Service  
 ---  
   
-### S3 Basics: 정적 파일 저장  
+## S3 Basics: 정적 파일 저장  
   
 - 📒 [Homepage](https://aws.amazon.com/s3/) ∙ [Developer guide](https://docs.aws.amazon.com/AmazonS3/latest/dev/Welcome.html) ∙ [FAQ](https://aws.amazon.com/s3/faqs/) ∙ [Pricing](https://aws.amazon.com/s3/pricing/)  
 - **S3** (Simple Storage Service) is AWS’ standard cloud storage service, offering file (opaque “blob”) storage of arbitrary numbers of files of almost any size, from 0 to **5TB**. (Prior to [2011](https://aws.amazon.com/releasenotes/Amazon-S3/1917932037969964) the maximum size was 5 GB; larger sizes are now well supported via [multipart support](https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html).)  
@@ -564,13 +551,13 @@ Elastic Load Balancing은 들어오는 애플리케이션 트래픽을 Amazon EC
 	     
   
 - **Life cycle**  
-	1. 브라우저가 DNS에 로드 밸런서의 IP 주소를 요청합니다.  
-	2. DNS가 IP를 제공합니다.  
-	3. IP를 받은 브라우저는 로드 밸런서에서 HTML 페이지에 대한 HTTP 요청을 합니다.  
-	4. AWS 경계 장치는 요청을 확인하고 확인한 후 LB에 전달합니다.  
-	5. LB는 HTTP 요청을 전달할 활성 웹서버를 찾습니다.  
-	6. 웹 서버는 요청된 HTML 파일을 반환합니다.  
-	7. 브라우저는 요청된 HTML 파일을 수신하여 화면에 그래픽으로 렌더링합니다.  
+	4. 브라우저가 DNS에 로드 밸런서의 IP 주소를 요청합니다.  
+	5. DNS가 IP를 제공합니다.  
+	6. IP를 받은 브라우저는 로드 밸런서에서 HTML 페이지에 대한 HTTP 요청을 합니다.  
+	7. AWS 경계 장치는 요청을 확인하고 확인한 후 LB에 전달합니다.  
+	8. LB는 HTTP 요청을 전달할 활성 웹서버를 찾습니다.  
+	9. 웹 서버는 요청된 HTML 파일을 반환합니다.  
+	10. 브라우저는 요청된 HTML 파일을 수신하여 화면에 그래픽으로 렌더링합니다.  
   
   
   
@@ -824,7 +811,7 @@ AWS Certificate Manager(ACM)를 사용하면 AWS 서비스 및 연결된 내부 
 	- One challenge with Ice is that it doesn’t cover amortized cost of reserved instances.  
 	- Other tools include [Security Monkey](https://github.com/Netflix/security_monkey) and [Cloud Custodian](https://github.com/capitalone/cloud-custodian).  
 	- Use [AWS Simple Monthly Calculator](https://calculator.s3.amazonaws.com/index.html) to get an estimate of usage charges for AWS services based on certain information you provide. Monthly charges will be based on your actual usage of AWS services, and may vary from the estimates the Calculator has provided.  
-- **Third-party services:** Several companies offer services designed to help you gain insights into expenses or lower your AWS bill, such as [Cloudability](https://www.cloudability.com/), [CloudHealth Technologies](https://www.cloudhealthtech.com/), and [ParkMyCloud](http://www.parkmycloud.com/). Some of these charge a percentage of your bill, which may be expensive. See the [market landscape](AWS%20정리.md#tools-and-services-market-landscape).  
+- **Third-party services:** Several companies offer services designed to help you gain insights into expenses or lower your AWS bill, such as [Cloudability](https://www.cloudability.com/), [CloudHealth Technologies](https://www.cloudhealthtech.com/), and [ParkMyCloud](http://www.parkmycloud.com/). Some of these charge a percentage of your bill, which may be expensive. See the [market landscape](AWS%20Web%20Service.md#tools-and-services-market-landscape).  
 - AWS’s [Trusted Advisor](https://aws.amazon.com/premiumsupport/trustedadvisor/) is another service that can help with cost concerns.  
 - Don’t be shy about asking your account manager for guidance in reducing your bill. It’s their job to keep you happily using AWS.  
 - **Tagging for cost visibility:** As the infrastructure grows, a key part of managing costs is understanding where they lie. It’s strongly advisable to [tag resources](https://aws.amazon.com/blogs/aws/resource-groups-and-tagging/), and as complexity grows, group them effectively. If you [set up billing allocation appropriately](http://aws.amazon.com/blogs/aws/aws-cost-allocation/), you can then get visibility into expenses according to organization, product, individual engineer, or any other way that is helpful.  
@@ -837,7 +824,7 @@ AWS Certificate Manager(ACM)를 사용하면 AWS 서비스 및 연결된 내부 
   
 - For deployments that involve significant network traffic, a large fraction of AWS expenses are around data transfer. Furthermore, costs of data transfer, within AZs, within regions, between regions, and into and out of AWS and the internet vary significantly depending on deployment choices.  
 - Some of the most common gotchas:  
-	- *AZ-to-AZ traffic:* Note EC2 traffic between AZs is effectively the same as between regions. For example, deploying a Cassandra cluster across AZs is helpful for [high availability](AWS%20정리.md#high-availability), but can hurt on network costs.  
+	- *AZ-to-AZ traffic:* Note EC2 traffic between AZs is effectively the same as between regions. For example, deploying a Cassandra cluster across AZs is helpful for [high availability](AWS%20Web%20Service.md#high-availability), but can hurt on network costs.  
 	- *Using public IPs when not necessary:* If you use an Elastic IP or public IP address of an EC2 instance, you will incur network costs, even if it is accessed locally within the AZ.  
 	- *Managed NAT Gateway data processing:* Managed NAT Gateways are used to let traffic egress from private subnets--at a cost of 4.5¢ as a data processing fee layered on top of data transfer pricing. Past a certain point, running your own NAT instances becomes far more cost effective.  
 	- *Some services do cross-AZ traffic for free:* Many AWS services you'd not consider on their own merits offer a hidden value of free cross-AZ data transfer. EFS, RDS, MSK, and others are examples of this.  
@@ -890,7 +877,7 @@ AWS Certificate Manager(ACM)를 사용하면 AWS 서비스 및 연결된 내부 
 	- 📜There have been scattered reports of Convertible RI purchases needing to be exercised in a block-- namely, if you buy five convertible RIs in one purchase, you can't convert just two of them. Reach out to your account manager for clarification if this may impact you.  
 - If you have multiple AWS accounts and have configured them to roll charges up to one account using the “Consolidated Billing” feature, you can expect *unused* Reserved Instance hours from one account to be applied to matching (region, availability zone, instance type) compute hours from another account.  
 - If you have multiple AWS accounts that are linked with Consolidated Billing, plan on using reservations, and want unused reservation capacity to be able to apply to compute hours from other accounts, you’ll need to create your instances in the availability zone with the same *name* across accounts. Keep in mind that when you have done this, your instances may not end up in the same *physical* data center across accounts - Amazon shuffles availability zones names across accounts in order to equalize resource utilization.  
-- Make use of dynamic [Auto Scaling](AWS%20정리.md#auto-scaling), where possible, in order to better match your cluster size (and cost) to the current resource requirements of your service.  
+- Make use of dynamic [Auto Scaling](AWS%20Web%20Service.md#auto-scaling), where possible, in order to better match your cluster size (and cost) to the current resource requirements of your service.  
 - If you use RHEL instances and happen to have existing RHEL on-premise Red Hat subscriptions, then you can leverage Red Hat's [Cloud Access program](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) to migrate a portion of your on-premise subscriptions to AWS, and thereby saving on AWS charges for RHEL subscriptions. You can either use your own self-created RHEL AMI's or Red Hat provided [Gold Images](https://access.redhat.com/articles/2962171) that will be added to your private AMI's once you sign up for Red Hat Cloud Access.  
   
 # Further Reading  
@@ -916,4 +903,21 @@ This section covers a few unusually useful or “must know about” resources or
   
 - **Forums:** For many problems, it’s worth searching or asking for help in the [discussion forums](https://forums.aws.amazon.com/index.jspa) to see if it’s a known issue.   
 - **Contact:** The main web contact point for AWS is [here](https://aws.amazon.com/contact-us/). Many technical requests can be made via these channels.  
-- **AWS Professional Services:** AWS provides [consulting services](https://aws.amazon.com/professional-services/) alone or in combination with partners.
+- **AWS Professional Services:** AWS provides [consulting services](https://aws.amazon.com/professional-services/) alone or in combination with partners.  
+  
+  
+  
+# 참고 문서  
+> [!info]- 참고 문서  
+> - [Understanding Modern Cloud Architecture on AWS: A Concepts Series](https://start.jcolemorrison.com/understanding-modern-cloud-architecture-on-aws-a-concepts-series/)  
+> - [GitHub - open-guides/og-aws: 📙 Amazon Web Services — a practical guide](https://github.com/open-guides/og-aws#general-information)  
+> - [GitHub - keenanromain/AWS-SAA-C02-Study-Guide: How to become a certified AWS Solutions Architect](https://github.com/keenanromain/AWS-SAA-C02-Study-Guide)  
+> - [Amazon ECS Workshop :: Amazon ECS Workshop](https://ecsworkshop.com/)  
+> - [AWS ECS 살펴보기 | 비브로스 기술 블로그](https://boostbrothers.github.io/technology/2020/01/29/AWS-ECS-%EC%82%B4%ED%8E%B4%EB%B3%B4%EA%B8%B0/#:~:text=Cluster%E2%80%8B,%ED%81%B4%EB%9F%AC%EC%8A%A4%ED%84%B0%EB%9D%BC%EA%B3%A0%20%ED%95%A0%20%EC%88%98%20%EC%9E%88%EC%8A%B5%EB%8B%88%EB%8B%A4.)  
+> - [Understanding Modern Cloud Architecture on AWS: Docker and Containers](https://start.jcolemorrison.com/understanding-modern-cloud-architecture-on-aws-docker-and-containers/)  
+> - [[AWS] ECS란? – 교보정보통신 기술 블로그](https://blog.kico.co.kr/2022/03/25/aws-ecs%EB%9E%80/)  
+> - [[소개] Amazon ECS란? | NDS Cloud Tech Blog](https://tech.cloud.nongshim.co.kr/2021/08/30/%EC%86%8C%EA%B0%9C-amazon-ecs%EB%9E%80/)  
+> - [[AWS ECS] ECS(Elastic Container Service) 란?](https://wooono.tistory.com/133)  
+> - [How to Host your App on the Cloud with AWS Using a Multi-Cloud Strategy](https://jfrog.com/blog/5-steps-to-hosting-your-application-on-amazon-cloud-container-service/)  
+> - [An AWS Cloud architecture for web hosting - Web Application Hosting in the AWS Cloud](https://docs.aws.amazon.com/whitepapers/latest/web-application-hosting-best-practices/an-aws-cloud-architecture-for-web-hosting.html)  
+  
