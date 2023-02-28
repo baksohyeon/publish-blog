@@ -6,7 +6,7 @@ date created: Wednesday, January 25th 2023, 2:44:00 pm
 date modified: Wednesday, January 25th 2023, 7:57:03 pm  
 ---  
   
-  
+[Using lint-staged, husky, and pre-commit hooks to fail fast and early | by Dominic Fraser | codeburst](https://codeburst.io/continuous-integration-lint-staged-husky-pre-commit-hook-test-setup-47f8172924fc)  
 ## husky   
 [Husky - Git hooks 문서](https://typicode.github.io/husky/#/)  
   
