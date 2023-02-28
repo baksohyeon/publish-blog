@@ -16,8 +16,7 @@ share: true
 - 각 서비스에는 각 지역에 대한 API 엔드포인트가 있습니다. 엔드포인트는 서비스마다 다르며  [해당 tables](https://docs.aws.amazon.com/general/latest/gr/rande.html)에 나열된 것처럼 각 지역에서 모든 서비스를 사용할 수 있는 것은 아닙니다.  
 - [**Amazon Resource Names (ARNs)**](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) 은 리소스를 식별하기 위한 특수 형식의 식별자입니다. `arn:`로 시작하며 특히 IAM 정책에 사용됩니다.  
   
-  
-  
+[https://ap-northeast-1.console.aws.amazon.com/cloud9/ide/993cbcca9e1643cebdc0ca262b7092e6?region=us-west-2#](https://ap-northeast-1.console.aws.amazon.com/cloud9/ide/993cbcca9e1643cebdc0ca262b7092e6?region=us-west-2#)  
 ## 제한 및 기타 참고 사항  
   
 - 아마존의 많은 리소스에는 [**한도**](http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html)가 설정되어 있습니다.   
@@ -48,10 +47,14 @@ share: true
   
   
 # AWS의 핵심 기능  
-1. [infrastructure-as-a-service](https://en.wikipedia.org/wiki/Cloud_computing#Infrastructure_as_a_service_.28IaaS.29) (IaaS), 가상 머신과 인프라 지원  
-2. [platform-as-a-service](https://en.wikipedia.org/wiki/Cloud_computing#Platform_as_a_service_.28PaaS.29) (PaaS): 고객의 애플리케이션을 배포하는 완전 관리형 서비스  
-3. [software-as-a-service](https://en.wikipedia.org/wiki/Cloud_computing#Software_as_a_service_.28SaaS.29) (SaaS): 클라우드 기반 애플리케이션  
+- [infrastructure-as-a-service](https://en.wikipedia.org/wiki/Cloud_computing#Infrastructure_as_a_service_.28IaaS.29) (IaaS): <font style="color:#8A9A5B">가상 머신과 인프라 지원</font>  
+: 서비스형 인프라(IaaS)에는 클라우드 IT의 기본 구성 요소가 포함되어 있으며, 일반적으로 네트워킹 기능, 컴퓨터(가상 또는 전용 하드웨어), 데이터 저장 공간에 대한 액세스를 제공합니다. IaaS는 IT 리소스에 대한 최고 수준의 유연성과 관리 제어를 제공하며, 오늘날 많은 개발자에게 익숙한 기존 IT 리소스와 가장 유사합니다.  
   
+- [platform-as-a-service](https://en.wikipedia.org/wiki/Cloud_computing#Platform_as_a_service_.28PaaS.29) (PaaS): <font style="color:#8A9A5B">고객의 애플리케이션을 배포하는 완전 관리형 서비스</font>  
+: 서비스형 플랫폼(PaaS)을 사용하면 기본 인프라(일반적으로 하드웨어 및 운영 체제)를 관리할 필요가 없으므로 애플리케이션 배포 및 관리에만 집중할 수 있습니다. 리소스 조달, 용량 계획, 소프트웨어 유지 관리, 패치 또는 애플리케이션 실행과 관련된 기타 차별화되지 않은 과중한 작업에 대해 걱정할 필요가 없으므로 효율성을 높일 수 있습니다.  
+  
+- [software-as-a-service](https://en.wikipedia.org/wiki/Cloud_computing#Software_as_a_service_.28SaaS.29) (SaaS): <font style="color:#8A9A5B">클라우드 기반 애플리케이션</font>  
+: 서비스형 소프트웨어(SaaS)는 서비스 제공업체가 실행하고 관리하는 완성된 제품을 제공합니다. 대부분의 경우 SaaS를 언급하는 사람들은 최종 사용자 애플리케이션을 의미합니다. SaaS 제품을 사용하면 서비스가 유지되는 방식이나 기본 인프라가 관리되는 방식에 대해 생각할 필요 없이 해당 소프트웨어를 어떻게 사용할 것인지만 생각하면 됩니다. SaaS 애플리케이션의 일반적인 예로는 이메일 제품에 추가되는 기능을 관리하거나 이메일 프로그램이 실행되는 서버 및 운영 체제를 유지 관리할 필요 없이 이메일을 주고받는 데 사용할 수 있는 웹 기반 이메일을 들 수 있습니다.  
   
 ## 웹 어플리케이션 아키텍처  
   
@@ -550,14 +553,15 @@ Elastic Load Balancing은 들어오는 애플리케이션 트래픽을 Amazon EC
 	   클래식 LB는 레거시 ELB 제품이며 HTTP(S) 또는 TCP 중 하나에서 균형을 맞추지만 둘 다는 아닙니다. 가장 오래된 LB이긴 하지만, 여전히 스티키 세션과 X-Forwarded-For 헤더와 같은 기능을 지원합니다.  
 	     
   
+  
 - **Life cycle**  
-	4. 브라우저가 DNS에 로드 밸런서의 IP 주소를 요청합니다.  
-	5. DNS가 IP를 제공합니다.  
-	6. IP를 받은 브라우저는 로드 밸런서에서 HTML 페이지에 대한 HTTP 요청을 합니다.  
-	7. AWS 경계 장치는 요청을 확인하고 확인한 후 LB에 전달합니다.  
-	8. LB는 HTTP 요청을 전달할 활성 웹서버를 찾습니다.  
-	9. 웹 서버는 요청된 HTML 파일을 반환합니다.  
-	10. 브라우저는 요청된 HTML 파일을 수신하여 화면에 그래픽으로 렌더링합니다.  
+	1. 브라우저가 DNS에 로드 밸런서의 IP 주소를 요청합니다.  
+	2. DNS가 IP를 제공합니다.  
+	3. IP를 받은 브라우저는 로드 밸런서에서 HTML 페이지에 대한 HTTP 요청을 합니다.  
+	4. AWS 경계 장치는 요청을 확인하고 확인한 후 LB에 전달합니다.  
+	5. LB는 HTTP 요청을 전달할 활성 웹서버를 찾습니다.  
+	6. 웹 서버는 요청된 HTML 파일을 반환합니다.  
+	7. 브라우저는 요청된 HTML 파일을 수신하여 화면에 그래픽으로 렌더링합니다.  
   
   
   
