@@ -363,8 +363,8 @@ namespace 분리로 컨테이너 환경 안에서 호스트의 프로세스 목�
 해당 Task 내의 도커 컨테이너는 Cluster에 속한 `ECS Container Instance` 내에 실행되도록 보장 받습니다.   
 Task는 여러 Container Instance (EC2 Instance) 에 배포가능합니다.  
   
-Task는 Cluster에 속한 Container instance(EC2 Instance)에 배포되게 된다.  
-또한, Task는 여러 Container instance(EC2 Instace)에 배포 가능하다.  
+Task는 Cluster에 속한 Container instance(EC2 Instance)에 배포되게 됩니다.  
+또한, Task는 여러 Container instance(EC2 Instace)에 배포 가능합니다.  
   
   
 **Task를 실행하는 방식**  
@@ -375,8 +375,8 @@ Task는 Cluster에 속한 Container instance(EC2 Instance)에 배포되게 된�
 	    모든 컨테이너 인스턴스에 해당하는 태스크가 하나씩 실행됨. 이것은 인스턴스 관리를 위한 용도로 사용됨. 클러스터 내의 모든 ECS 인스턴스에 무조건 하나씩 실행되는 방식입니다.  
 	 2. 리플리카(Replica) 타입  
 	    서비스에 정의된 작업 개수 및 AutoScale 설정에 따라 클러스터 인스턴스에 Task가 복제하여 실행하는 방식  
-	    실행하려는 태스크의 개수를 지정하여, 이 개수만큼 실행되도록 자동 관리해줌.   
-	    웹서버를 비롯한 실제 서비스에서 주로 사용됨.   
+	    실행하려는 태스크의 개수를 지정하여, 이 개수만큼 실행되도록 자동 관리해줍니다.  
+	    웹서버를 비롯한 실제 서비스에서 주로 사용됩니다.  
   
  ![Pasted image 20230227180148.png](../attachments/Pasted%20image%2020230227180148.png)  
 A simple comparison (not entirely correct but should give you an idea)  
@@ -763,19 +763,19 @@ Amazon Route 53는 가용성과 확장성이 뛰어난 도메인 이름 시스�
 ![Pasted image 20230227102638.png](../attachments/Pasted%20image%2020230227102638.png)  
   
 - 📒 [Homepage](https://aws.amazon.com/vpc/) ∙ [User guide](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide) ∙ [FAQ](https://aws.amazon.com/vpc/faqs/) ∙ [Security groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html) ∙ [Pricing](https://aws.amazon.com/vpc/pricing/)  
+- Amazon Virtual Private Cloud(Amazon VPC)를 사용하면 리소스 배치, 연결 및 보안을 포함하여 가상 네트워킹 환경을 완전히 제어할 수 있습니다. AWS 서비스 콘솔에서 VPC를 설정하여 시작하십시오. 그런 다음 Amazon Elastic Compute Cloud(EC2) 및 Amazon Relational Database Service(RDS) 인스턴스와 같은 리소스를 VPC에 추가합니다. 마지막으로 VPC가 계정, 가용 영역 또는 AWS 리전에서 서로 통신하는 방법을 정의합니다.  
 - **VPC** (Virtual Private Cloud) is the virtualized networking layer of your AWS systems.  
 - VPC를 사용하면 정의한 가상 네트워크 내에서 서비스 및 시스템을 시작할 수 있는 논리적으로 격리된 AWS 클라우드 섹션을 프로비저닝할 수 있습니다. 어떤 AWS 리소스를 공개할지, 어떤 리소스를 공개하지 않을지 선택할 수 있는 옵션이 있기 때문에 VPC는 보안을 훨씬 더 세밀하게 제어할 수 있습니다.  
 - Most AWS users should have a basic understanding of VPC concepts, but few need to get into all the details. VPC configurations can be trivial or extremely complex, depending on the extent of your network and security needs.  
 - All modern AWS accounts (those created [after 2013-12-04](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-vpc.html)) are “EC2-VPC” accounts that support VPCs, and all instances will be in a default VPC. Older accounts may still be using “EC2-Classic” mode. Some features don’t work without VPCs, so you probably will want to [migrate](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html).  
 ![Pasted image 20230227102626.png](../attachments/Pasted%20image%2020230227102626.png)  
-다음과 같은 용도로 사용하세요.  
+  
 모든 AWS 서비스가 훨씬 더 큰 네트워크의 작은 조각이 아니라 동일한 작은 네트워크에 있는 것처럼 보이게 합니다.  
   
 공유기 같은 것  
 추가 참고 [AWS VPC Core Concepts in an Analogy and Guide](https://start.jcolemorrison.com/aws-vpc-core-concepts-analogy-guide/)  
   
   
-Amazon Virtual Private Cloud(Amazon VPC)를 사용하면 리소스 배치, 연결 및 보안을 포함하여 가상 네트워킹 환경을 완전히 제어할 수 있습니다. AWS 서비스 콘솔에서 VPC를 설정하여 시작하십시오. 그런 다음 Amazon Elastic Compute Cloud(EC2) 및 Amazon Relational Database Service(RDS) 인스턴스와 같은 리소스를 VPC에 추가합니다. 마지막으로 VPC가 계정, 가용 영역 또는 AWS 리전에서 서로 통신하는 방법을 정의합니다.  
   
   
   
