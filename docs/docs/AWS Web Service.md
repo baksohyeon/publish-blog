@@ -236,7 +236,7 @@ EC2 인스턴스(서버라고도 함)를 만들고 내 컴퓨터에서와 마찬
   
   
 이 서버가 가동되면 애플리케이션을 서버에 올려놓을 수 있습니다.  
-- [EC2 가격](https://aws.amazon.com/ec2/pricing/)** 및 [비용 관리](AWS%20정리.md#ec2-cost-management)  
+- [EC2 가격](https://aws.amazon.com/ec2/pricing/)** 및 [비용 관리](AWS%20Web%20Service.md#ec2-cost-management)  
 	- 사용량에 따라 무료([AWS 무료 티어](https://aws.amazon.com/free/)에서)부터 매우 비싼 가격까지 다양합니다.   
 	- 가격은 인스턴스 유형, 초 또는 시간 단위로 책정되며, AWS 지역과 인스턴스를  [On-Demand](https://aws.amazon.com/ec2/pricing/on-demand/), [Spot market](https://aws.amazon.com/ec2/spot/) 또는 사전 구매([Reserved Instances](https://aws.amazon.com/ec2/pricing/reserved-instances/)로 구매하는지 여부에 따라 달라집니다.)  
   
@@ -815,7 +815,7 @@ AWS Certificate Manager(ACM)를 사용하면 AWS 서비스 및 연결된 내부 
 	- One challenge with Ice is that it doesn’t cover amortized cost of reserved instances.  
 	- Other tools include [Security Monkey](https://github.com/Netflix/security_monkey) and [Cloud Custodian](https://github.com/capitalone/cloud-custodian).  
 	- Use [AWS Simple Monthly Calculator](https://calculator.s3.amazonaws.com/index.html) to get an estimate of usage charges for AWS services based on certain information you provide. Monthly charges will be based on your actual usage of AWS services, and may vary from the estimates the Calculator has provided.  
-- **Third-party services:** Several companies offer services designed to help you gain insights into expenses or lower your AWS bill, such as [Cloudability](https://www.cloudability.com/), [CloudHealth Technologies](https://www.cloudhealthtech.com/), and [ParkMyCloud](http://www.parkmycloud.com/). Some of these charge a percentage of your bill, which may be expensive. See the [market landscape](AWS%20정리.md#tools-and-services-market-landscape).  
+- **Third-party services:** Several companies offer services designed to help you gain insights into expenses or lower your AWS bill, such as [Cloudability](https://www.cloudability.com/), [CloudHealth Technologies](https://www.cloudhealthtech.com/), and [ParkMyCloud](http://www.parkmycloud.com/). Some of these charge a percentage of your bill, which may be expensive. See the [market landscape](AWS%20Web%20Service.md#tools-and-services-market-landscape).  
 - AWS’s [Trusted Advisor](https://aws.amazon.com/premiumsupport/trustedadvisor/) is another service that can help with cost concerns.  
 - Don’t be shy about asking your account manager for guidance in reducing your bill. It’s their job to keep you happily using AWS.  
 - **Tagging for cost visibility:** As the infrastructure grows, a key part of managing costs is understanding where they lie. It’s strongly advisable to [tag resources](https://aws.amazon.com/blogs/aws/resource-groups-and-tagging/), and as complexity grows, group them effectively. If you [set up billing allocation appropriately](http://aws.amazon.com/blogs/aws/aws-cost-allocation/), you can then get visibility into expenses according to organization, product, individual engineer, or any other way that is helpful.  
@@ -828,7 +828,7 @@ AWS Certificate Manager(ACM)를 사용하면 AWS 서비스 및 연결된 내부 
   
 - For deployments that involve significant network traffic, a large fraction of AWS expenses are around data transfer. Furthermore, costs of data transfer, within AZs, within regions, between regions, and into and out of AWS and the internet vary significantly depending on deployment choices.  
 - Some of the most common gotchas:  
-	- *AZ-to-AZ traffic:* Note EC2 traffic between AZs is effectively the same as between regions. For example, deploying a Cassandra cluster across AZs is helpful for [high availability](AWS%20정리.md#high-availability), but can hurt on network costs.  
+	- *AZ-to-AZ traffic:* Note EC2 traffic between AZs is effectively the same as between regions. For example, deploying a Cassandra cluster across AZs is helpful for [high availability](AWS%20Web%20Service.md#high-availability), but can hurt on network costs.  
 	- *Using public IPs when not necessary:* If you use an Elastic IP or public IP address of an EC2 instance, you will incur network costs, even if it is accessed locally within the AZ.  
 	- *Managed NAT Gateway data processing:* Managed NAT Gateways are used to let traffic egress from private subnets--at a cost of 4.5¢ as a data processing fee layered on top of data transfer pricing. Past a certain point, running your own NAT instances becomes far more cost effective.  
 	- *Some services do cross-AZ traffic for free:* Many AWS services you'd not consider on their own merits offer a hidden value of free cross-AZ data transfer. EFS, RDS, MSK, and others are examples of this.  
@@ -881,7 +881,7 @@ AWS Certificate Manager(ACM)를 사용하면 AWS 서비스 및 연결된 내부 
 	- 📜There have been scattered reports of Convertible RI purchases needing to be exercised in a block-- namely, if you buy five convertible RIs in one purchase, you can't convert just two of them. Reach out to your account manager for clarification if this may impact you.  
 - If you have multiple AWS accounts and have configured them to roll charges up to one account using the “Consolidated Billing” feature, you can expect *unused* Reserved Instance hours from one account to be applied to matching (region, availability zone, instance type) compute hours from another account.  
 - If you have multiple AWS accounts that are linked with Consolidated Billing, plan on using reservations, and want unused reservation capacity to be able to apply to compute hours from other accounts, you’ll need to create your instances in the availability zone with the same *name* across accounts. Keep in mind that when you have done this, your instances may not end up in the same *physical* data center across accounts - Amazon shuffles availability zones names across accounts in order to equalize resource utilization.  
-- Make use of dynamic [Auto Scaling](AWS%20정리.md#auto-scaling), where possible, in order to better match your cluster size (and cost) to the current resource requirements of your service.  
+- Make use of dynamic [Auto Scaling](AWS%20Web%20Service.md#auto-scaling), where possible, in order to better match your cluster size (and cost) to the current resource requirements of your service.  
 - If you use RHEL instances and happen to have existing RHEL on-premise Red Hat subscriptions, then you can leverage Red Hat's [Cloud Access program](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) to migrate a portion of your on-premise subscriptions to AWS, and thereby saving on AWS charges for RHEL subscriptions. You can either use your own self-created RHEL AMI's or Red Hat provided [Gold Images](https://access.redhat.com/articles/2962171) that will be added to your private AMI's once you sign up for Red Hat Cloud Access.  
   
 # Further Reading  
