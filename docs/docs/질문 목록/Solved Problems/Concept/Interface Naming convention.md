@@ -1,10 +1,7 @@
 ---  
 category: 질문 목록/Solved Problems/Concept  
 share: true  
-date created: Saturday, November 19th 2022, 6:46:40 pm  
-date modified: Wednesday, January 25th 2023, 5:24:20 pm  
 title: Interface Naming convention  
-tags: [1, 2, 3]  
 ---  
   
 # Interface Naming convention  
