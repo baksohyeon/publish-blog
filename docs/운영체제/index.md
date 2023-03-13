@@ -4,4 +4,3 @@ share: true
 hidden: True  
 template: blog.html  
 ---  
-# index  
