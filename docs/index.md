@@ -18,12 +18,17 @@ hide:
   
 # Welcome  
   
+>[!info] 공지  
+>아직 미완성 상태의 블로그입니다.  
+  
+  
+  
 ::: row  
   
 	::: col  
 		## 소개  
-		> Dorito's Personal Knowledge Management  
-		> (ﾉ ◕ ヮ ◕)ﾉ\*:・ﾟ ✧  
+		Dorito's Personal Knowledge Management  
+		(ﾉ ◕ ヮ ◕)ﾉ\*:・ﾟ ✧  
   
   
 	::: col  
@@ -39,7 +44,7 @@ hide:
   
         cs 공부 관련 정리  
   
-        [Read Blog](https://dorito.netlify.app/blog/#page1){.md-button}  
+        [Read Blog](https://dorito.netlify.app/blog/blog/#page1){.md-button}  
   
     ::: col  
   
