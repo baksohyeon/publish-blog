@@ -1,18 +1,43 @@
-function UrlExists(url, type) {
-  let ref = type === 0 ? url.href : url.src;
-  let title = type === 0 ? url.title : url.alt;
-
-  ref = decodeURI(ref)
-    .replace(/index$/, "")
-    .replace(/.md$/, "")
-    .replace(/%5C/g, "/");
-  title = title.length === 0 ? url.innerText : title;
-
-  if (type === 0) {
+//patch a href attributes
+const header_links = document.querySelectorAll('a[href*="#"]');
+if (header_links) {
+  for (var i = 0; i < header_links.length; i++) {
+    const header = header_links[i].getAttribute("href").replace("^.*#", "");
+    //replace " " with "-"
+    let header_fix = header.replace(/\s/g, "-");
+    //replace any accent with the corresponding letter
+    header_fix = header.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    header_links[i].setAttribute(
+      "href",
+      header_links[i].getAttribute("href").replace(header, header_fix)
+    );
+  }
+}
+function UrlExists(url, type_url) {
+  let ref = "";
+  let title = "";
+  if (type_url === 0) {
+    ref = url.href;
+    title = url.title;
+  } else if (type_url === 1) {
+    ref = url.src;
+    title = url.alt;
+  }
+  if (ref.match(/index$/)) {
+    ref = ref.replace(/index$/, "");
+  }
+  if (ref.includes("%5C")) {
+    ref = ref.replace(/%5C/g, "/");
+  }
+  ref = decodeURI(ref);
+  if (type_url === 0) {
     url.href = ref;
     url.title = title;
-    if (new URL(ref).hostname !== location.hostname) return;
-  } else if (type === 1) {
+    if (title.length === 0) {
+      title = url.innerText;
+      url.title = title;
+    }
+  } else if (type_url === 1) {
     url.src = ref;
     url.alt = title;
   }
@@ -20,7 +45,7 @@ function UrlExists(url, type) {
   var http = new XMLHttpRequest();
   http.open("GET", ref, true);
   http.onload = function (e) {
-    if (http.status === 404) {
+    if (http.status == "404") {
       const newItem = document.createElement("div");
       newItem.innerHTML = title;
       newItem.classList.add("not_found");
@@ -35,18 +60,6 @@ function UrlExists(url, type) {
     }
   };
   http.send();
-}
-
-/* open external links in new tab */
-var links = document.links;
-for (var i = 0, linksLength = links.length; i < linksLength; i++) {
-  if (links[i].hostname != window.location.hostname) {
-    links[i].target = "_blank";
-    links[i].setAttribute("rel", "noopener noreferrer");
-    links[i].className += " externalLink";
-  } else {
-    links[i].className += " localLink";
-  }
 }
 
 function getHeightWidth(alt) {
@@ -64,7 +77,7 @@ function getHeightWidth(alt) {
   }
 }
 
-// const p_search = /\.{2}\//gi;
+var p_search = /\.{2}\//gi;
 const not_found = [];
 var ht = document.querySelectorAll("a:not(img)");
 for (var i = 0; i < ht.length; i++) {
@@ -76,34 +89,24 @@ for (var i = 0; i < ht.length; i++) {
   }
 }
 
-const glightboxes = document.querySelectorAll(".glightbox");
-for (let i = 0; i < glightboxes.length; i++) {
-  const href = glightboxes[i].getAttribute("href");
-  const decodedHref = decodeURI(href);
-  glightboxes[i].setAttribute("href", decodedHref);
-}
-
-const imgs = document.querySelectorAll("img");
-
-imgs.forEach((img) => {
-  const encodedSrc = img.getAttribute("src");
-  const decodedSrc = decodeURIComponent(encodedSrc);
-  img.setAttribute("src", decodedSrc);
-});
-
-for (let i = 0; i < imgs.length; i++) {
-  if (imgs[i].alt.match(/\|/)) {
-    const alt = imgs[i].alt.split("|");
-    for (let part of alt) {
-      if (part.match(/\d+/g)) {
-        const size = getHeightWidth(part);
-        imgs[i].width = size[0] > 0 ? size[0] : imgs[i].width;
-        imgs[i].height = size[1] > 0 ? size[1] : imgs[i].height;
-        imgs[i].alt = imgs[i].alt.replace(new RegExp(`\\${part}`), "");
+var p_img = /\.+\\/gi;
+var img = document.querySelectorAll("img");
+for (var i = 0; i < img.length; i++) {
+  var regAlt = new RegExp("\\|");
+  // image can only be rized with the `|*x*` syntax
+  if (img[i].alt.match(regAlt)) {
+    const alt = img[i].alt.split("|");
+    for (var part of alt) {
+      if (part.match(new RegExp("\\d+", "g"))) {
+        var size = getHeightWidth(part);
+        img[i].width = size[0] > 0 ? size[0] : img[i].width;
+        img[i].height = size[1] > 0 ? size[1] : img[i].height;
+        var partReg = new RegExp(`\\${part}`);
+        img[i].alt = img[i].alt.replace(partReg, "");
       }
     }
   }
-  UrlExists(imgs[i], 1);
+  var link = UrlExists(img[i], 1);
 }
 
 var ht = document.querySelectorAll(
@@ -121,7 +124,7 @@ document.innerHTML = ht;
 var cite = document.querySelectorAll(".citation");
 if (cite) {
   for (var i = 0; i < cite.length; i++) {
-    const img = cite[i].innerHTML.match(/!?(\[{2}|\[).*(\]{2}|\))/gi);
+    var img = cite[i].innerHTML.match(/!?(\[{2}|\[).*(\]{2}|\))/gi);
     if (img) {
       for (var j = 0; j < img.length; j++) {
         cite[i].innerHTML = cite[i].innerHTML.replace(img[j], "");

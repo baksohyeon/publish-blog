@@ -4,11 +4,11 @@
   max-width: 61rem;
 }
 
-.md-typeset .grid:not(.admonition) {
+.md-typeset .grid {
   grid-gap: 0.4rem;
   display: grid;
-  margin: 1em 0;
   grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  margin: 1em 0;
 }
 
 .md-typeset .grid.cards > :-webkit-any(ul, ol) {
