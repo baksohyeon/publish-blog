@@ -1,8 +1,11 @@
 ---  
 category: Project/Testing  
 share: true  
+title: Making Test Code at Controller Layer  
 ---  
-# # [what is getRepositoryToken in nestjs typeorm and when to use it?](https://stackoverflow.com/questions/65570680/what-is-getrepositorytoken-in-nestjs-typeorm-and-when-to-use-it)  
+  
+# Making Test Code at Controller Layer  
+[what is getRepositoryToken in nestjs typeorm and when to use it?](https://stackoverflow.com/questions/65570680/what-is-getrepositorytoken-in-nestjs-typeorm-and-when-to-use-it)  
 [ ] [Database | NestJS - A progressive Node.js framework](https://docs.nestjs.com/techniques/database#testing) 문서  
   
   
