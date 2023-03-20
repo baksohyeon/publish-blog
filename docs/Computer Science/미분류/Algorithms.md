@@ -1,9 +1,7 @@
 ---  
 category: Blog/Computer Science  
 share: true  
-title: Algorithms  
-date created: Monday, January 16th 2023, 3:20:49 pm  
-date modified: Friday, January 27th 2023, 1:19:03 pm  
+title: Algorithm  
 ---  
 # Binary Search  
 - [금과 은 운반하기](https://school.programmers.co.kr/learn/courses/30/lessons/86053#)  
@@ -101,7 +99,7 @@ const solution = (
   
   
 - 4번 성립하는 이유 증명  
-![Pasted image 20230116121553.png](../attachments/Pasted%20image%2020230116121553.png)  
+![Pasted image 20230116121553.png](../../attachments/Pasted%20image%2020230116121553.png)  
   
   
   

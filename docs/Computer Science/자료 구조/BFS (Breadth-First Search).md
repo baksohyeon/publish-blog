@@ -1,9 +1,7 @@
 ---  
-category: Blog/Computer Science/Data Structure  
+category: Computer Science/자료구조  
 share: true  
 title: BFS (Breadth-First Search)  
-date created: Monday, January 16th 2023, 3:20:49 pm  
-date modified: Friday, January 27th 2023, 10:21:32 pm  
 ---  
 # Basic Concept  
 ![Pasted image 20230110111557.png](../../attachments/Pasted%20image%2020230110111557.png)  

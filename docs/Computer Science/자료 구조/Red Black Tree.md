@@ -1,8 +1,6 @@
 ---  
-category: Blog/Computer Science/Data Structure  
+category: Computer Science/자료구조  
 share: true  
-date created: Monday, January 16th 2023, 3:20:49 pm  
-date modified: Wednesday, January 18th 2023, 5:01:30 pm  
 ---  
   
 ### Red / black tree  
