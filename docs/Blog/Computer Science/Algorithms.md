@@ -99,7 +99,7 @@ const solution = (
 
 
 - 4번 성립하는 이유 증명
-![[Pasted image 20230116121553.png]]
+![Pasted image 20230116121553.png](../../Attachments/Pasted%20image%2020230116121553.png)
 
 
 
