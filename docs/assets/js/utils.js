@@ -59,6 +59,7 @@ function UrlExists(url, type_url) {
       return true;
     }
   };
+  if (new URL(ref).hostname !== location.hostname) return;
   http.send();
 }
 
