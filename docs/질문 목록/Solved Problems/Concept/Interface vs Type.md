@@ -227,4 +227,6 @@ intersection 타입 같은 경우에는 더 이상 객체라고 볼 수 없는�
   
 [[Typescript] Differences Between Type Aliases and Interfaces, Type과 Interface 차이점 | Qvil Blog](https://blog.qvil.dev/typescript/differences-between-type-aliases-and-interfaces)  
   
-![Pasted image 20230118101334.png](../../../attachments/Pasted%20image%2020230118101334.png)  
+![Pasted image 20230118101334.png](../../../attachments/Pasted%20image%2020230118101334.png#)  
+  
+함수가 interface 에 안들어감
