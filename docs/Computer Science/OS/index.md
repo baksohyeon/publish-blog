@@ -1,9 +1,7 @@
 ---  
-category: Computer Science/OS/가상화  
+category: Computer Science/OS  
 share: true  
 hidden: True  
 title: Operation System  
 template: blog.html  
-extra:  
-    blog_list  
 ---  
