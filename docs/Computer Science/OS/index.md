@@ -1,8 +1,8 @@
 ---  
-category: Computer Science  
+category: Computer Science/OS  
 share: true  
 hidden: True  
-title: Blog  
+title: Operation System  
 extra:  
     blog_list  
 ---  
