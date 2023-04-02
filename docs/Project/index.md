@@ -2,6 +2,6 @@
 category: Project  
 share: true  
 hidden: True  
-title: Blog  
+title: Project  
 template: blog.html  
 ---  
