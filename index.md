@@ -1,25 +1,71 @@
 ---
-category: 질문 목록
 share: true
+template: main.html
+hide:
+  - navigation
+  - toc
 ---
 
-# 질문 잘하는 법
+<style>
+    .md-typeset .cover {
+        display: none;
+    }
+    .md-typeset .cover + hr {
+        display: none;
+    }
+</style>
 
-![[스크린샷 2022-11-09 오후 5.44.51.png]]
 
-1. 에러가 났을 때 해결을 하는 게 중요한 게 아니다.
-   어디서 힌트를 얻은 것이고 어떻게 해결한 건지 그걸 알아야 함.
-   그렇지 못한 질문은 무의미한 질문이다.
-2. 에러 메시지를 올리기 전에 반드시 스스로 번역을 해야 한다.
-   에러 메시지가 에러 해결 단서의 90%를 차지한다.
-   한글로 번역만 해도 대부분 풀림.
-3. 에러 메시지를 잘라서 올리지 않아야 한다.
-   입문자일수록 에러메시지에서 어떤 부분이 가장 중요한 부분인지 모른다.
-   그러니 통째로 올리자.
+# Welcome
 
-   1. "가장" 의심스럽다고 생각하는 코드를 올리기.
-      코드 전체를 다 올리거나, 깃헙 주소만 띡 던지면 안됨.
+>[!info] 공지
+>아직 미완성 상태의 블로그입니다.
 
-4. 위에 적은 내용을 명심하지 않으면 실력이 늘지 않음.
 
-by 제로초
+
+::: row
+
+	::: col
+		## 소개
+		Dorito's Personal Knowledge Management
+		(ﾉ ◕ ヮ ◕)ﾉ\*:・ﾟ ✧
+
+
+	::: col
+	
+---
+
+
+::: row
+
+    ::: col
+
+        ## :material-book: Blog
+
+        cs 공부 관련 정리
+
+        [Read Blog](https://dorito.netlify.app/blog/blog/#page1){.md-button}
+
+    ::: col
+
+        ## :material-file-code: 프로젝트
+
+        자잘구레 정보들 (업데이트 예정)
+
+        [See projects](https://dorito.netlify.app/%EC%9E%A1%EB%8F%99%EC%82%AC%EB%8B%88%20%F0%9F%A7%B8/#page1){.md-button}
+
+## :material-github: GitHub Stats
+
+::: row
+
+    ::: col
+
+
+        ![](https://github-readme-stats.vercel.app/api?username=baksohyeon&count_private=true&show_icons=true&hide_border=true&hide_title=true)
+
+    ::: col
+
+        ![](https://github-readme-stats.vercel.app/api/top-langs/?username=baksohyeon&layout=compact&langs_count=8&hide=html,autoit&hide_border=true&hide_title=true)
+
+
+
