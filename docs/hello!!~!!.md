@@ -7,4 +7,6 @@ text
 text  
   
   asdf  
-asdf
+asdf  
+  
+endsWith
