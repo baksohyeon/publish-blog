@@ -54,7 +54,7 @@ Now if you want to reuse the old data, you don't need to query your database and
 리프레시 토큰 7일로 잡아놔서   
 블랙리스트 vs 화이트리스트가 기준이 둘 중 어떤게 크기가 더 작을 것이냐!   
 블랙리스트가 크기가 커지는 경우는 "수명이 다하기 전에 비활성화된 토큰의 수가 수명이 남아 있는 활성 토큰의 수보다 많은 경우"고  
-화이트리스트는 정확히 그 반대인데 7일 정도면 블랙리스트 쪽이 크기가 훨씬 작을듯! ^e34c97  
+화이트리스트는 정확히 그 반대인데 7일 정도면 블랙리스트 쪽이 크기가 훨씬 작을 것 같음! ^e34c97  
   
 ## 기존 코드  
 - google.strategy.ts  
@@ -231,7 +231,7 @@ refresh 토큰을 더 낫게 사용하는 방법에 대해서 구글링해보았
 ▪ 쉽게 생각하면 채팅  
 ▪ 특정 클라이언트가 Redis로 Publish(데이터 추가)를 하면 Subscribe 하고있는 모든 클라이언트에 전달 (Broadcast)  
 ▪ Pub-Sub을 활용하여 Message Queuing  시스템으로 사용 가능  
-![Pasted image 20230110174517.png](../../attachments/Pasted%20image%2020230110174517.png)  
+![Pasted image 20230110174517.png](../../attachments/Pasted%20image%2020230110174517.png#)  
   
   
 <mark class="yellow">Redis 사용시 주의사항</mark>  
@@ -245,6 +245,7 @@ refresh 토큰을 더 낫게 사용하는 방법에 대해서 구글링해보았
 로 사용 권장  
 ▪ 보안  
 ▪ 기본적으로 별도의 보안 옵션을 제공하지 않기 때문에 방화벽 설정이 필요함  
+[Fetching Title#s0hy](https://yeonyeon.tistory.com/164)  
   
 <mark class="yellow">Redis 활용 예시</mark>  
 ▪ 웹 서버에서 HTML 캐싱  
@@ -341,7 +342,7 @@ ms 라이브러리 사용함 (util 대체)
   
 uuid로 jti 추가함  
 [3 efficient ways to generate UUID in Node.js](https://geshan.com.np/blog/2022/01/nodejs-uuid/)보니까 uuid 라이브러리가 압도적으로 다운로드 수가 많아서 uuid 패키지 설치할거임  
-![Pasted image 20230109183746.png](../../attachments/Pasted%20image%2020230109183746.png)  
+![Pasted image 20230109183746.png](../../attachments/Pasted%20image%2020230109183746.png#)  
   
 [uuid - npm](https://www.npmjs.com/package/uuid) 이 패키지 설치함  
   
@@ -670,7 +671,7 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJmMGM5YWQ5ZS04ZTg1LTExZWQtOTN
 [NestJs Caching With Redis - Code with Vlad](https://www.codewithvlad.com/blog/nestjs-caching-with-redis)   
 ## 개념 정리  
 ### Caching 이란?  
-![Pasted image 20230109223233.png](../../attachments/Pasted%20image%2020230109223233.png)  
+![Pasted image 20230109223233.png](../../attachments/Pasted%20image%2020230109223233.png#)  
   
 Caching involves saving frequently requested data in an intermediary store called the "**cache store**" to avoid unnecessary calls to the primary database.  
   
@@ -726,7 +727,7 @@ npm i -D @types/cache-manager-redis-store
 ```  
 This small library uses the node-redis (unfortunately, it does not support ioredis)   
   
-- 오류 해결: [ CacheModule Config 오류](%EC%97%90%EB%9F%AC%20%ED%95%B4%EA%B2%B0.md#^2d5ab6%20) 정리  
+- 오류 해결: [ CacheModule Config 오류](%EC%97%90%EB%9F%AC%20%ED%95%B4%EA%B2%B0.md#2d5ab6) 정리  
   
 # Redis 메서드  
 [출처](https://velog.io/@hahaha/NestJS-Redis를-이용한-Cache-구현) [명령어 출처](https://tre2man.tistory.com/277)  
@@ -848,7 +849,7 @@ OK
 OK  
 ```  
 이렇게 쓰면 된다고 한다.  
-![Pasted image 20230111191100.png](../../attachments/Pasted%20image%2020230111191100.png)   
+![Pasted image 20230111191100.png](../../attachments/Pasted%20image%2020230111191100.png#)   
   
 From Redis RDB (Free on Linux), “namespaces” are represented by folders.  
   
@@ -860,7 +861,4 @@ From Redis RDB (Free on Linux), “namespaces” are represented by folders.
   
 당연히 알아야하는거? →   
   
-로그인이 60 - 70퍼  
-  
-  
-예상 취업: 4월 ~ 8월
+로그인이 60 - 70퍼

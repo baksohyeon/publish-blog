@@ -1,7 +1,7 @@
 ---  
 share: true  
 title: Binary Tree  
-category: Blog/Computer Science  
+category: Blog/Basic  
 ---  
 # Binary Tree  
   

@@ -1,7 +1,7 @@
 ---  
-category: Blog/Computer Science  
+category: Blog/Basic  
 share: true  
-title: Algorithm  
+title: Binary Search  
 ---  
 # Binary Search  
 - [금과 은 운반하기](https://school.programmers.co.kr/learn/courses/30/lessons/86053#)  
