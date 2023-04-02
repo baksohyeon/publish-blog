@@ -10,54 +10,7 @@ date modified: Wednesday, January 25th 2023, 7:57:03 pm
 ## husky   
 [Husky - Git hooks 문서](https://typicode.github.io/husky/#/)  
   
-- 설치  
-```shell  
-# npm  
-npm i husky --save-dev  
-​  
-# yarn  
-yarn add --dev husky  
-```  
-  
-  
-- 옵션: 설정 파일을 지정하여 저장  
-    
-폴더이름을 따로 지정하지 않을 경우 `.husky`가 기본값으로 사용된다.  
-```shell  
-# `.husky/husky-config` 에 설정 파일 저장  
-npx husky install ".husky/husky-config"  
-```  
-  
-  
-- 사용 방법  
-```shell  
-# pre-commit  
-npx husky add .husky/husky-config/pre-commit "npm test"  
-git add .husky/husky-config/pre-commit  
-​  
-# pre-push  
-npx husky add .husky/husky-config/pre-push "npm test"  
-git add .husky/husky-config/pre-push  
-```  
-  
-## commit rule 강제하기  
-[커밋 메시지 작성법](./%EC%BB%A4%EB%B0%8B%20%EB%A9%94%EC%8B%9C%EC%A7%80%20%EC%9E%91%EC%84%B1%EB%B2%95.md) 을 지키지 않으면 커밋 못하게 하는 설정법이다.  
-  
-[GitHub - conventional-changelog/commitlint: 📓 Lint commit messages](https://github.com/conventional-changelog/commitlint) 를 참고해서 세팅하면 된다.  
-[commitlint - Lint commit messages](https://commitlint.js.org/#/guides-local-setup)  
-  
-### getting start  
-```shell  
-# Install commitlint cli and conventional config  
-npm install --save-dev @commitlint/{config-conventional,cli}  
-# For Windows:  
-npm install --save-dev @commitlint/config-conventional @commitlint/cli  
-  
-# Configure commitlint to use conventional config  
-echo "module.exports = {extends: ['@commitlint/config-conventional']}" > commitlint.config.js  
-```  
-    
-    
+## 설치  
 To lint commits before they are created you can use Husky's `commit-msg` hook:  
 ```shell  
 # Install Husky v6  
@@ -72,12 +25,74 @@ yarn husky install
 ```  
   
   
+- 옵션: 설정 파일을 지정하여 저장  
+  폴더이름을 따로 지정하지 않을 경우 `.husky`가 기본값으로 사용된다.  
+```shell  
+# `.husky/husky-config` 에 설정 파일 저장  
+npx husky install ".husky/husky-config"  
+```  
+  
+  
+## 커밋 이전 Test 확인  
+- 사용 방법  
+```shell  
+# pre-commit  
+npx husky add .husky/husky-config/pre-commit "npm test"  
+git add .husky/husky-config/pre-commit  
+​  
+# pre-push  
+npx husky add .husky/husky-config/pre-push "npm test"  
+git add .husky/husky-config/pre-push  
+```  
+  
+## commit rule 강제하기  
+[커밋 메시지 작성법](./%EC%BB%A4%EB%B0%8B%20%EB%A9%94%EC%8B%9C%EC%A7%80%20%EC%9E%91%EC%84%B1%EB%B2%95.md#) 을 지키지 않으면 커밋 못하게 하는 설정법이다.  
+  
+  
+```  
+feat: add hat wobble  
+^--^  ^------------^  
+|     |  
+|     +-> Summary in present tense.  
+|  
++-------> Type: chore, docs, feat, fix, refactor, style, or test.  
+```  
+  
+More Examples:  
+  
+- `feat`: (new feature for the user, not a new feature for build script)  
+- `fix`: (bug fix for the user, not a fix to a build script)  
+- `docs`: (changes to the documentation)  
+- `style`: (formatting, missing semi colons, etc; no production code change)  
+- `refactor`: (refactoring production code, eg. renaming a variable)  
+- `test`: (adding missing tests, refactoring tests; no production code change)  
+- `chore`: (updating grunt tasks etc; no production code change)  
+  
+  
+[GitHub - conventional-changelog/commitlint: 📓 Lint commit messages](https://github.com/conventional-changelog/commitlint) 를 참고해서 세팅하면 된다.  
+[commitlint - Lint commit messages](https://commitlint.js.org/#/guides-local-setup)  
+  
+### getting start  
+```shell  
+# Install commitlint cli and conventional config  
+npm install @commitlint/{config-conventional,cli} --save-dev  
+  
+  
+yarn add @commitlint/{config-conventional,cli} --dev  
+# For Windows:  
+npm install --save-dev @commitlint/config-conventional @commitlint/cli  
+  
+# Configure commitlint to use conventional config  
+echo "module.exports = {extends: ['@commitlint/config-conventional']}" > commitlint.config.js  
+```  
+    
+  
 ### Add hook  
 ```shell  
 npx husky add .husky/commit-msg  'npx --no -- commitlint --edit ${1}'  
 ```  
   
-### Test  
+  
 #### Test simple usage  
 For a first simple usage test of commitlint you can do the following:  
 ```shell  
@@ -99,9 +114,22 @@ No staged files match any of provided globs.
 husky > commit-msg hook failed (add --no-verify to bypass)  
 ```  
   
-![Pasted image 20230125175637.png](../attachments/Pasted%20image%2020230125175637.png)  
+![Pasted image 20230125175637.png](../attachments/Pasted%20image%2020230125175637.png#)  
   
 테스트 통과 확인 및 앵귤러 커밋 규칙을 지켰는지 확인 후 커밋한다.  
+  
+  
+- yarn 2+ 셋업: [Husky - Git hooks](https://typicode.github.io/husky/#/?id=yarn-2)  
+```bash  
+yarn dlx husky-init --yarn2 && yarn # Yarn 2+  
+  
+yarn husky add .husky/commit-msg 'yarn commitlint --edit $1'  
+  
+  
+```  
+  
+  
+  
   
 ## 참고 문서  
 [Best way to baseline nestjs microservice – @tkssharma | Tarun Sharma | My Profile](https://tkssharma.com/nestjs-microservice-baseline-setup/)  
