@@ -38,7 +38,7 @@ $ pg_ctl -D /opt/homebrew/var/postgresql@14 start
 ```  
   
   
-![Pasted image 20221219174945.png](../../attachments/Pasted%20image%2020221219174945.png)  
+![Pasted image 20221219174945.png](../../attachments/Pasted%20image%2020221219174945.png#)  
   
   
   
@@ -93,7 +93,7 @@ List databases to verify:
 postgres-> \list  
 ```  
   
-![Pasted image 20221219175555.png](../../attachments/Pasted%20image%2020221219175555.png)  
+![Pasted image 20221219175555.png](../../attachments/Pasted%20image%2020221219175555.png#)  
   
 If you want to connect to a database and list all tables:  
   
@@ -127,6 +127,7 @@ PG_CONNECTION_STRING=postgres://myuser@localhost/mydatabase
 ---  
   
 ## Update 컬럼 쿼리 mySQL 이랑 다름  
+## create/update/delete 타임스탬프  
   
 [PostgreSQL: Update the Timestamp column with the use of TRIGGER](https://www.dbrnd.com/2016/03/postgresql-update-the-timestamp-column-with-the-use-of-trigger/)  
   
@@ -193,7 +194,7 @@ FOR EACH ROW
 EXECUTE PROCEDURE trigger_set_timestamp();  
 ```  
   
-트리거 아니래서 더 찾았는데 [How to Create Automatic PostgreSQL Timestamps](https://x-team.com/blog/automatic-timestamps-with-postgresql/)  
+트리거 아니래서 더 찾았는데 [How to Create Automatic PostgreSQL Timestamps](https://x-team.com/blog/automatic-timestamps-with-postgresql/) → 이거 보고 하면 됨 이거 나중에 정리하기!!!!!   
 맞음   
 ### 트리거가 뭔데  
 [Understanding PostgreSQL Triggers: A Comprehensive 101 Guide - Learn | Hevo](https://hevodata.com/learn/postgresql-triggers/)  
