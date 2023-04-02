@@ -10,7 +10,7 @@ tags:
   
 # spyOn()과 jest.fn()의 차이  
   
-**관련 글**: [Nest js Create 테스트코드](../../../Project/Test%20Code/Nest%20js%20Create%20%ED%85%8C%EC%8A%A4%ED%8A%B8%EC%BD%94%EB%93%9C.md)  
+**관련 글**: [Nest js Create 테스트코드](../../../Project/Testing/Nest%20js%20Create%20%ED%85%8C%EC%8A%A4%ED%8A%B8%EC%BD%94%EB%93%9C.md)  
   
 ---  
   

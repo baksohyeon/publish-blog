@@ -15,7 +15,7 @@ tags:
 ## 질문 날짜: 2022-09-28  
   
 태그: #jest #NestJs    
-**관련 글**: [Making GetByAuther Test Code (Moking)](../../../Project/Test%20Code/Making%20GetByAuther%20Test%20Code%20(Moking).md)  
+**관련 글**: [Making GetByAuther Test Code (Moking)](../../../Project/Testing/Making%20GetByAuther%20Test%20Code%20(Moking).md)  
   
 ---  
   

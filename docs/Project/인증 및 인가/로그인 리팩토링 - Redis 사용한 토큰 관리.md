@@ -54,7 +54,7 @@ Now if you want to reuse the old data, you don't need to query your database and
 리프레시 토큰 7일로 잡아놔서   
 블랙리스트 vs 화이트리스트가 기준이 둘 중 어떤게 크기가 더 작을 것이냐!   
 블랙리스트가 크기가 커지는 경우는 "수명이 다하기 전에 비활성화된 토큰의 수가 수명이 남아 있는 활성 토큰의 수보다 많은 경우"고  
-화이트리스트는 정확히 그 반대인데 7일 정도면 블랙리스트 쪽이 크기가 훨씬 작을듯! ^e34c97  
+화이트리스트는 정확히 그 반대인데 7일 정도면 블랙리스트 쪽이 크기가 훨씬 작을 것 같음! ^e34c97  
   
 ## 기존 코드  
 - google.strategy.ts  
@@ -245,6 +245,7 @@ refresh 토큰을 더 낫게 사용하는 방법에 대해서 구글링해보았
 로 사용 권장  
 ▪ 보안  
 ▪ 기본적으로 별도의 보안 옵션을 제공하지 않기 때문에 방화벽 설정이 필요함  
+[Fetching Title#s0hy](https://yeonyeon.tistory.com/164)  
   
 <mark class="yellow">Redis 활용 예시</mark>  
 ▪ 웹 서버에서 HTML 캐싱  
@@ -860,7 +861,4 @@ From Redis RDB (Free on Linux), “namespaces” are represented by folders.
   
 당연히 알아야하는거? →   
   
-로그인이 60 - 70퍼  
-  
-  
-예상 취업: 4월 ~ 8월
+로그인이 60 - 70퍼
