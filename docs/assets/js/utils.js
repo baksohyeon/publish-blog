@@ -13,55 +13,56 @@ if (header_links) {
     );
   }
 }
-function UrlExists(url, type_url) {
-  let ref = "";
-  let title = "";
-  if (type_url === 0) {
-    ref = url.href;
-    title = url.title;
-  } else if (type_url === 1) {
-    ref = url.src;
-    title = url.alt;
-  }
-  if (ref.match(/index$/)) {
-    ref = ref.replace(/index$/, "");
-  }
-  if (ref.includes("%5C")) {
-    ref = ref.replace(/%5C/g, "/");
-  }
-  ref = decodeURI(ref);
-  if (type_url === 0) {
-    url.href = ref;
-    url.title = title;
-    if (title.length === 0) {
-      title = url.innerText;
-      url.title = title;
-    }
-  } else if (type_url === 1) {
-    url.src = ref;
-    url.alt = title;
-  }
-
-  var http = new XMLHttpRequest();
-  http.open("GET", ref, true);
-  http.onload = function (e) {
-    if (http.status == "404") {
-      const newItem = document.createElement("div");
-      newItem.innerHTML = title;
-      newItem.classList.add("not_found");
-      newItem.setAttribute("href", ref);
-      try {
-        url.parentNode.replaceChild(newItem, url);
-      } catch (error) {
-        // console.log(error)
-      }
-    } else {
-      return true;
-    }
-  };
-  if (new URL(ref).hostname !== location.hostname) return;
-  http.send();
-}
+// function UrlExists(url, type_url) {
+//   const LINK_TYPE = 0;
+//   const IMAGE_TYPE = 1;
+//   let ref = "";
+//   let title = "";
+//   if (type_url === 0) {
+//     ref = url.href;
+//     title = url.title;
+//   } else if (type_url === IMAGE_TYPE) {
+//     ref = url.src;
+//     title = url.alt;
+//   }
+//   if (ref.match(/index$/)) {
+//     ref = ref.replace(/index$/, "");
+//   }
+//   if (ref.includes("%5C")) {
+//     ref = ref.replace(/%5C/g, "/");
+//   }
+//   ref = decodeURI(ref);
+//   if (type_url === 0) {
+//     url.href = ref;
+//     url.title = title;
+//     if (title.length === 0) {
+//       title = url.innerText;
+//       url.title = title;
+//     }
+//   } else if (type_url === IMAGE_TYPE) {
+//     url.src = ref;
+//     url.alt = title;
+//   }
+//   var http = new XMLHttpRequest();
+//   http.open("GET", ref, true);
+//   http.onload = function (e) {
+//     if (http.status == "404") {
+//       const newItem = document.createElement("div");
+//       newItem.innerHTML = title;
+//       newItem.classList.add("not_found");
+//       newItem.setAttribute("href", ref);
+//       try {
+//         url.parentNode.replaceChild(newItem, url);
+//       } catch (error) {
+//         // console.log(error)
+//       }
+//     } else {
+//       return true;
+//     }
+//   };
+//   if (new URL(ref).hostname !== location.hostname) return;
+//   http.send();
+// }
 
 function getHeightWidth(alt) {
   const heightXwidthReg = new RegExp("\\d+x\\d+");
@@ -91,7 +92,9 @@ for (var i = 0; i < ht.length; i++) {
 }
 
 var p_img = /\.+\\/gi;
-var img = document.querySelectorAll("img");
+// var img = document.querySelectorAll("img");
+var img = document.images;
+console.log(img);
 for (var i = 0; i < img.length; i++) {
   var regAlt = new RegExp("\\|");
   // image can only be rized with the `|*x*` syntax
@@ -108,6 +111,7 @@ for (var i = 0; i < img.length; i++) {
     }
   }
   var link = UrlExists(img[i], 1);
+  // var link = renderImages(img[i]);
 }
 
 var ht = document.querySelectorAll(
@@ -184,4 +188,61 @@ if (isMermaidPage) {
   paletteSwitcher2.addEventListener("change", function () {
     location.reload();
   });
+}
+
+// 테스트
+function handleImageResource(url, resourceUrl, resourceTitle) {
+  // if (resourceUrl.match(/index$/)) {
+  //   resourceUrl = resourceUrl.replace(/index$/, "");
+  // }
+
+  // if (resourceUrl.includes("%5C")) {
+  //   resourceUrl = resourceUrl.replace(/%5C/g, "/");
+  // }
+
+  resourceUrl = decodeURI(resourceUrl);
+  console.log(resourceUrl);
+  url.src = resourceUrl;
+  url.alt = resourceTitle;
+  console.log("url", url);
+
+  return resourceUrl;
+}
+
+function UrlExists(url, resourceType) {
+  const LINK_RESOURCE = 0;
+  const IMAGE_RESOURCE = 1;
+
+  let resourceUrl = "";
+  let resourceTitle = "";
+
+  if (resourceType === LINK_RESOURCE) {
+    resourceUrl = url.href;
+    resourceTitle = url.title;
+  } else if (resourceType === IMAGE_RESOURCE) {
+    resourceUrl = url.src;
+    resourceTitle = url.alt;
+
+    resourceUrl = handleImageResource(url, resourceUrl, resourceTitle);
+  }
+
+  var http = new XMLHttpRequest();
+  http.open("GET", resourceUrl, true);
+  http.onload = function (e) {
+    if (http.status == "404") {
+      const newItem = document.createElement("div");
+      newItem.innerHTML = resourceTitle;
+      newItem.classList.add("not_found");
+      newItem.setAttribute("href", resourceUrl);
+      try {
+        url.parentNode.replaceChild(newItem, url);
+      } catch (error) {
+        // console.log(error)
+      }
+    } else {
+      return true;
+    }
+  };
+  if (new URL(resourceUrl).hostname !== location.hostname) return;
+  http.send();
 }
