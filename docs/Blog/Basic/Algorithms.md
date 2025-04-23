@@ -1,8 +1,8 @@
----  
-category: Blog/Basic  
-share: true  
-title: Binary Search  
----  
+---
+category: Blog/Basic
+share: true
+title: Binary Search
+---
 # Binary Search  
 - [금과 은 운반하기](https://school.programmers.co.kr/learn/courses/30/lessons/86053#)  
   
@@ -99,7 +99,7 @@ const solution = (
   
   
 - 4번 성립하는 이유 증명  
-![Pasted image 20230116121553.png](../../attachments/Pasted%20image%2020230116121553.png#)  
+![Pasted image 20230116121553.png](../../attachments/Pasted%20image%2020230116121553.png)  
   
   
   
