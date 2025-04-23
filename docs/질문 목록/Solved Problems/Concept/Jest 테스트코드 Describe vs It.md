@@ -1,18 +1,17 @@
----  
-category: 질문 목록/Solved Problems/Concept  
-share: true  
-title: Jest 테스트코드 Describe vs It  
-tags:  
-  - jest  
----  
-  
+---
+category: 질문 목록/Solved Problems/Concept
+share: true
+title: Jest 테스트코드 Describe vs It
+tags:
+  - jest
+---
   
 # Jest 테스트코드 Describe Vs It  
   
 **제목**: What is the difference between describe and it in Jest?  
 **질문 날짜**: 2022-09-29  
 **태그**: #jest  
-**관련 글**: [Making Test Code at Controller layer](../../../Project/Test%20Code/Making%20Test%20Code%20at%20Controller%20layer.md) [Making GetByAuther Test Code (Moking)](../../../Project/Test%20Code/Making%20GetByAuther%20Test%20Code%20(Moking).md)[Nest js Create 테스트코드](../../../Project/Test%20Code/Nest%20js%20Create%20%ED%85%8C%EC%8A%A4%ED%8A%B8%EC%BD%94%EB%93%9C.md)  
+**관련 글**: [Making Test Code at Controller layer](../../../Project/Testing/Making%20Test%20Code%20at%20Controller%20layer.md) [Making GetByAuther Test Code (Moking)](../../../Project/Testing/Making%20GetByAuther%20Test%20Code%20(Moking).md)[Nest js Create 테스트코드](../../../Project/Testing/Nest%20js%20Create%20%ED%85%8C%EC%8A%A4%ED%8A%B8%EC%BD%94%EB%93%9C.md)  
   
 ---  
   
