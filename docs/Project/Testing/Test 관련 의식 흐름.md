@@ -1,8 +1,8 @@
----  
-category: Project/Testing  
-share: true  
-title: Test 관련 메모  
----  
+---
+category: Project/Testing
+share: true
+title: Test 관련 메모
+---
 [Jest 공식문서](https://jestjs.io/docs/api)  
   
 # 단위 테스트 시나리오를 작성하자  
@@ -207,7 +207,7 @@ export const mockRepository = () => ({
 # 오류  
 ## Cannot Find Module 에러  
 [typescript - NestJS - Test suite failed to run Cannot find module 'src/article/article.entity' from 'comment/comment.entity.ts' - Stack Overflow](https://stackoverflow.com/questions/63865678/nestjs-test-suite-failed-to-run-cannot-find-module-src-article-article-entity)  
-![Pasted image 20230105231400.png](../../attachments/Pasted%20image%2020230105231400.png#)  
+![Pasted image 20230105231400.png](../../attachments/Pasted%20image%2020230105231400.png)  
   
   
   
@@ -242,7 +242,7 @@ beforeEach(() => {
 ```  
   
 # Test  
-[test code](test%20code.md#)  
+[test code](test%20code.md)  
 [Ultimate Guide: NestJS Unit Testing and Mocking [Updated 2022]](https://www.tomray.dev/nestjs-unit-testing#automating-nestjs-unit-tests-in-a-ci-pipeline-with-github-actions)  
   
 [Unit testing NestJS applications with Jest - LogRocket Blog](https://blog.logrocket.com/unit-testing-nestjs-applications-with-jest/)  
@@ -252,7 +252,7 @@ beforeEach(() => {
   
   
 # Husky 붙여보기  
-[Husky setting](../../../Husky%20setting.md#)  
+[Husky setting](../../../Husky%20setting.md)  
 git hook 사용한 자동 동작실행하는 패키지  
 원하는 스크립트 실행시켜줌  
   
