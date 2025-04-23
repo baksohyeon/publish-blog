@@ -1,8 +1,8 @@
----  
-category: 질문 목록/Solved Problems/Concept  
-share: true  
-title: 세션 vs JWT  
----  
+---
+category: 질문 목록/Solved Problems/Concept
+share: true
+title: 세션 vs JWT
+---
   
 # 세션 Vs JWT  
   
@@ -166,7 +166,7 @@ https://www.techempower.com/benchmarks/#section=data-r21
 대충 어떤 언어의 어떤 프레임워크가 어떤 종류 작업에 강점을 가지는지? 같은 거 참고하기 좋아요  
 아마 Multiple queries가 가장 참고하기 좋은 대상이실 듯  
 아 아니겠다! Fortunes 보시면 될듯요  
-  
+성ㅡㅇ차이   
 Requirements summary  
   
 ```  
