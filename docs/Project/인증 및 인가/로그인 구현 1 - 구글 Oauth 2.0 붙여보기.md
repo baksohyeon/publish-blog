@@ -1,7 +1,7 @@
----  
-category: Project/인증 및 인가  
-share: true  
----  
+---
+category: Project/인증 및 인가
+share: true
+---
   
 google Oauth2 써서 로그인 구현해보고 싶음  
   
@@ -710,7 +710,7 @@ CSRF Token의 보안성을 강화하기 위한 방법으로 CSRF Token을 header
 여기도 좋은듯.. (이미 다 구현한 뒤에 봤지만..)  
   
 # Test Authorization  
-더 자세히: [Test 관련 의식 흐름](../Test%20Code/Test%20%EA%B4%80%EB%A0%A8%20%EC%9D%98%EC%8B%9D%20%ED%9D%90%EB%A6%84.md) 에 정리함  
+더 자세히: [Test 관련 의식 흐름](../Testing/Test%20%EA%B4%80%EB%A0%A8%20%EC%9D%98%EC%8B%9D%20%ED%9D%90%EB%A6%84.md) 에 정리함  
   
 [Authentification with NestJs and clean architecture | by Jonathan Pretre | Medium](https://medium.com/@jonathan.pretre91/authentification-with-nestjs-and-clean-architecture-182e44a7ed07) 음 무슨 계층 구조 설명은 유용한데 그 외는 그닥..  
   
