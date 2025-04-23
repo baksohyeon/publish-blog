@@ -1,8 +1,8 @@
----  
-category: Project/Testing  
-share: true  
-title: Making Test Code at Controller Layer  
----  
+---
+category: Project/Testing
+share: true
+title: Making Test Code at Controller Layer
+---
   
 # Making Test Code at Controller Layer  
 [what is getRepositoryToken in nestjs typeorm and when to use it?](https://stackoverflow.com/questions/65570680/what-is-getrepositorytoken-in-nestjs-typeorm-and-when-to-use-it)  
@@ -47,12 +47,12 @@ The biggest reason that things have to be done this way is because typescript do
 ```  
   
   
-![스크린샷 2022-09-27 오후 2.56.05.png](../../attachments/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202022-09-27%20%EC%98%A4%ED%9B%84%202.56.05.png#)  
+![스크린샷 2022-09-27 오후 2.56.05.png](../../attachments/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202022-09-27%20%EC%98%A4%ED%9B%84%202.56.05.png)  
 콘솔 찍어보면 레포지토리 나옴  
 It's how nestjs can find the dependency from the container   
   
 # `module.get()`  
-![스크린샷 2022-09-27 오후 3.38.48.png](../../attachments/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202022-09-27%20%EC%98%A4%ED%9B%84%203.38.48.png#)  
+![스크린샷 2022-09-27 오후 3.38.48.png](../../attachments/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202022-09-27%20%EC%98%A4%ED%9B%84%203.38.48.png)  
 This method actually takes in a type, or token.  
 You can actually either pass in an actual token to retrieve the actual dependency or you can pass in the type.  
   
@@ -84,7 +84,7 @@ When you declare and initialize all of its dependencies during runtime and then 
   
 ## Test Class  
 The `Test` class is useful for providing an application execution context that essentially mocks the full Nest runtime, but gives you hooks that make it easy to manage class instances, including mocking and overriding.   
-![스크린샷 2022-09-27 오후 7.16.35.png](../../attachments/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202022-09-27%20%EC%98%A4%ED%9B%84%207.16.35.png#)  
+![스크린샷 2022-09-27 오후 7.16.35.png](../../attachments/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202022-09-27%20%EC%98%A4%ED%9B%84%207.16.35.png)  
 The `Test` class has a `createTestingModule()` method that takes a module metadata object as its argument (the same object you pass to the` @Module()` decorator).   
   
 This method returns a TestingModule instance which in turn provides a few methods. For unit tests, the important one is the `compile()` method.   
@@ -106,7 +106,7 @@ TestingModule inherits from the module reference class, and therefore its abilit
 Instead of using the production version of any provider, you can **override** it with a custom provider for testing purposes.   
 For example, you can mock a database service instead of connecting to a live database. We'll cover overrides in the next section, but they're available for unit tests as well.  
   
-![스크린샷 2022-09-27 오후 7.20.36.png](../../attachments/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202022-09-27%20%EC%98%A4%ED%9B%84%207.20.36.png#)  
+![스크린샷 2022-09-27 오후 7.20.36.png](../../attachments/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202022-09-27%20%EC%98%A4%ED%9B%84%207.20.36.png)  
   
 Similarly, Nest provides methods to override guards, interceptors, filters and pipes with theoverrideGuard(), overrideInterceptor(), overrideFilter(), and overridePipe() methods respectively.  
   
@@ -117,7 +117,7 @@ Each of the override methods returns an object with 3 different methods that mir
 - `useFactory`: you supply a function that returns an instance that will override the object.  
 	Each of the override method types, in turn, returns the TestingModule instance, and can thus be chained with other methods in the fluent style. You should use compile() at the end of such a chain to cause Nest to instantiate and initialize the module.  
   
-![스크린샷 2022-09-27 오후 4.10.38.png](../../attachments/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202022-09-27%20%EC%98%A4%ED%9B%84%204.10.38.png#)  
+![스크린샷 2022-09-27 오후 4.10.38.png](../../attachments/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202022-09-27%20%EC%98%A4%ED%9B%84%204.10.38.png)  
   
 더 모듈 관련 자세히 알고싶으면 https://docs.nestjs.com/fundamentals/module-ref 여기 참고하면 됨  
   
@@ -190,7 +190,7 @@ describe('createBoard', () => {});
   
 ```  
 문제의 코드  
-![스크린샷 2022-09-27 오후 5.31.38.png](../../attachments/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202022-09-27%20%EC%98%A4%ED%9B%84%205.31.38.png#)  
+![스크린샷 2022-09-27 오후 5.31.38.png](../../attachments/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202022-09-27%20%EC%98%A4%ED%9B%84%205.31.38.png)  
 This failed and the reason why is it's telling us if blog service is a provider, is it part of the root test module.  
   
 So this is where we have have a dependency in our controller and what we need to do is we need to let the module know that we have a dependency   
