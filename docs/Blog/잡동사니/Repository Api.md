@@ -1,7 +1,7 @@
----  
-category: Blog/잡동사니  
-share: true  
----  
+---
+category: Blog/잡동사니
+share: true
+---
   
 # Repository APIs  
 [TypeOrm Docs](https://typeorm.io/repository-api)  
