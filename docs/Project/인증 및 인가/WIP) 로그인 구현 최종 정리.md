@@ -1,7 +1,7 @@
----  
-category: Project/인증 및 인가  
-share: true  
----  
+---
+category: Project/인증 및 인가
+share: true
+---
   
   
   
@@ -12,7 +12,7 @@ share: true
 [Prolog](https://prolog.techcourse.co.kr/studylogs/2272)  
 [JWT Bearer Flow | Cloud Sundial](https://cloudsundial.com/salesforce-identity/jwt-bearer)  
   
-![Pasted image 20230201134225.png](../../attachments/Pasted%20image%2020230201134225.png#)  
+![Pasted image 20230201134225.png](../../attachments/Pasted%20image%2020230201134225.png)  
   
 JWT를 더 안전하게 저장하기  
 백엔드 → 로그인 시 인증 서버로부터 access token, refresh token을 받아온다.  
@@ -46,7 +46,7 @@ access token 만료시 refresh token 검증 후, 재발급
   
 [세션과 Redis](https://yeonyeon.tistory.com/164)  
   
-![Pasted image 20230327213035.png](../../attachments/Pasted%20image%2020230327213035.png#)  
+![Pasted image 20230327213035.png](../../attachments/Pasted%20image%2020230327213035.png)  
   
 Refresh Token을 사용하게 되면 토큰 탈취를 당했을 때 해당 Refresh Token을 관리자가 무효화 처리를 시키면 Access Token 재발급 강제적으로 막을 수도 있습니다.  
   
@@ -87,7 +87,7 @@ CSRF(Cross-Site Request Forgery)
 현재 사용자가 로그인된 사이트로 사용자가 의도하지 않은 DELETE, PUT, POST 등의 액션을 보내 주문취소, 자동주문 등을 실행하게 할 수 있다.  
   
 어디에 저장할 것이냐  
-![Pasted image 20230201133756.png](../../attachments/Pasted%20image%2020230201133756.png#)  
+![Pasted image 20230201133756.png](../../attachments/Pasted%20image%2020230201133756.png)  
   
 위와 같이 Acess Token을 변수에 저장하는 경우 페이지를 강제 리로딩 하거나 다른 탭에서 동일 페이지를 열 경우 이미 인증 되었음에도 불구하고 Access Token이 없기 때문에 문제가 발생할 수 있습니다. 이런 문제를 해결하기 위해서 모든 요청에 대해 Access Token이 없거나, 만료된 경우 Refresh Token을 이용하여 Access Token을 재발급 받는 로직이 추가 되어야 합니다.  
   
@@ -157,7 +157,7 @@ JWT 인증
   
 [How to implement refresh tokens JWT in NestJS Part-1 – @tkssharma | Tarun Sharma | My Profile](https://tkssharma.com/implement-refresh-token-in-nestjs-apis-part-1/)  
   
-![Pasted image 20230119121346.png](../../attachments/Pasted%20image%2020230119121346.png#)  
+![Pasted image 20230119121346.png](../../attachments/Pasted%20image%2020230119121346.png)  
   
   
 # Payload  
@@ -270,7 +270,7 @@ CORS (Cross-Origin Resource Sharing)
 되는 토큰만 저장...  
   
 - 화이트 리스트?   
-[^e34c97](WIP)%20%EB%A1%9C%EA%B7%B8%EC%9D%B8%20%EA%B5%AC%ED%98%84%20%EC%B5%9C%EC%A2%85%20%EC%A0%95%EB%A6%AC.md#e34c97)  
+[^e34c97](WIP)%20%EB%A1%9C%EA%B7%B8%EC%9D%B8%20%EA%B5%AC%ED%98%84%20%EC%B5%9C%EC%A2%85%20%EC%A0%95%EB%A6%AC.md#^e34c97)  
   
 블랙리스트로 저장) 안되는 토큰들 저장함: 액세스토큰   
 	블랙리스트는 명시적으로 로그아웃한 애들만 저장하면 되는 반면, 화이트리스트는 로그인한 애들을 전부 들고있어야 하기 때문에 블랙리스트의 크기가 더 작을 수밖에 없고 그래서 이쪽이 더 낫다  
