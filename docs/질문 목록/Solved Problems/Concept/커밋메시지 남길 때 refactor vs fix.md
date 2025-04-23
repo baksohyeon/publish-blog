@@ -1,8 +1,8 @@
----  
-category: 질문 목록/Solved Problems/Concept  
-share: true  
-title: 커밋메시지 남길 때 refactor vs fix  
----  
+---
+category: 질문 목록/Solved Problems/Concept
+share: true
+title: 커밋메시지 남길 때 refactor vs fix
+---
   
 # 커밋메시지 남길 때 Refactor Vs Fix  
   

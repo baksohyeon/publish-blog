@@ -1,7 +1,7 @@
----  
-category: Project/Testing  
-share: true  
----  
+---
+category: Project/Testing
+share: true
+---
 # Describe it Jest 구글링  
   
 - Getting started with Jest  
@@ -256,7 +256,7 @@ https://github.com/facebook/jest/blob/e9aa321e0587d0990bd2b5ca5065e84a1aecb2fa/p
 결국은 mock 함수를 갖다 쓰는거고 별반 차이 없는 것이라고 이해를 했음.  
   
 # spyOn()과 jest.fn()의 차이  
-[spyOn()과 jest.fn()의 차이](../../%EC%A7%88%EB%AC%B8%20%EB%AA%A9%EB%A1%9D/Solved%20Problems/Concept/spyOn()%EA%B3%BC%20jest.fn()%EC%9D%98%20%EC%B0%A8%EC%9D%B4.md#)  에서 정리해뒀다..  
+[spyOn()과 jest.fn()의 차이](../../%EC%A7%88%EB%AC%B8%20%EB%AA%A9%EB%A1%9D/Solved%20Problems/Concept/spyOn()%EA%B3%BC%20jest.fn()%EC%9D%98%20%EC%B0%A8%EC%9D%B4.md)  에서 정리해뒀다..  
   
   
   

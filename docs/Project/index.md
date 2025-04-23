@@ -1,7 +1,7 @@
----  
-category: Project  
-share: true  
-hidden: True  
-title: Project  
-template: blog.html  
----  
+---
+category: Project
+share: true
+hidden: true
+title: Project
+template: blog.html
+---

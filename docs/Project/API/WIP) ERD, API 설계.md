@@ -1,8 +1,8 @@
----  
-category: Project/API  
-share: true  
-title: WIP) ERD, API 설계  
----  
+---
+category: Project/API
+share: true
+title: WIP) ERD, API 설계
+---
 # ERD 설계하기  
   
   
@@ -65,6 +65,7 @@ HTTP Status: `204 (No Content)`
   
   
 # Error codes  
+  
 | Code   | Description                    |  
 |--------|--------------------------------|  
 | 401    | Unauthorized                   |  
@@ -74,6 +75,7 @@ HTTP Status: `204 (No Content)`
 | 500    | Internal Server Error          |  
   
 ## 401 - Unauthorized  
+  
 | Description                                                            |     |  
 | ---------------------------------------------------------------------- | --- |  
 | Authentication failed: request expired                                 |     |  
@@ -86,6 +88,7 @@ HTTP Status: `204 (No Content)`
   
   
 ## 403 - Forbidden  
+  
 | Description                                                         |     |   
 | ------------------------------------------------------------------- | --- |  
 | Your account has exceeded the monthly document generation limit.    |     |  
@@ -93,12 +96,14 @@ HTTP Status: `204 (No Content)`
 | Access not granted: Template is not accessible by this organization |     |  
 | Your session has expired, please close and reopen the editor.       |     |  
 ## 404 Entity not found  
+  
 | Description                                           |     |   
 | ----------------------------------------------------- | --- |  
 | Entity not found                                      |     |  
 | Resource not found                                    |     |  
 | None of the templates is available for the workspace. |     |  
 ## 422 Unprocessable Entity  
+  
 | Description                                                 |     |   
 | ----------------------------------------------------------- | --- |  
 | Unable to parse JSON, please check formatting               |     |  
@@ -229,7 +234,7 @@ Header: "uuid-example-user-1"
 ]  
 ```  
   
-![Pasted image 20230222212525.png](../../attachments/Pasted%20image%2020230222212525.png#)  
+![Pasted image 20230222212525.png](../../attachments/Pasted%20image%2020230222212525.png)  
 ## House 그룹 관리  
 ### POST /house/create  
 > 로그인한 user가 admin인 house 그룹을 새로 만듬  
@@ -415,7 +420,7 @@ body: {
 ```  
   
 **Response**: House  
-Status Code: `200 (OK)`  
+Status Code: `200 (OK)`  
 ```json  
 {  
 	house_id: 1234,  
@@ -1263,7 +1268,7 @@ attribute-based (ABAC) authorization techniques
   
 enum으로 할게 아니라 걍 true 개수 세주면 되잖아  
   
-![Pasted image 20230220210211.png](../../attachments/Pasted%20image%2020230220210211.png#)  
+![Pasted image 20230220210211.png](../../attachments/Pasted%20image%2020230220210211.png)  
   
   
 이거 backlog 수정해야겠다.

@@ -1,8 +1,8 @@
----  
-category: 질문 목록/Solved Problems/Concept  
-share: true  
-title: Interface Naming convention  
----  
+---
+category: 질문 목록/Solved Problems/Concept
+share: true
+title: Interface Naming convention
+---
   
 # Interface Naming Convention  
   

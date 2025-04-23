@@ -1,8 +1,8 @@
----  
-category: Blog/Basic  
-share: true  
-title: DataBase  
----  
+---
+category: Blog/Basic
+share: true
+title: DataBase
+---
 # DataBase  
 기본 참고 자료:  
 [# Part 1-5 Database](https://github.com/JaeYeopHan/Interview_Question_for_Beginner/tree/master/Database)  

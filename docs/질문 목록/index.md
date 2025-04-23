@@ -1,7 +1,7 @@
----  
-category: 질문 목록  
-share: true  
----  
+---
+category: 질문 목록
+share: true
+---
   
 # 질문 잘하는 법  
   
@@ -23,3 +23,6 @@ share: true
 4. 위에 적은 내용을 명심하지 않으면 실력이 늘지 않음.  
   
 by 제로초  
+  
+  
+[How do I ask a good question? - Help Center - Stack Overflow](https://stackoverflow.com/help/how-to-ask)

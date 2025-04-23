@@ -1,7 +1,7 @@
----  
-category: Project/Testing  
-share: true  
----  
+---
+category: Project/Testing
+share: true
+---
 # 참고 페이지.. (내일 본격적으로 테스트 코드 써보기)  
   
 > [https://dev.to/tkssharma/unit-testing-and-integration-testing-nestjs-application-4d7a](https://dev.to/tkssharma/unit-testing-and-integration-testing-nestjs-application-4d7a)  
@@ -34,7 +34,7 @@ We need to create a “spec” file to define the unit tests. That file would no
 우리는 유닛 테스트를 진행하기 위해서 spec파일을 만들어야한다 (cli를 사용해서 파일을 생성하면 spec 만들어주는데 난 삭제해버림... 귀찮아서 확장프로그램 깔았더니 알아서 코드 쳐줬다 !!)  
 `Spec` 파일은   
   
-![스크린샷 2022-09-26 오후 3.47.46.png](../../attachments/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202022-09-26%20%EC%98%A4%ED%9B%84%203.47.46.png#)  
+![스크린샷 2022-09-26 오후 3.47.46.png](../../attachments/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202022-09-26%20%EC%98%A4%ED%9B%84%203.47.46.png)  
 `pagckage.json` 파일에 보면 jest 설정이 이렇게 되어있다.  
   
 [Jest CLI Options · Jest (jestjs.io)](https://jestjs.io/docs/cli) 에서 보면 *Watch mode* also enables to specify the name or path to a file to focus on a specific set of tests. 라고 한다.  
@@ -45,7 +45,7 @@ jest --watchAll #runs all tests
 ```  
   
   
-![스크린샷 2022-09-26 오후 5.24.23.png](../../attachments/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202022-09-26%20%EC%98%A4%ED%9B%84%205.24.23.png#)  
+![스크린샷 2022-09-26 오후 5.24.23.png](../../attachments/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202022-09-26%20%EC%98%A4%ED%9B%84%205.24.23.png)  
   
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Gjv_IgcyLBo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  
   
@@ -169,7 +169,7 @@ expect(blogService).toBeDefined();
 });  
 ```  
   
-이렇게 쳤더니 ![스크린샷 2022-09-26 오후 5.43.29.png](../../attachments/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202022-09-26%20%EC%98%A4%ED%9B%84%205.43.29.png#)이런 오류가...  구글링해봤더니  
+이렇게 쳤더니 ![스크린샷 2022-09-26 오후 5.43.29.png](../../attachments/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202022-09-26%20%EC%98%A4%ED%9B%84%205.43.29.png)이런 오류가...  구글링해봤더니  
 [jestjs - Nest can't resolve dependencies in the RootTestModule context when I use Bazel Test - Stack Overflow](https://stackoverflow.com/questions/62942112/nest-cant-resolve-dependencies-in-the-roottestmodule-context-when-i-use-bazel-t) 이런 문서가 나왔다.  
   
 > Add providers to your RootTestModule. Nest doesn't automatically include the services in your test, depending on if you used the cli vs creating the files/folders directly.  
@@ -181,7 +181,7 @@ expect(blogService).toBeDefined();
   
 아니 이제 커스텀 repositorty 사라지면서 따로 파일 불러오는게 안되는데..   
   
-![스크린샷 2022-09-26 오후 7.55.54.png](../../attachments/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202022-09-26%20%EC%98%A4%ED%9B%84%207.55.54.png#)  
+![스크린샷 2022-09-26 오후 7.55.54.png](../../attachments/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202022-09-26%20%EC%98%A4%ED%9B%84%207.55.54.png)  
 repository가 없어서 주입해줘야 하는 문제였는듯   
   
   
@@ -201,10 +201,10 @@ blogService는 repository가 필요한데, test Module에서 repository를 제�
   
 # 가장 간단한 테스트 기능 써보기  
   
-![스크린샷 2022-09-26 오후 7.03.42.png](../../attachments/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202022-09-26%20%EC%98%A4%ED%9B%84%207.03.42.png#)  
+![스크린샷 2022-09-26 오후 7.03.42.png](../../attachments/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202022-09-26%20%EC%98%A4%ED%9B%84%207.03.42.png)  
   
   
-![스크린샷 2022-09-26 오후 7.41.25.png](../../attachments/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202022-09-26%20%EC%98%A4%ED%9B%84%207.41.25.png#)  
+![스크린샷 2022-09-26 오후 7.41.25.png](../../attachments/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202022-09-26%20%EC%98%A4%ED%9B%84%207.41.25.png)  
   
 이캐 됨!  
   
@@ -229,7 +229,7 @@ Mock functions are also known as "spies", because they let you spy on the behavi
   
   
 JEST 구조  
-![Pasted image 20220926225656.png](../../attachments/Pasted%20image%2020220926225656.png#)  
+![Pasted image 20220926225656.png](../../attachments/Pasted%20image%2020220926225656.png)  
   
 Mock 개념 알기   
 [Mock - 인코덤, 생물정보 전문위키 (incodom.kr)](http://www.incodom.kr/Mock)

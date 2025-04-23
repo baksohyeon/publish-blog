@@ -1,7 +1,7 @@
----  
-category: Project/Testing  
-share: true  
----  
+---
+category: Project/Testing
+share: true
+---
 mySQL 말고 한번 이것도 써보자~   
   
 # Aurora MySQL Vs Aurora PostgreSQL  
@@ -38,7 +38,7 @@ $ pg_ctl -D /opt/homebrew/var/postgresql@14 start
 ```  
   
   
-![Pasted image 20221219174945.png](../../attachments/Pasted%20image%2020221219174945.png#)  
+![Pasted image 20221219174945.png](../../attachments/Pasted%20image%2020221219174945.png)  
   
   
   
@@ -93,7 +93,7 @@ List databases to verify:
 postgres-> \list  
 ```  
   
-![Pasted image 20221219175555.png](../../attachments/Pasted%20image%2020221219175555.png#)  
+![Pasted image 20221219175555.png](../../attachments/Pasted%20image%2020221219175555.png)  
   
 If you want to connect to a database and list all tables:  
   

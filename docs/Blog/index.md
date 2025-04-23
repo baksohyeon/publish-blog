@@ -1,7 +1,7 @@
----  
-category: Blog  
-share: true  
-hidden: True  
-title: Blog  
-template: blog.html  
----  
+---
+category: Blog
+share: true
+hidden: true
+title: Blog
+template: blog.html
+---
