@@ -1,8 +1,8 @@
----  
-category: 질문 목록/Solved Problems/Error  
-share: true  
-title: 0 containers and 9 tests were Method or class mismatch 에러 해결  
----  
+---
+category: 질문 목록/Solved Problems/Error
+share: true
+title: 0 containers and 9 tests were Method or class mismatch 에러 해결
+---
   
 # 0 Containers and 9 Tests Were Method or Class Mismatch 에러 해결  
   
