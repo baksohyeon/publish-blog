@@ -1,12 +1,11 @@
----  
-category: 질문 목록/Solved Problems/Error  
-share: true  
-title: 테스트 코드 짜는데 Dto 형식에 맞게 결과값(Date)을 반환할 때 오류  
-tags:  
-  - jest  
-  - NestJs  
----  
-  
+---
+category: 질문 목록/Solved Problems/Error
+share: true
+title: 테스트 코드 짜는데 Dto 형식에 맞게 결과값(Date)을 반환할 때 오류
+tags:
+  - jest
+  - NestJs
+---
   
 # 테스트 코드 짜는데 Dto 형식에 맞게 결과값(Date)을 반환할 때 오류  
   
@@ -15,7 +14,7 @@ tags:
 ## 질문 날짜: 2022-09-28  
   
 태그: #jest #NestJs    
-**관련 글**: [Making GetByAuther Test Code (Moking)](../../../Project/Test%20Code/Making%20GetByAuther%20Test%20Code%20(Moking).md)  
+**관련 글**: [Making GetByAuther Test Code (Moking)](../../../Project/Testing/Making%20GetByAuther%20Test%20Code%20(Moking).md)  
   
 ---  
   
