@@ -1,10 +1,10 @@
----  
-category: Blog/Tools  
-share: true  
-title: Husky Git Hooks 설정  
-date created: Wednesday, January 25th 2023, 2:44:00 pm  
-date modified: Wednesday, January 25th 2023, 7:57:03 pm  
----  
+---
+category: Blog/Tools
+share: true
+title: Husky Git Hooks 설정
+date created: Wednesday, January 25th 2023, 2:44:00 pm
+date modified: Wednesday, January 25th 2023, 7:57:03 pm
+---
   
 [Using lint-staged, husky, and pre-commit hooks to fail fast and early | by Dominic Fraser | codeburst](https://codeburst.io/continuous-integration-lint-staged-husky-pre-commit-hook-test-setup-47f8172924fc)  
 ## husky   
@@ -46,7 +46,7 @@ git add .husky/husky-config/pre-push
 ```  
   
 ## commit rule 강제하기  
-[커밋 메시지 작성법](../%EC%9E%A1%EB%8F%99%EC%82%AC%EB%8B%88/%EC%BB%A4%EB%B0%8B%20%EB%A9%94%EC%8B%9C%EC%A7%80%20%EC%9E%91%EC%84%B1%EB%B2%95.md#) 을 지키지 않으면 커밋 못하게 하는 설정법이다.  
+[커밋 메시지 작성법](../%EC%9E%A1%EB%8F%99%EC%82%AC%EB%8B%88/%EC%BB%A4%EB%B0%8B%20%EB%A9%94%EC%8B%9C%EC%A7%80%20%EC%9E%91%EC%84%B1%EB%B2%95.md) 을 지키지 않으면 커밋 못하게 하는 설정법이다.  
   
   
 ```  
@@ -114,7 +114,7 @@ No staged files match any of provided globs.
 husky > commit-msg hook failed (add --no-verify to bypass)  
 ```  
   
-![Pasted image 20230125175637.png](../../attachments/Pasted%20image%2020230125175637.png#)  
+![Pasted image 20230125175637.png](../../attachments/Pasted%20image%2020230125175637.png)  
   
 테스트 통과 확인 및 앵귤러 커밋 규칙을 지켰는지 확인 후 커밋한다.  
   
