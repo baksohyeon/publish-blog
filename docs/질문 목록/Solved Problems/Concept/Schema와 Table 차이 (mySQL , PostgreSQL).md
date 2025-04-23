@@ -1,12 +1,12 @@
----  
-category: 질문 목록/Solved Problems/Concept  
-share: true  
-title: Schema와 Table 차이 (mySQL , PostgreSQL)  
----  
+---
+category: 질문 목록/Solved Problems/Concept
+share: true
+title: Schema와 Table 차이 (mySQL , PostgreSQL)
+---
   
 # Schema와 Table 차이 (mySQL , PostgreSQL)  
   
-**관련 글**: [PostgreSQL 세팅](../../../Project/TIL%20%EB%A9%94%EB%AA%A8/PostgreSQL%20%EC%84%B8%ED%8C%85.md)  
+**관련 글**: [PostgreSQL 세팅](../../../Project/Testing/PostgreSQL%20%EC%84%B8%ED%8C%85.md)  
   
 ---  
   
