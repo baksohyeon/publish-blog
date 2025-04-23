@@ -1,7 +1,7 @@
----  
-category: Project/basic  
-share: true  
----  
+---
+category: Project/basic
+share: true
+---
   
 [Nest.js Step-by-Step](https://www.codemag.com/Article/1907081/Nest.js-Step-by-Step)  
 # 개념  
@@ -26,11 +26,11 @@ share: true
   
 9. Exception filter를 거치고 여기서 400, 500번대 에러에 대한 에러 처리를 합니다. 보통 global exception filter를 선언해 에러에 대한 핸들링을 합니다. 이후 server response가 나가게 되며 Lifecycle이 종료됩니다.  
   
-![Pasted image 20230223182817.png](../../attachments/Pasted%20image%2020230223182817.png#)  
+![Pasted image 20230223182817.png](../../attachments/Pasted%20image%2020230223182817.png)  
   
   
-![스크린샷 2022-10-19 오후 10.50.46.png](../../attachments/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202022-10-19%20%EC%98%A4%ED%9B%84%2010.50.46.png#)  
-![Pasted image 20221024215647.png](../../attachments/Pasted%20image%2020221024215647.png#)  
+![스크린샷 2022-10-19 오후 10.50.46.png](../../attachments/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202022-10-19%20%EC%98%A4%ED%9B%84%2010.50.46.png)  
+![Pasted image 20221024215647.png](../../attachments/Pasted%20image%2020221024215647.png)  
   
 https://docs.nestjs.com/faq/request-lifecycle  
   
@@ -40,7 +40,7 @@ https://docs.nestjs.com/faq/request-lifecycle
   
   
   
-![스크린샷 2022-10-19 오후 10.52.17.png](../../attachments/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202022-10-19%20%EC%98%A4%ED%9B%84%2010.52.17.png#)  
+![스크린샷 2022-10-19 오후 10.52.17.png](../../attachments/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202022-10-19%20%EC%98%A4%ED%9B%84%2010.52.17.png)  
   
   
   
@@ -64,7 +64,7 @@ https://docs.nestjs.com/faq/request-lifecycle
 - Global guards  
 - Controller guards  
 - Route guards  
-![스크린샷 2022-10-19 오후 11.04.34.png](../../attachments/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202022-10-19%20%EC%98%A4%ED%9B%84%2011.04.34.png#)  
+![스크린샷 2022-10-19 오후 11.04.34.png](../../attachments/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202022-10-19%20%EC%98%A4%ED%9B%84%2011.04.34.png)  
 # 인터셉터  
 `<<interface>>`: NestInterceptor  
 > 1. Transform incoming data  
@@ -120,7 +120,7 @@ intercept(context: ExecutionContext, next: CallHandler) {
 - Controller pipes  
 - Route pipes  
 - Route parameter pipes  
-![스크린샷 2022-10-19 오후 11.04.34.png](../../attachments/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202022-10-19%20%EC%98%A4%ED%9B%84%2011.04.34.png#)  
+![스크린샷 2022-10-19 오후 11.04.34.png](../../attachments/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202022-10-19%20%EC%98%A4%ED%9B%84%2011.04.34.png)  
   
 # 컨트롤러  
 Controller (method handler)  
