@@ -1,8 +1,8 @@
----  
-category: 질문 목록/Solved Problems/Error  
-share: true  
-title: JS 다중 배열 객체 선언  
----  
+---
+category: 질문 목록/Solved Problems/Error
+share: true
+title: JS 다중 배열 객체 선언
+---
   
 # JS 다중 배열 객체 선언  
   
