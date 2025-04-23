@@ -1,7 +1,7 @@
----  
-category: Computer Science  
-share: true  
-hidden: True  
-title: Computer Science  
-template: blog.html  
----  
+---
+category: Computer Science
+share: true
+hidden: true
+title: Computer Science
+template: blog.html
+---
